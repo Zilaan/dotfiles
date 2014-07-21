@@ -44,19 +44,6 @@
 	vmap <down> xp`[V`]
 	vmap <up> xkP`[V`]
 
-	" Radera paranteser och annat
-	nmap ds{ F{xf}x
-	nmap cs{ F{xf}xi
-	nmap ds" F"x,x
-	map cs" F"x,xi
-	nmap ds' F'x,x
-	nmap cs' F'x,xi
-	nmap ds( F(xf)x
-	nmap cs( F(xf)xi
-	nmap ds) F(xf)x
-	nmap cs) F(xf)xi
-
-
 	" Autocentrering
 	nmap G Gzz
 	nmap n nzz
