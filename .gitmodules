@@ -40,3 +40,6 @@
 [submodule "bundle/Indent_Guides"]
 	path = bundle/Indent_Guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "bundle/CtrlP"]
+	path = bundle/CtrlP
+	url = https://github.com/kien/ctrlp.vim.git
