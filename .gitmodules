@@ -43,3 +43,6 @@
 [submodule "bundle/CtrlP"]
 	path = bundle/CtrlP
 	url = https://github.com/kien/ctrlp.vim.git
+[submodule "bundle/Easymotion"]
+	path = bundle/Easymotion
+	url = https://github.com/Lokaltog/vim-easymotion.git
