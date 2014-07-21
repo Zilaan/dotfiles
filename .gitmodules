@@ -46,3 +46,6 @@
 [submodule "bundle/Easymotion"]
 	path = bundle/Easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
+[submodule "bundle/Theme_All"]
+	path = bundle/Theme_All
+	url = https://github.com/flazz/vim-colorschemes.git
