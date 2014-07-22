@@ -1,0 +1,22 @@
+[user]
+	name = Raman Haddad
+	email = raman.haddad@gmail.com
+[core]
+	editor = mvim
+[merge]
+	tool = vimdiff
+
+[alias]
+	st = status
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative
+	lol = log --oneline --graph --all --decorate
+	ch = checkout
+	co = commit
+	br = branch
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[difftool]
+	promt = false
+[push]
+	default = matching
