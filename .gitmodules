@@ -49,3 +49,6 @@
 [submodule "bundle/Theme_All"]
 	path = bundle/Theme_All
 	url = https://github.com/flazz/vim-colorschemes.git
+[submodule "bundle/Unite"]
+	path = bundle/Unite
+	url = https://github.com/Shougo/unite.vim.git
