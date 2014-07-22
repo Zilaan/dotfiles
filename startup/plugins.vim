@@ -206,3 +206,4 @@
 " Poweline {{{1
 	let g:Powerline_symbols='fancy'
 	let g:Powerline_mode_n = 'N'
+
