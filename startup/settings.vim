@@ -32,6 +32,7 @@
 
 	" Textvikningsmetod ska va syntaxberoende
 	set fdm=syntax
+	autocmd FileType python :set foldmethod=indent
 
 	" Textvikning ska va fönsterberoende
 	set textwidth=0
