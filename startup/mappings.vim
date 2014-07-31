@@ -1,12 +1,12 @@
 " vim: foldmethod=marker
 " vim: foldcolumn=3
 
-" Mappings {{{1
+" Mappings {{{
 	" Navigering
-	map <C-H> <C-W>h<C-W>
-	map <C-J> <C-W>j<C-W>
-	map <C-K> <C-W>k<C-W>
-	map <C-L> <C-W>l<C-W>
+	map <C-H> <C-W>h
+	map <C-J> <C-W>j
+	map <C-K> <C-W>k
+	map <C-L> <C-W>l
 
 	" Kortkommando för list
 	nmap <leader>l :set list!<CR>
@@ -23,6 +23,9 @@
 	vmap 9 g<s-^>
 	vmap 0 g$
 	vmap <leader>0 0
+
+	noremap H ^
+	noremap L $
 
 	" Avmappa piltangenterna
 	" no <left> <Nop>
@@ -61,3 +64,20 @@
 	" Återmarkera för indentering
 	vnoremap > >gv
 	vnoremap < <gv
+
+	" Source
+	vnoremap <leader>S y:execute @@<cr>:echo 'Sourced selection.'<cr>
+	nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
+
+	" Quick editing
+	nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+	nnoremap <leader>em :vsplit ~/.vim/startup/mappings.vim<cr>
+	nnoremap <leader>ep :vsplit ~/.vim/startup/plugins.vim<cr>
+	nnoremap <leader>es :vsplit ~/.vim/startup/settings.vim<cr>
+	nnoremap <leader>eV :vsplit ~/.vim/startup/visual.vim<cr>
+
+	" Clear matches
+	noremap <silent> <leader><space> :noh<cr>:call clearmatches()<cr>
+
+	" Don't move on *
+	nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*:call winrestview(stay_star_view)<cr>
