@@ -1,12 +1,18 @@
+" Author: Raman Haddad
 " vim: foldmethod=marker
 " vim: foldcolumn=3
 
-" Mappings {{{
+" Mappings {{{1
+	" Mode completion
+	inoremap <c-f> <c-x><c-f>
+	inoremap <c-b> <c-x><c-]>
+	inoremap <c-l> <c-x><c-l>
+
 	" Navigering
-	map <C-H> <C-W>h
-	map <C-J> <C-W>j
-	map <C-K> <C-W>k
-	map <C-L> <C-W>l
+	noremap <C-H> <C-W>h
+	noremap <C-J> <C-W>j
+	noremap <C-K> <C-W>k
+	noremap <C-L> <C-W>l
 
 	" Kortkommando för list
 	nmap <leader>l :set list!<CR>
@@ -64,6 +70,9 @@
 	" Återmarkera för indentering
 	vnoremap > >gv
 	vnoremap < <gv
+	
+	" Återmarkera
+	nnoremap <leader>V V`]
 
 	" Source
 	vnoremap <leader>S y:execute @@<cr>:echo 'Sourced selection.'<cr>
@@ -81,3 +90,14 @@
 
 	" Don't move on *
 	nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*:call winrestview(stay_star_view)<cr>
+
+	" Open splits
+	nnoremap c<C-l> :rightb vsp new<cr>
+	nnoremap c<C-h> :leftb vsp new<cr>
+	nnoremap c<C-j> :bel sp new<cr>
+	nnoremap c<C-k> :abo sp new<cr>
+
+	nnoremap d<C-H> <C-W>h<C-W>c
+	nnoremap d<C-J> <C-W>j<C-W>c
+	nnoremap d<C-K> <C-W>k<C-W>c
+	nnoremap d<C-L> <C-W>l<C-W>c

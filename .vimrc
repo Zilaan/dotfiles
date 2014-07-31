@@ -1,3 +1,5 @@
+" Author: Raman Haddad
+"
 " vim: foldmethod=marker
 " vim: foldcolumn=3
 

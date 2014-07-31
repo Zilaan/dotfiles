@@ -1,3 +1,5 @@
+" Author: Raman Haddad
+"
 " vim: foldmethod=marker
 " vim: foldcolumn=3
 
@@ -17,7 +19,7 @@
 	set printexpr=system('open\ -a\ Preview\ '.v:fname_in)\ +\ v:shell_error
 	set termencoding=utf-8
 	
-	" Disable gui {{{1
+	" Disable gui {{{2
 	if has('gui_running')
 		" GUI Vim
 
@@ -129,84 +131,43 @@
 	nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 
 " Inställningar för Python {{{1
-	autocmd BufReadPost *.py :map <F2> :!python3.3 % <CR>
+	autocmd FileType *.py :map <F2> :!python3.3 % <CR>
 	autocmd FileType python set ts=4
 
 " Inställningar för LaTex {{{1
-	autocmd BufReadPost *.tex :map <F2> :!pdflatex % <CR>
-	autocmd BufReadPost *.tex :map <F3> :!bibtex %:r <CR>
+	autocmd FileType *.tex :map <F2> :!pdflatex % <CR>
+	autocmd FileType *.tex :map <F3> :!bibtex %:r <CR>
 
 " C-kompilator {{{1
-	autocmd BufReadPost *.c :map <F4> :!gcc % <CR>
+	autocmd FileType *.c :map <F4> :!gcc % <CR>
 
-" Folding
-set foldlevelstart=0
 
-" Space to toggle folds.
-nnoremap <Space> za
-vnoremap <Space> za
+" Error Toggles {{{1
 
-" Make zO recursively open whatever fold we're in, even if it's partially open.
-nnoremap zO zczO
+command! ErrorsToggle call ErrorsToggle()
+function! ErrorsToggle() " {{{
+  if exists("w:is_error_window")
+    unlet w:is_error_window
+    exec "q"
+  else
+    exec "Errors"
+    lopen
+    let w:is_error_window = 1
+  endif
+endfunction " }}}
 
-" "Focus" the current line.  Basically:
-"
-" 1. Close all folds.
-" 2. Open just the folds containing the current line.
-" 3. Move the line to a little bit (15 lines) above the center of the screen.
-" 4. Pulse the cursor line.  My eyes are bad.
-"
-" This mapping wipes out the z mark, which I never use.
-"
-" I use :sus for the rare times I want to actually background Vim.
-nnoremap <c-z> mzzMzvzz15<c-e>`z:Pulse<cr>
+command! -bang -nargs=? QFixToggle call QFixToggle(<bang>0)
+function! QFixToggle(forced) " {{{
+  if exists("g:qfix_win") && a:forced == 0
+    cclose
+    unlet g:qfix_win
+  else
+    copen 10
+    let g:qfix_win = bufnr("$")
+  endif
+endfunction " }}}
 
-" Highlight words {{{1
-	function! HiInterestingWord(n)
-		" Save our location.
-		normal! mz
+nmap <silent> <f3> :ErrorsToggle<cr>
+nmap <silent> <f4> :QFixToggle<cr>
 
-		" Yank the current word into the z register.
-		normal! "zyiw
-
-		" Calculate an arbitrary match ID.  Hopefully nothing else is using it.
-		let mid = 86750 + a:n
-
-		" Clear existing matches, but don't worry if they don't exist.
-		silent! call matchdelete(mid)
-
-		" Construct a literal pattern that has to match at boundaries.
-		let pat = '\V\<' . escape(@z, '\') . '\>'
-
-		" Actually match the words.
-		call matchadd("InterestingWord" . a:n, pat, 1, mid)
-
-		" Move back to our original location.
-		normal! `z
-	endfunction
-
-	nnoremap <silent> <leader>1 :call HiInterestingWord(1)<cr>
-	nnoremap <silent> <leader>2 :call HiInterestingWord(2)<cr>
-	nnoremap <silent> <leader>3 :call HiInterestingWord(3)<cr>
-	nnoremap <silent> <leader>4 :call HiInterestingWord(4)<cr>
-	nnoremap <silent> <leader>5 :call HiInterestingWord(5)<cr>
-	nnoremap <silent> <leader>6 :call HiInterestingWord(6)<cr>
-
-	hi def InterestingWord1 guifg=#000000 ctermfg=16 guibg=#ffa724 ctermbg=214
-	hi def InterestingWord2 guifg=#000000 ctermfg=16 guibg=#aeee00 ctermbg=154
-	hi def InterestingWord3 guifg=#000000 ctermfg=16 guibg=#8cffba ctermbg=121
-	hi def InterestingWord4 guifg=#000000 ctermfg=16 guibg=#b88853 ctermbg=137
-	hi def InterestingWord5 guifg=#000000 ctermfg=16 guibg=#ff9eb8 ctermbg=211
-	hi def InterestingWord6 guifg=#000000 ctermfg=16 guibg=#ff2c4b ctermbg=195
-
-" Visual search
-	function! s:VSetSearch()
-	  let temp = @@
-	  norm! gvy
-	  let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
-	  let @@ = temp
-	endfunction
-
-	vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR><c-o>
-	vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR><c-o>
-
+" }}}
