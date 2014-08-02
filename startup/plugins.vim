@@ -29,6 +29,7 @@
 	let g:skybison_fuzz=1
 
 " CtrlP {{{1
+
 	" Mapping {{{2
 		nnoremap <leader>p :CtrlP<cr>
 		nnoremap <leader>cd :CtrlPDir<cr>
@@ -57,6 +58,7 @@
 		let g:ctrlp_buftag_ctags_bin='/usr/local/bin/ctags'
 		let g:ctrlp_mruf_max = 10
 		let g:ctrlp_user_command = 'find %s -type f'
+
 
 " Taglist {{{1
 	filetype plugin on
