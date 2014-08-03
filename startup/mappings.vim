@@ -3,6 +3,9 @@
 " vim: foldcolumn=3
 
 " Mappings {{{1
+	" Tabs
+	nnoremap <leader>( :tabprev<CR>
+	nnoremap <leader>) :tabnext<CR>
 	" Mode completion
 	inoremap <c-f> <c-x><c-f>
 	inoremap <c-b> <c-x><c-]>
