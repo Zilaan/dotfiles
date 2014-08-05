@@ -4,6 +4,7 @@
 " vim: foldcolumn=3
 
 " General settings {{{1
+	set tags=~/tags
 	set t_Co=256
 
 	if &cp | set nocp | endif
