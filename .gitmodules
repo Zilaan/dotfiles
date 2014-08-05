@@ -52,6 +52,3 @@
 [submodule "bundle/Unite"]
 	path = bundle/Unite
 	url = https://github.com/Shougo/unite.vim.git
-[submodule "bundle/Ack"]
-	path = bundle/Ack
-	url = https://github.com/mileszs/ack.vim.git
