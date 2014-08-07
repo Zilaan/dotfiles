@@ -172,3 +172,7 @@ nmap <silent> <f3> :ErrorsToggle<cr>
 nmap <silent> <f4> :QFixToggle<cr>
 
 " }}}
+
+" Ack {{{
+	let g:ackhighlight = 1
+" }}}
