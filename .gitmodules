@@ -55,3 +55,9 @@
 [submodule "bundle/Ack"]
 	path = bundle/Ack
 	url = https://github.com/mileszs/ack.vim.git
+[submodule "bundle/Arduino"]
+	path = bundle/Arduino
+	url = https://github.com/tclem/vim-arduino.git
+[submodule "bundle/Syntax_Arduino"]
+	path = bundle/Syntax_Arduino
+	url = https://github.com/sudar/vim-arduino-syntax.git
