@@ -180,17 +180,7 @@ nmap <silent> <f4> :QFixToggle<cr>
 
 " }}}
 
-" Ack {{{
-	let g:ackhighlight = 1
-" }}}
-
-" Arduino {{{
-	" How to interpret files
-	au BufRead, BufNewFile *.pde set filetype=arduino
-	au BufRead, BufNewFile *.ino set filetype=arduino
-" }}}
-
-" CtrlP {{{
-	" Use "ack" for searching
-	let g:ctrlp_user_command = 'ack -f %s'
+" Command line popup {{{
+	set wildmenu
+	set completeopt=menuone,preview
 " }}}

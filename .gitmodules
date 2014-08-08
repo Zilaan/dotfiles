@@ -61,3 +61,6 @@
 [submodule "bundle/Syntax_Arduino"]
 	path = bundle/Syntax_Arduino
 	url = https://github.com/sudar/vim-arduino-syntax.git
+[submodule "bundle/Airline"]
+	path = bundle/Airline
+	url = https://github.com/bling/vim-airline.git

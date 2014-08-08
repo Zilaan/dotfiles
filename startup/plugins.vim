@@ -14,10 +14,12 @@
 	let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{,}%W{Warn: %fw #%w}]'
 	let g:syntastic_python_checkers = ['flake8']
 	let g:syntastic_python_flake8_args = '--ignore="E251,F403,E501,E502,E126,E127,E128,W801,W191,E101,F401,E221,E203,E202,E261,E222,E262"'
+" }}}
 
 " NERDTree {{{1
 	nmap <LEADER>nt :NERDTreeToggle<CR>
 	let g:NERDTreeWinPos='right'
+"}}}
 
 " Inställningar för SkyBison {{{1
 	nnoremap <space>e :<c-u>call SkyBison("e ")<cr>
@@ -27,6 +29,7 @@
 	nnoremap <space>b :<c-u>call SkyBison("b ")<cr>
 	nnoremap <space>t :<c-u>call SkyBison("tag ")<cr>
 	let g:skybison_fuzz=1
+"}}}
 
 " CtrlP {{{1
 
@@ -38,10 +41,12 @@
 		nnoremap <leader>b :CtrlPBuffer<cr>
 		nnoremap <leader>q :CtrlPQuickfix<cr>
 		let g:ctrlp_map='<Leader>cf'
+	" }}}
 
 	" Ignore {{{2
 		set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.jpegs,*.swp,*.jpeg,*.eps,*.gz,*.xls,*.pdf,*.m,*.mat,*.xlsx,*.png,*.gz,*.out,*.rar,*.zip,*.mp4,*.tiff,*.bmp,*.gif,*.pyc,*.jpg,*.wav,*.mp3,*.ogg,*.blend,*.aux,*.log,*.toc,*.blg,*.db,*.rdp,*.epf,*.eps,*.prj,*.m,*.h,*.ino
 		let g:ctrlp_custom_ignore='\v\~$|\.(o|swp|jpeg|docx|doc|eps|gz|xls|pdf|m|mat|xlsx|png|gz|out|rar|zip|mp4|tiff|bmp|gif|pyc|jpg|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+	" }}}
 
 	" Settings {{{2
 		let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:20'
@@ -58,7 +63,8 @@
 		let g:ctrlp_buftag_ctags_bin='/usr/local/bin/ctags'
 		let g:ctrlp_mruf_max = 10
 		let g:ctrlp_user_command = 'find %s -type f'
-
+	" }}}
+" }}}
 
 " Taglist {{{1
 	filetype plugin on
@@ -89,6 +95,7 @@
 	let g:Tex_ExecuteUNIXViewerInForeground=1
 	let g:Tex_ViewRule_pdf='open -a /Applications/Preview.app'
 	let g:Tex_MultipleCompileFormats='pdf'
+" }}}
 
 " NeoComplete {{{1
 	" Note: This option must set it in .vimrc(_vimrc). NOT IN .gvimrc(_gvimrc)!
@@ -175,10 +182,12 @@
 	" https://github.com/c9s/perlomni.vim
 	let g:neocomplete#sources#omni#input_patterns.perl='\h\w*->\h\w*\|\h\w*::'
 	let g:neocomplete#ctags_command='/usr/local/bin/ctags'
+" }}}
 
 " Gundo {{{1
 	nnoremap <F5> :GundoToggle<CR>
 	let g:gundo_right=1
+" }}}
 
 " Indent Guides {{{1
 	" Enable Indent Guides
@@ -201,11 +210,78 @@
 
 	 " Default mapping <Leader>ig
 	 let g:indent_guides_default_mapping = 1
+" }}}
 
 " Matchit {{{1
 	let loaded_mathit = 1
+" }}}
 
 " Poweline {{{1
 	let g:Powerline_symbols='fancy'
 	let g:Powerline_mode_n = 'N'
+" }}}
 
+" Ack {{{
+	let g:ackhighlight = 1
+" }}}
+
+" Arduino {{{
+	" How to interpret files
+	au BufRead, BufNewFile *.pde set filetype=arduino
+	au BufRead, BufNewFile *.ino set filetype=arduino
+" }}}
+
+" CtrlP {{{
+	" Use "ack" for searching
+	let g:ctrlp_user_command = 'ack -f %s'
+" }}}
+
+" Airline {{{
+	" Theme
+	let g:airline_theme = 'powerlineish'
+	" Tabline
+	let g:airline#extensions#tabline#enabled = 1
+	let g:airline#extensions#tabline#show_buffers = 1
+	let g:airline#extensions#tabline#left_sep = ''
+	let g:airline#extensions#tabline#left_alt_sep = ''
+	let g:airline#extensions#tabline#right_sep = ''
+	let g:airline#extensions#tabline#right_alt_sep = ''
+
+	" Powerline symbols
+	if !exists('g:airline_symbols')
+		let g:airline_symbols = {}
+	endif
+	let g:airline_left_sep = ''
+	let g:airline_left_alt_sep = ''
+	let g:airline_right_sep = ''
+	let g:airline_right_alt_sep = ''
+	let g:airline_symbols.branch = ''
+	let g:airline_symbols.readonly = ''
+	let g:airline_symbols.linenr = ''
+	let g:airline_symbols.whitespace = 'Ξ'
+
+	" QuickFix
+	let g:airline#extensions#quickfix#quickfix_text = 'Quickfix'
+	let g:airline#extensions#quickfix#location_text = 'Location'
+
+	" Buffer
+	let g:airline#extensions#bufferline#enabled = 1
+	let g:airline#extensions#bufferline#overwrite_variables = 1
+
+	" Fugitive
+	let g:airline#extensions#branch#enabled = 1
+
+	" Syntastic
+	let g:airline#extensions#syntastic#enabled = 1
+
+	" Tagbar
+	let g:airline#extensions#tagbar#enabled = 1
+
+	" CtrlP
+	let g:airline#extensions#ctrlp#color_template = 'replace'
+	let g:airline#extensions#ctrlp#show_adjacent_modes = 1
+
+	" Whitespace
+	let g:airline#extensions#whitespace#enabled = 1
+	let g:airline#extensions#whitespace#symbol = '!'
+" }}}
