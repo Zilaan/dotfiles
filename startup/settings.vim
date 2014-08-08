@@ -3,7 +3,7 @@
 " vim: foldmethod=marker
 " vim: foldcolumn=3
 
-" General settings {{{1
+" General settings {{{
 	set tags=~/tags
 	set t_Co=256
 
@@ -19,8 +19,9 @@
 	set mouse=a
 	set printexpr=system('open\ -a\ Preview\ '.v:fname_in)\ +\ v:shell_error
 	set termencoding=utf-8
+" }}}
 	
-	" Disable gui {{{2
+	" Disable gui {{{
 	if has('gui_running')
 		" GUI Vim
 
@@ -72,6 +73,7 @@
 		set mouse=a
 	endif
 
+" }}}
 
 " Rader, tabbar och indrag relaterad {{{1
 	" Sätt på radnumrering
@@ -119,6 +121,7 @@
 
 	" Börja 'linebreak' med …
 	set showbreak=…
+" }}}
 
 " QuickFix window {{{1
 	au FileType qf call AdjustWindowHeight(2, 10)
@@ -130,18 +133,22 @@
 
 	" Show last search {{{2
 	nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
+	" }}}
+" }}}
 
 " Inställningar för Python {{{1
 	autocmd FileType *.py :map <F2> :!python3.3 % <CR>
 	autocmd FileType python set ts=4
+" }}}
 
 " Inställningar för LaTex {{{1
 	autocmd FileType *.tex :map <F2> :!pdflatex % <CR>
 	autocmd FileType *.tex :map <F3> :!bibtex %:r <CR>
+" }}}
 
 " C-kompilator {{{1
 	autocmd FileType *.c :map <F4> :!gcc % <CR>
-
+" }}}
 
 " Error Toggles {{{1
 
@@ -178,6 +185,12 @@ nmap <silent> <f4> :QFixToggle<cr>
 " }}}
 
 " Arduino {{{
+	" How to interpret files
 	au BufRead, BufNewFile *.pde set filetype=arduino
 	au BufRead, BufNewFile *.ino set filetype=arduino
+" }}}
+
+" CtrlP {{{
+	" Use "ack" for searching
+	let g:ctrlp_user_command = 'ack -f %s'
 " }}}
