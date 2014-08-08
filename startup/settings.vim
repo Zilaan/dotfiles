@@ -176,3 +176,8 @@ nmap <silent> <f4> :QFixToggle<cr>
 " Ack {{{
 	let g:ackhighlight = 1
 " }}}
+
+" Arduino {{{
+	au BufRead, BufNewFile *.pde set filetype=arduino
+	au BufRead, BufNewFile *.ino set filetype=arduino
+" }}}
