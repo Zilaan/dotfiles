@@ -12,6 +12,7 @@
 	" Tabs
 	nnoremap <leader>( :tabprev<CR>
 	nnoremap <leader>) :tabnext<CR>
+
 	" Mode completion
 	inoremap <c-f> <c-x><c-f>
 	inoremap <c-b> <c-x><c-]>
@@ -79,7 +80,7 @@
 	" Återmarkera för indentering
 	vnoremap > >gv
 	vnoremap < <gv
-	
+
 	" Återmarkera
 	nnoremap <leader>V V`]
 
