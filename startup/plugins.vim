@@ -301,3 +301,7 @@
 	nnoremap <Leader>w :StripWhitespace<CR>
 	let g:strip_whitespace_on_save = 1
 " }}}
+
+" Matchmaker {{{
+	let g:matchmaker_enable_startup = 1
+" }}}
