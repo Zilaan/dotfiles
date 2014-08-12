@@ -16,9 +16,6 @@
 [submodule "bundle/NERDTree"]
 	path = bundle/NERDTree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "bundle/Powerline"]
-	path = bundle/Powerline
-	url = https://github.com/Lokaltog/vim-powerline.git
 [submodule "bundle/Syntax_Python"]
 	path = bundle/Syntax_Python
 	url = https://github.com/hdima/python-syntax.git
