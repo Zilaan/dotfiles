@@ -121,14 +121,14 @@
 
 	" Define dictionary.
 	let g:neocomplete#sources#dictionary#dictionaries={
-	  \ 'default' : '',
-	  \ 'vimshell' : $HOME.'/.vimshell_hist',
-	  \ 'scheme' : $HOME.'/.gosh_completions'
+				\ 'default' : '',
+				\ 'vimshell' : $HOME.'/.vimshell_hist',
+				\ 'scheme' : $HOME.'/.gosh_completions'
 		\ }
 
 	" Define keyword.
 	if !exists('g:neocomplete#keyword_patterns')
-	  let g:neocomplete#keyword_patterns={}
+		let g:neocomplete#keyword_patterns={}
 	endif
 	let g:neocomplete#keyword_patterns['default']='\h\w*'
 
@@ -140,9 +140,9 @@
 	" <CR>: close popup and save indent.
 	inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 	function! s:my_cr_function()
-	 return neocomplete#close_popup() . "\<CR>"
-	 " For no inserting <CR> key.
-	 "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+		return neocomplete#close_popup() . "\<CR>"
+		" For no inserting <CR> key.
+		"return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 	endfunction
 	" <TAB>: completion.
 	inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -182,7 +182,7 @@
 
 	" Enable heavy omni completion.
 	if !exists('g:neocomplete#sources#omni#input_patterns')
-	 let g:neocomplete#sources#omni#input_patterns={}
+		let g:neocomplete#sources#omni#input_patterns={}
 	endif
 	" let g:neocomplete#sources#omni#input_patterns.php='[^. \t]->\h\w*\|\h\w*::'
 	" let g:neocomplete#sources#omni#input_patterns.c='[^.[:digit:] *\t]\%(\.\|->\)'
@@ -216,10 +216,10 @@
 	let g:indent_guides_start_level = 2
 
 	" Disable for filetypes
-	 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+	let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 
-	 " Default mapping <Leader>ig
-	 let g:indent_guides_default_mapping = 1
+	" Default mapping <Leader>ig
+	let g:indent_guides_default_mapping = 1
 " }}}
 
 " Matchit {{{1
@@ -295,4 +295,8 @@
 	" Whitespace
 	let g:airline#extensions#whitespace#enabled = 1
 	let g:airline#extensions#whitespace#symbol = '!'
+" }}}
+
+" Better whitespace {{{
+	nnoremap <Leader>w :StripWhitespace<CR>
 " }}}
