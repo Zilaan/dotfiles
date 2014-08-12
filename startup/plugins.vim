@@ -299,5 +299,5 @@
 
 " Better whitespace {{{
 	nnoremap <Leader>w :StripWhitespace<CR>
-	autocmd BufWrite *.* StripWhitespace
+	let g:strip_whitespace_on_save = 1
 " }}}
