@@ -44,7 +44,7 @@
 	" }}}
 
 	" Ignore {{{2
-		set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.jpegs,*.swp,*.jpeg,*.eps,*.gz,*.xls,*.pdf,*.m,*.mat,*.xlsx,*.png,*.gz,*.out,*.rar,*.zip,*.mp4,*.tiff,*.bmp,*.gif,*.pyc,*.jpg,*.wav,*.mp3,*.ogg,*.blend,*.aux,*.log,*.toc,*.blg,*.db,*.rdp,*.epf,*.eps,*.prj,*.m,*.h,*.ino
+		set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.jpegs,*.swp,*.jpeg,*.eps,*.gz,*.xls,*.pdf,*.m,*.mat,*.xlsx,*.png,*.gz,*.out,*.rar,*.zip,*.mp4,*.tiff,*.bmp,*.gif,*.pyc,*.jpg,*.wav,*.mp3,*.ogg,*.blend,*.aux,*.log,*.toc,*.blg,*.db,*.rdp,*.epf,*.eps,*.prj,*.m,*.h,
 		let g:ctrlp_custom_ignore='\v\~$|\.(o|swp|jpeg|docx|doc|eps|gz|xls|pdf|m|mat|xlsx|png|gz|out|rar|zip|mp4|tiff|bmp|gif|pyc|jpg|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
 	" }}}
 
