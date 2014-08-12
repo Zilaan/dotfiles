@@ -20,7 +20,7 @@
 	set printexpr=system('open\ -a\ Preview\ '.v:fname_in)\ +\ v:shell_error
 	set termencoding=utf-8
 " }}}
-	
+
 	" Disable gui {{{
 	if has('gui_running')
 		" GUI Vim
@@ -126,7 +126,7 @@
 " QuickFix window {{{1
 	au FileType qf call AdjustWindowHeight(2, 10)
 	function! AdjustWindowHeight(minheight, maxheight)
-	  exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
+		exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
 	endfunction
 	let g:syntastic_always_populate_loc_list = 0
 	let g:syntastic_auto_loc_list = 0

@@ -67,3 +67,6 @@
 [submodule "bundle/Better-whitespace"]
 	path = bundle/Better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace.git
+[submodule "bundle/Verticalhelp"]
+	path = bundle/Verticalhelp
+	url = https://github.com/vim-scripts/VerticalHelp.git
