@@ -16,9 +16,6 @@
 [submodule "bundle/NERDTree"]
 	path = bundle/NERDTree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "bundle/Syntax_Python"]
-	path = bundle/Syntax_Python
-	url = https://github.com/hdima/python-syntax.git
 [submodule "bundle/Syntastic"]
 	path = bundle/Syntastic
 	url = https://github.com/scrooloose/syntastic.git
@@ -73,3 +70,6 @@
 [submodule "bundle/Matchmaker"]
 	path = bundle/Matchmaker
 	url = https://github.com/qstrahl/vim-matchmaker.git
+[submodule "bundle/Python_Combined"]
+	path = bundle/Python_Combined
+	url = https://github.com/mitsuhiko/vim-python-combined.git
