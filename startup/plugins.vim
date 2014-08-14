@@ -49,7 +49,7 @@
 
 		let g:ctrlp_custom_ignore = {
 			\ 'dir': '\v[\/]\.(git|hg|svn|bzr)$|.*Dropbox.*',
-			\ 'file': '\v\.(o|swp|jpeg|docx|doc|eps|gz|xls|pdf|m|mat|xlsx|png|gz|out|rar|zip|mp4|tiff|bmp|gif|pyc|jpg|wav|mp3|ogg|blend|nb|pptx|gdoc|rtf|plist)$'
+			\ 'file': '\v\.(o|swp|jpeg|docx|doc|eps|gz|xls|pdf|m|mat|xlsx|png|gz|out|rar|zip|mp4|tiff|bmp|gif|pyc|jpg|wav|mp3|ogg|blend|nb|pptx|gdoc|rtf|plist)$'}
 	" }}}
 
 	" Settings {{{2
@@ -72,7 +72,7 @@
 		" Use Ag over Grep
 		set grepprg=ag\ --nogroup\ --nocolor
 	endif
-		let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+		let g:ctrlp_user_command = 'ag %s -l --nocolor -g  ""'
 	" }}}
 " }}}
 
