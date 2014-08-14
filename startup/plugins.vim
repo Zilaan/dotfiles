@@ -303,5 +303,6 @@
 " }}}
 
 " Matchmaker {{{
-	let g:matchmaker_enable_startup = 1
+	let g:matchmaker_enable_startup = 0
+	nnoremap <leader>mm :<C-u>MatchmakerToggle<CR>
 " }}}
