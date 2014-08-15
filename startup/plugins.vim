@@ -248,6 +248,8 @@
 " }}}
 
 " Airline {{{
+	" Set no delay
+	set ttimeoutlen=50
 	" Theme
 	let g:airline_theme = 'powerlineish'
 	" Tabline
