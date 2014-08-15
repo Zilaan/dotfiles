@@ -73,3 +73,9 @@
 [submodule "bundle/Python_Combined"]
 	path = bundle/Python_Combined
 	url = https://github.com/mitsuhiko/vim-python-combined.git
+[submodule "bundle/LaTEX"]
+	path = bundle/LaTEX
+	url = https://github.com/lervag/vim-latex.git
+[submodule "bundle/LaTex-Box"]
+	path = bundle/LaTex-Box
+	url = https://github.com/LaTeX-Box-Team/LaTeX-Box.git
