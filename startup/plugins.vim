@@ -80,7 +80,7 @@
 	filetype plugin on
 	let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 	nnoremap <c-t> :TlistToggle<cr>
-	let Tlist_Auto_Open=1
+	let Tlist_Auto_Open=0
 
 	" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
 	filetype plugin on
