@@ -90,7 +90,6 @@
 
 	" Textvikningsmetod ska va syntaxberoende
 	set fdm=syntax
-	autocmd FileType python :set foldmethod=indent
 
 	" Textvikning ska va fönsterberoende
 	set textwidth=0
@@ -124,7 +123,10 @@
 " }}}
 
 " QuickFix window {{{1
-	au FileType qf call AdjustWindowHeight(2, 10)
+	augroup quickfix_size
+		autocmd!
+		au FileType qf call AdjustWindowHeight(2, 10)
+	augroup END
 	function! AdjustWindowHeight(minheight, maxheight)
 		exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
 	endfunction
@@ -137,17 +139,27 @@
 " }}}
 
 " Inställningar för Python {{{1
-	autocmd FileType *.py :map <F2> :!python3.3 % <CR>
-	autocmd FileType python set ts=4
+	augroup python_indent
+		autocmd!
+		autocmd FileType *.py :map <F2> :!python3.3 % <CR>
+		autocmd FileType python set ts=4
+		autocmd FileType python :set foldmethod=indent
+	augroup END
 " }}}
 
 " Inställningar för LaTex {{{1
-	autocmd FileType *.tex :map <F2> :!pdflatex % <CR>
-	autocmd FileType *.tex :map <F3> :!bibtex %:r <CR>
+	augroup latex_compiling
+		autocmd!
+		autocmd FileType *.tex :map <F2> :!pdflatex % <CR>
+		autocmd FileType *.tex :map <F3> :!bibtex %:r <CR>
+	augroup END
 " }}}
 
 " C-kompilator {{{1
-	autocmd FileType *.c :map <F4> :!gcc % <CR>
+	augroup c_compiling
+		autocmd!
+		autocmd FileType *.c :map <F4> :!gcc % <CR>
+	augroup END
 " }}}
 
 " Error Toggles {{{1

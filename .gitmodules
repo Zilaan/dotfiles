@@ -79,3 +79,9 @@
 [submodule "bundle/LaTex-Box"]
 	path = bundle/LaTex-Box
 	url = https://github.com/LaTeX-Box-Team/LaTeX-Box.git
+[submodule "bundle/Sparkup"]
+	path = bundle/Sparkup
+	url = https://github.com/rstacruz/sparkup.git
+[submodule "bundle/Snipmate"]
+	path = bundle/Snipmate
+	url = https://github.com/msanders/snipmate.vim.git

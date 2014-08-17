@@ -243,8 +243,11 @@
 
 " Arduino {{{
 	" How to interpret files
-	au BufRead, BufNewFile *.pde set filetype=arduino
-	au BufRead, BufNewFile *.ino set filetype=arduino
+	augroup filetype_arduino
+		autocmd!
+		au BufRead, BufNewFile *.pde set filetype=arduino
+		au BufRead, BufNewFile *.ino set filetype=arduino
+	augroup END
 " }}}
 
 " Airline {{{
