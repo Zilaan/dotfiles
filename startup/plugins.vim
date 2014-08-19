@@ -67,11 +67,11 @@
 		let g:ctrlp_buftag_ctags_bin='/usr/local/bin/ctags'
 		let g:ctrlp_mruf_max = 10
 
-	" Use "ag" for searching
-	if executable('ag')
-		" Use Ag over Grep
-		set grepprg=ag\ --nogroup\ --nocolor
-	endif
+		"Use "ag" for searching
+		if executable('ag')
+		"Use Ag over Grep
+			set grepprg=ag\ --nogroup\ --nocolor
+		endif
 		let g:ctrlp_user_command = 'ag %s -l --nocolor -g  ""'
 	" }}}
 " }}}
