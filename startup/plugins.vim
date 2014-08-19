@@ -71,8 +71,8 @@
 		if executable('ag')
 		"Use Ag over Grep
 			set grepprg=ag\ --nogroup\ --nocolor
+			let g:ctrlp_user_command = 'ag %s -l --nocolor -g  ""'
 		endif
-		let g:ctrlp_user_command = 'ag %s -l --nocolor -g  ""'
 	" }}}
 " }}}
 

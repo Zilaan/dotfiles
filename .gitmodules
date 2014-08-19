@@ -88,3 +88,6 @@
 [submodule "bundle/CSS-Color"]
 	path = bundle/CSS-Color
 	url = https://github.com/skammer/vim-css-color.git
+[submodule "bundle/CtrlP"]
+	path = bundle/CtrlP
+	url = https://github.com/kien/ctrlp.vim.git
