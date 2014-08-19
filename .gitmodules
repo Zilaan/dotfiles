@@ -88,3 +88,6 @@
 [submodule "bundle/Surround"]
 	path = bundle/Surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "bundle/CSS-Color"]
+	path = bundle/CSS-Color
+	url = https://github.com/skammer/vim-css-color.git
