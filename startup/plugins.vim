@@ -71,7 +71,11 @@
 		if executable('ag')
 		"Use Ag over Grep
 			set grepprg=ag\ --nogroup\ --nocolor
-			let g:ctrlp_user_command = 'ag %s -l --nocolor -g  ""'
+			let g:ctrlp_user_command = 'ag %s -l --nocolor
+						\ --ignore-dir Dropbox
+						\ --ignore-dir Arduino
+						\ --ignore-dir Arduino_Build
+						\ -g  ""'
 		endif
 	" }}}
 " }}}
