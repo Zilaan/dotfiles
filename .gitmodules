@@ -1,6 +1,3 @@
-[submodule "bundle/SkyBison"]
-	path = bundle/SkyBison
-	url = https://github.com/paradigm/SkyBison.git
 [submodule "bundle/Theme_Jellybeans"]
 	path = bundle/Theme_Jellybeans
 	url = https://github.com/nanotech/jellybeans.vim.git
@@ -28,9 +25,6 @@
 [submodule "bundle/Fugitive"]
 	path = bundle/Fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "bundle/Theme_Hybrid"]
-	path = bundle/Theme_Hybrid
-	url = https://github.com/w0ng/vim-hybrid.git
 [submodule "bundle/Indent_Guides"]
 	path = bundle/Indent_Guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
@@ -91,3 +85,9 @@
 [submodule "bundle/CtrlP"]
 	path = bundle/CtrlP
 	url = https://github.com/kien/ctrlp.vim.git
+[submodule "bundle/Theme_Hybrid"]
+	path = bundle/Theme_Hybrid
+	url = https://github.com/w0ng/vim-hybrid.git
+[submodule "bundle/SkyBison"]
+	path = bundle/SkyBison
+	url = https://github.com/paradigm/SkyBison.git

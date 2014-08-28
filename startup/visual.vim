@@ -3,7 +3,7 @@
 
 " Text, färg och utseende {{{1
 	" Välj typsnitt
-	set gfn=Sauce\ Code\ Powerline:h15
+	set gfn=Sauce\ Code\ Powerline\ Regular:h15
 
 	" Välj färgschema
 	let g:hybrid_use_iTerm_colors = 1
