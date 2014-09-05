@@ -4,9 +4,6 @@
 [submodule "bundle/Matchit"]
 	path = bundle/Matchit
 	url = https://github.com/tmhedberg/matchit.git
-[submodule "bundle/NeoComplete"]
-	path = bundle/NeoComplete
-	url = https://github.com/Shougo/neocomplete.vim.git
 [submodule "bundle/NERDCommenter"]
 	path = bundle/NERDCommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
