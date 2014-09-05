@@ -88,3 +88,6 @@
 [submodule "bundle/NERDTree"]
 	path = bundle/NERDTree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "bundle/Neocomplete"]
+	path = bundle/Neocomplete
+	url = https://github.com/Shougo/neocomplete.vim.git
