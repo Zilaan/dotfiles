@@ -88,3 +88,6 @@
 [submodule "bundle/SkyBison"]
 	path = bundle/SkyBison
 	url = https://github.com/paradigm/SkyBison.git
+[submodule "bundle/NERDTree"]
+	path = bundle/NERDTree
+	url = https://github.com/scrooloose/nerdtree.git
