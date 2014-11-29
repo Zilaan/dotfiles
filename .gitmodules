@@ -61,9 +61,6 @@
 [submodule "bundle/LaTEX"]
 	path = bundle/LaTEX
 	url = https://github.com/lervag/vim-latex.git
-[submodule "bundle/LaTex-Box"]
-	path = bundle/LaTex-Box
-	url = https://github.com/LaTeX-Box-Team/LaTeX-Box.git
 [submodule "bundle/Sparkup"]
 	path = bundle/Sparkup
 	url = https://github.com/rstacruz/sparkup.git
