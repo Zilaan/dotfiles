@@ -88,3 +88,6 @@
 [submodule "bundle/Neocomplete"]
 	path = bundle/Neocomplete
 	url = https://github.com/Shougo/neocomplete.vim.git
+[submodule "bundle/Latex-Suite"]
+	path = bundle/Latex-Suite
+	url = https://github.com/gerw/vim-latex-suite.git

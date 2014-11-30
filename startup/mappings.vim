@@ -10,8 +10,8 @@
 	nnoremap ]Q :clast<CR>
 
 	" Tabs
-	nnoremap <leader>( :tabprev<CR>
-	nnoremap <leader>) :tabnext<CR>
+	nnoremap <leader>( :bprev<CR>
+	nnoremap <leader>) :bnext<CR>
 
 	" Mode completion
 	inoremap <c-f> <c-x><c-f>
@@ -111,3 +111,5 @@
 	nnoremap d<C-J> <C-W>j<C-W>c
 	nnoremap d<C-K> <C-W>k<C-W>c
 	nnoremap d<C-L> <C-W>l<C-W>c
+
+	nnoremap <F2> :!latexmk -pdf % <CR>

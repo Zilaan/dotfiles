@@ -150,7 +150,7 @@
 " Inställningar för LaTex {{{1
 	augroup latex_compiling
 		autocmd!
-		autocmd FileType *.tex :map <F2> :!pdflatex % <CR>
+		autocmd FileType *.tex :map <leader>ll :!latexmk -pdf % <CR>
 		autocmd FileType *.tex :map <F3> :!bibtex %:r <CR>
 	augroup END
 " }}}
