@@ -58,9 +58,6 @@
 [submodule "bundle/Python_Combined"]
 	path = bundle/Python_Combined
 	url = https://github.com/mitsuhiko/vim-python-combined.git
-[submodule "bundle/LaTEX"]
-	path = bundle/LaTEX
-	url = https://github.com/lervag/vim-latex.git
 [submodule "bundle/Sparkup"]
 	path = bundle/Sparkup
 	url = https://github.com/rstacruz/sparkup.git
