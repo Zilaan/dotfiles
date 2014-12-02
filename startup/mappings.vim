@@ -25,7 +25,7 @@
 	noremap <C-L> <C-W>l
 
 	" Kortkommando för list
-	nmap <leader>l :set list!<CR>
+	" nmap <leader>l :set list!<CR>
 
 	nmap j gj
 	nmap k gk
