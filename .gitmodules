@@ -91,3 +91,6 @@
 [submodule "bundle/Unimpared"]
 	path = bundle/Unimpared
 	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "bundle/Rainbow"]
+	path = bundle/Rainbow
+	url = https://github.com/kien/rainbow_parentheses.vim.git
