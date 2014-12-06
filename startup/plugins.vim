@@ -322,6 +322,7 @@
 " }}}
 
 " Rainbow parentheses {{{
+	" Set colors
 	let g:rbpt_colorpairs = [
 		\ ['brown',       'RoyalBlue3'],
 		\ ['Darkblue',    'SeaGreen3'],
