@@ -44,12 +44,12 @@
 	" }}}
 
 	" Ignore {{{2
-		set wildignore+=*/Dropbox/*,*/tmp/*,*.so,*.swp,*.zip,*.jpegs,*.swp,*.jpeg,*.eps,*.gz,*.xls,*.pdf,*.m,*.mat,*.xlsx,*.png,*.gz,*.out,*.rar,*.zip,*.mp4,*.tiff,*.bmp,*.gif,*.pyc,*.jpg,*.wav,*.mp3,*.ogg,*.blend,*.aux,*.log,*.toc,*.blg,*.db,*.rdp,*.epf,*.eps,*.prj,*.m,*.h,
+		set wildignore+=*/Dropbox/*,*/tmp/*,*.so,*.eps,*.swp,*.zip,*.jpegs,*.swp,*.jpeg,*.eps,*.gz,*.xls,*.pdf,*.mat,*.xlsx,*.png,*.gz,*.out,*.rar,*.zip,*.mp4,*.tiff,*.bmp,*.gif,*.pyc,*.jpg,*.wav,*.mp3,*.ogg,*.blend,*.aux,*.log,*.toc,*.blg,*.db,*.rdp,*.epf,*.eps,*.prj,*.h,
 		"let g:ctrlp_custom_ignore='\v\~$|\.(o|swp|jpeg|docx|doc|eps|gz|xls|pdf|m|mat|xlsx|png|gz|out|rar|zip|mp4|tiff|bmp|gif|pyc|jpg|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py|^Dropbox.*'
 
 		let g:ctrlp_custom_ignore = {
 			\ 'dir': '\v[\/]\.(git|hg|svn|bzr)$|.*Dropbox.*',
-			\ 'file': '\v\.(o|swp|jpeg|docx|doc|eps|gz|xls|pdf|m|mat|xlsx|png|gz|out|rar|zip|mp4|tiff|bmp|gif|pyc|jpg|wav|mp3|ogg|blend|nb|pptx|gdoc|rtf|plist)$'}
+			\ 'file': '\v\.(o|swp|jpeg|docx|doc|eps|gz|xls|pdf|mat|xlsx|png|gz|out|rar|zip|mp4|tiff|bmp|gif|pyc|jpg|wav|mp3|ogg|blend|nb|pptx|gdoc|rtf|plist)$'}
 	" }}}
 
 	" Settings {{{2
@@ -239,6 +239,11 @@
 	let g:ackhighlight = 1
 	let g:ag_apply_qmappings = 1
 	let g:agprg = 'ag --nogroup --nocolor --column'
+	if executable('ag')
+		" Note we extract the column as well as the file and line number
+		set grepprg=ag\ --nogroup\ --nocolor\ --column
+		set grepformat=%f:%l:%c%m
+	endif
 " }}}
 
 " Ack {{{

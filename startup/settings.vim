@@ -25,7 +25,7 @@
 	if has('gui_running')
 		" GUI Vim
 
-		set guifont=Menlo\ Regular\ for\ Powerline:h12
+		"set guifont=Meslo\ LG\ DZ\ Regular\ for\ Powerline:h12
 
 		" Remove all the UI cruft
 		set go-=T
