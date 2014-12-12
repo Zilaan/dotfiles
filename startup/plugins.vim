@@ -44,7 +44,7 @@
 	" }}}
 
 	" Ignore {{{2
-		set wildignore+=*/Dropbox/*,*/tmp/*,*.so,*.eps,*.swp,*.zip,*.jpegs,*.swp,*.jpeg,*.eps,*.gz,*.xls,*.pdf,*.mat,*.xlsx,*.png,*.gz,*.out,*.rar,*.zip,*.mp4,*.tiff,*.bmp,*.gif,*.pyc,*.jpg,*.wav,*.mp3,*.ogg,*.blend,*.aux,*.log,*.toc,*.blg,*.db,*.rdp,*.epf,*.eps,*.prj,*.h,
+		set wildignore+=*/Dropbox/*,*/tmp/*,*.so,*.eps,*.jpegs,*.swp,*.jpeg,*.xls,*.pdf,*.mat,*.xlsx,*.png,*.gz,*.out,*.rar,*.zip,*.mp4,*.tiff,*.bmp,*.gif,*.pyc,*.jpg,*.wav,*.mp3,*.ogg,*.blend,*.aux,*.log,*.toc,*.blg,*.db,*.rdp,*.epf,*.prj,*.h,
 		"let g:ctrlp_custom_ignore='\v\~$|\.(o|swp|jpeg|docx|doc|eps|gz|xls|pdf|m|mat|xlsx|png|gz|out|rar|zip|mp4|tiff|bmp|gif|pyc|jpg|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py|^Dropbox.*'
 
 		let g:ctrlp_custom_ignore = {
@@ -354,4 +354,14 @@
 	map /  <Plug>(incsearch-forward)
 	map ?  <Plug>(incsearch-backward)
 	map g/ <Plug>(incsearch-stay)
+" }}}
+
+" Latex-Suite {{{
+	let g:tex_flavor='latex'
+	let g:Tex_TreatMacViewerAsUNIX = 1
+	let g:Tex_ExecuteUNIXViewerInForeground = 1
+	let g:Tex_GotoError = 0
+	let g:Tex_CompileRule_pdf = 'latexmk -pdf'
+	let g:Tex_DefaultTargetFormat='pdf'
+	let g:Tex_MultipleCompileFormats='pdf'
 " }}}
