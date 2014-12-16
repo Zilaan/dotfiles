@@ -44,12 +44,12 @@
 	" }}}
 
 	" Ignore {{{2
-		set wildignore+=*/Dropbox/*,*/tmp/*,*.so,*.eps,*.jpegs,*.swp,*.jpeg,*.xls,*.pdf,*.mat,*.xlsx,*.png,*.gz,*.out,*.rar,*.zip,*.mp4,*.tiff,*.bmp,*.gif,*.pyc,*.jpg,*.wav,*.mp3,*.ogg,*.blend,*.aux,*.log,*.toc,*.blg,*.db,*.rdp,*.epf,*.prj,*.h,
+		set wildignore+=*/Dropbox/*,*/tmp/*,*.so,*.jpegs,*.swp,*.jpeg,*.xls,*.pdf,*.mat,*.xlsx,*.png,*.gz,*.out,*.rar,*.zip,*.mp4,*.tiff,*.bmp,*.gif,*.pyc,*.jpg,*.wav,*.mp3,*.ogg,*.blend,*.aux,*.log,*.toc,*.blg,*.db,*.rdp,*.epf,*.prj,*.h,
 		"let g:ctrlp_custom_ignore='\v\~$|\.(o|swp|jpeg|docx|doc|eps|gz|xls|pdf|m|mat|xlsx|png|gz|out|rar|zip|mp4|tiff|bmp|gif|pyc|jpg|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py|^Dropbox.*'
 
 		let g:ctrlp_custom_ignore = {
 			\ 'dir': '\v[\/]\.(git|hg|svn|bzr)$|.*Dropbox.*',
-			\ 'file': '\v\.(o|swp|jpeg|docx|doc|eps|gz|xls|pdf|mat|xlsx|png|gz|out|rar|zip|mp4|tiff|bmp|gif|pyc|jpg|wav|mp3|ogg|blend|nb|pptx|gdoc|rtf|plist)$'}
+			\ 'file': '\v\.(o|swp|jpeg|docx|doc|gz|xls|pdf|mat|xlsx|png|gz|out|rar|zip|mp4|tiff|bmp|gif|pyc|jpg|wav|mp3|ogg|blend|nb|pptx|gdoc|rtf|plist)$'}
 	" }}}
 
 	" Settings {{{2
@@ -345,6 +345,9 @@
 	let g:rbpt_max = 16
 	let g:rbpt_loadcmd_toggle = 0
 	au VimEnter * RainbowParenthesesToggle
+	au VimEnter * RainbowParenthesesLoadRound
+	au VimEnter * RainbowParenthesesLoadSquare
+	au VimEnter * RainbowParenthesesLoadBraces
 	au Syntax * RainbowParenthesesLoadRound
 	au Syntax * RainbowParenthesesLoadSquare
 	au Syntax * RainbowParenthesesLoadBraces
