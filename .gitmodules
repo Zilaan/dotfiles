@@ -4,9 +4,6 @@
 [submodule "bundle/Matchit"]
 	path = bundle/Matchit
 	url = https://github.com/tmhedberg/matchit.git
-[submodule "bundle/NERDCommenter"]
-	path = bundle/NERDCommenter
-	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule "bundle/Syntastic"]
 	path = bundle/Syntastic
 	url = https://github.com/scrooloose/syntastic.git
@@ -28,9 +25,6 @@
 [submodule "bundle/Theme_All"]
 	path = bundle/Theme_All
 	url = https://github.com/flazz/vim-colorschemes.git
-[submodule "bundle/Unite"]
-	path = bundle/Unite
-	url = https://github.com/Shougo/unite.vim.git
 [submodule "bundle/Ack"]
 	path = bundle/Ack
 	url = https://github.com/mileszs/ack.vim.git
@@ -49,21 +43,12 @@
 [submodule "bundle/Better-whitespace"]
 	path = bundle/Better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace.git
-[submodule "bundle/Verticalhelp"]
-	path = bundle/Verticalhelp
-	url = https://github.com/vim-scripts/VerticalHelp.git
 [submodule "bundle/Matchmaker"]
 	path = bundle/Matchmaker
 	url = https://github.com/qstrahl/vim-matchmaker.git
-[submodule "bundle/Python_Combined"]
-	path = bundle/Python_Combined
-	url = https://github.com/mitsuhiko/vim-python-combined.git
 [submodule "bundle/Sparkup"]
 	path = bundle/Sparkup
 	url = https://github.com/rstacruz/sparkup.git
-[submodule "bundle/Snipmate"]
-	path = bundle/Snipmate
-	url = https://github.com/msanders/snipmate.vim.git
 [submodule "bundle/Surround"]
 	path = bundle/Surround
 	url = https://github.com/tpope/vim-surround.git
@@ -97,3 +82,6 @@
 [submodule "bundle/Incsearch"]
 	path = bundle/Incsearch
 	url = https://github.com/haya14busa/incsearch.vim.git
+[submodule "bundle/LaTeX_BOX"]
+	path = bundle/LaTeX_BOX
+	url = https://github.com/LaTeX-Box-Team/LaTeX-Box.git
