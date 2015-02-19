@@ -58,9 +58,6 @@
 [submodule "bundle/CtrlP"]
 	path = bundle/CtrlP
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule "bundle/Theme_Hybrid"]
-	path = bundle/Theme_Hybrid
-	url = https://github.com/w0ng/vim-hybrid.git
 [submodule "bundle/SkyBison"]
 	path = bundle/SkyBison
 	url = https://github.com/paradigm/SkyBison.git
@@ -76,9 +73,6 @@
 [submodule "bundle/Unimpared"]
 	path = bundle/Unimpared
 	url = git://github.com/tpope/vim-unimpaired.git
-[submodule "bundle/Rainbow"]
-	path = bundle/Rainbow
-	url = https://github.com/kien/rainbow_parentheses.vim.git
 [submodule "bundle/Incsearch"]
 	path = bundle/Incsearch
 	url = https://github.com/haya14busa/incsearch.vim.git
@@ -91,3 +85,6 @@
 [submodule "bundle/tlib"]
 	path = bundle/tlib
 	url = https://github.com/tomtom/tlib_vim.git
+[submodule "bundle/Theme_Hybrid"]
+	path = bundle/Theme_Hybrid
+	url = https://github.com/w0ng/vim-hybrid.git
