@@ -1,18 +1,6 @@
-[submodule "bundle/Theme_Jellybeans"]
-	path = bundle/Theme_Jellybeans
-	url = https://github.com/nanotech/jellybeans.vim.git
 [submodule "bundle/Matchit"]
 	path = bundle/Matchit
 	url = https://github.com/tmhedberg/matchit.git
-[submodule "bundle/Syntastic"]
-	path = bundle/Syntastic
-	url = https://github.com/scrooloose/syntastic.git
-[submodule "bundle/Tabular"]
-	path = bundle/Tabular
-	url = https://github.com/godlygeek/tabular.git
-[submodule "bundle/Taglist"]
-	path = bundle/Taglist
-	url = https://github.com/vim-scripts/taglist.vim.git
 [submodule "bundle/Fugitive"]
 	path = bundle/Fugitive
 	url = https://github.com/tpope/vim-fugitive.git
@@ -22,18 +10,12 @@
 [submodule "bundle/Easymotion"]
 	path = bundle/Easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
-[submodule "bundle/Theme_All"]
-	path = bundle/Theme_All
-	url = https://github.com/flazz/vim-colorschemes.git
 [submodule "bundle/Ack"]
 	path = bundle/Ack
 	url = https://github.com/mileszs/ack.vim.git
 [submodule "bundle/Arduino"]
 	path = bundle/Arduino
 	url = https://github.com/tclem/vim-arduino.git
-[submodule "bundle/Syntax_Arduino"]
-	path = bundle/Syntax_Arduino
-	url = https://github.com/sudar/vim-arduino-syntax.git
 [submodule "bundle/Airline"]
 	path = bundle/Airline
 	url = https://github.com/bling/vim-airline.git
@@ -46,21 +28,12 @@
 [submodule "bundle/Matchmaker"]
 	path = bundle/Matchmaker
 	url = https://github.com/qstrahl/vim-matchmaker.git
-[submodule "bundle/Sparkup"]
-	path = bundle/Sparkup
-	url = https://github.com/rstacruz/sparkup.git
-[submodule "bundle/Surround"]
-	path = bundle/Surround
-	url = https://github.com/tpope/vim-surround.git
 [submodule "bundle/CSS-Color"]
 	path = bundle/CSS-Color
 	url = https://github.com/skammer/vim-css-color.git
 [submodule "bundle/CtrlP"]
 	path = bundle/CtrlP
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule "bundle/SkyBison"]
-	path = bundle/SkyBison
-	url = https://github.com/paradigm/SkyBison.git
 [submodule "bundle/NERDTree"]
 	path = bundle/NERDTree
 	url = https://github.com/scrooloose/nerdtree.git
@@ -70,21 +43,42 @@
 [submodule "bundle/Gitgutter"]
 	path = bundle/Gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
-[submodule "bundle/Unimpared"]
-	path = bundle/Unimpared
-	url = git://github.com/tpope/vim-unimpaired.git
 [submodule "bundle/Incsearch"]
 	path = bundle/Incsearch
 	url = https://github.com/haya14busa/incsearch.vim.git
 [submodule "bundle/LaTeX_BOX"]
 	path = bundle/LaTeX_BOX
 	url = https://github.com/LaTeX-Box-Team/LaTeX-Box.git
-[submodule "bundle/vim-addon-mw-utils"]
-	path = bundle/vim-addon-mw-utils
-	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
-[submodule "bundle/tlib"]
-	path = bundle/tlib
-	url = https://github.com/tomtom/tlib_vim.git
 [submodule "bundle/Theme_Hybrid"]
 	path = bundle/Theme_Hybrid
 	url = https://github.com/w0ng/vim-hybrid.git
+[submodule "bundle/Skybison"]
+	path = bundle/Skybison
+	url = https://github.com/paradigm/SkyBison.git
+[submodule "bundle/Syntastic"]
+	path = bundle/Syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "bundle/Tabular"]
+	path = bundle/Tabular
+	url = https://github.com/godlygeek/tabular.git
+[submodule "bundle/Taglist"]
+	path = bundle/Taglist
+	url = https://github.com/vim-scripts/taglist.vim.git
+[submodule "bundle/Surround"]
+	path = bundle/Surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "bundle/Syntax_Arduino"]
+	path = bundle/Syntax_Arduino
+	url = https://github.com/sudar/vim-arduino-syntax.git
+[submodule "bundle/Unimpared"]
+	path = bundle/Unimpared
+	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "bundle/tlib"]
+	path = bundle/tlib
+	url = https://github.com/tomtom/tlib_vim.git
+[submodule "bundle/vim-addon-mw-utils"]
+	path = bundle/vim-addon-mw-utils
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "bundle/Theme_Jellybeans"]
+	path = bundle/Theme_Jellybeans
+	url = https://github.com/nanotech/jellybeans.vim.git
