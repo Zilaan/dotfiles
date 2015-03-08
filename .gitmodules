@@ -37,9 +37,6 @@
 [submodule "bundle/NERDTree"]
 	path = bundle/NERDTree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "bundle/Neocomplete"]
-	path = bundle/Neocomplete
-	url = https://github.com/Shougo/neocomplete.vim.git
 [submodule "bundle/Gitgutter"]
 	path = bundle/Gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
@@ -82,3 +79,9 @@
 [submodule "bundle/Theme_Jellybeans"]
 	path = bundle/Theme_Jellybeans
 	url = https://github.com/nanotech/jellybeans.vim.git
+[submodule "bundle/Neocomplete"]
+	path = bundle/Neocomplete
+	url = https://github.com/Shougo/neocomplete.vim.git
+[submodule "bundle/scriptease"]
+	path = bundle/scriptease
+	url = https://github.com/tpope/vim-scriptease.git

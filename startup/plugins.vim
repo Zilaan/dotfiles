@@ -15,7 +15,7 @@
 	let g:pymode_lint_write=0
 	let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{,}%W{Warn: %fw #%w}]'
 	let g:syntastic_python_checkers = ['flake8']
-	let g:syntastic_tex_checkers = ['lacheck', 'chktex']
+	let g:syntastic_tex_checkers = ['chktex']
 	let g:syntastic_python_flake8_args = '--ignore="E251,F403,E501,E502,E126,E127,E128,W801,W191,E101,F401,E221,E203,E202,E261,E222,E262"'
 " }}}
 
