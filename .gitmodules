@@ -85,3 +85,6 @@
 [submodule "bundle/scriptease"]
 	path = bundle/scriptease
 	url = https://github.com/tpope/vim-scriptease.git
+[submodule "bundle/Unite"]
+	path = bundle/Unite
+	url = https://github.com/Shougo/unite.vim.git

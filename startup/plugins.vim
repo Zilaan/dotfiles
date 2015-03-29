@@ -1,7 +1,7 @@
 " vim: foldmethod=marker
 " vim: foldcolumn=3
 
-" Syntasic {{{1
+" Syntastic {{{1
 	let g:syntastic_aggregate_errors=1
 	let g:syntastic_loc_list_height=5
 	let g:syntastic_auto_loc_list=1
@@ -47,15 +47,16 @@
 	" }}}
 
 	" Ignore {{{2
-		set wildignore+=*/Dropbox/*,*/tmp/*,*.so,*.jpegs,*.swp,*.jpeg,*.xls,*.pdf,*.mat,*.xlsx,*.png,*.gz,*.out,*.rar,*.zip,*.mp4,*.tiff,*.bmp,*.gif,*.pyc,*.jpg,*.wav,*.mp3,*.ogg,*.blend,*.aux,*.log,*.toc,*.blg,*.db,*.rdp,*.epf,*.prj,*.h,
+		set wildignore+=*/Dropbox/*,*/Library/*,*/tmp/*,*.so,*.jpegs,*.swp,*.jpeg,*.xls,*.pdf,*.mat,*.xlsx,*.png,*.gz,*.out,*.rar,*.zip,*.mp4,*.tiff,*.bmp,*.gif,*.pyc,*.jpg,*.wav,*.mp3,*.ogg,*.blend,*.aux,*.log,*.toc,*.blg,*.db,*.rdp,*.epf,*.prj,*.h,
 		"let g:ctrlp_custom_ignore='\v\~$|\.(o|swp|jpeg|docx|doc|eps|gz|xls|pdf|m|mat|xlsx|png|gz|out|rar|zip|mp4|tiff|bmp|gif|pyc|jpg|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py|^Dropbox.*'
 
 		let g:ctrlp_custom_ignore = {
-			\ 'dir': '\v[\/]\.(git|hg|svn|bzr)$|.*Dropbox.*',
+			\ 'dir': '\v[\/]\.(git|hg|svn|bzr)$|.*Dropbox.*,.*Library.*',
 			\ 'file': '\v\.(o|swp|jpeg|docx|doc|gz|xls|pdf|mat|xlsx|png|gz|out|rar|zip|mp4|tiff|bmp|gif|pyc|jpg|wav|mp3|ogg|blend|nb|pptx|gdoc|rtf|plist)$'}
 	" }}}
 
 	" Settings {{{2
+		let g:ctrl_max_files = 0
 		let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:20'
 		let g:ctrlp_match_window_bottom=0
 		let g:ctrlp_match_window_reversed=0
@@ -76,6 +77,7 @@
 			set grepprg=ag\ --nogroup\ --nocolor
 			let g:ctrlp_user_command = 'ag %s -l --nocolor
 						\ --ignore-dir Dropbox
+						\ --ignore-dir Library
 						\ --ignore-dir Arduino
 						\ --ignore-dir Arduino_Build
 						\ -g  ""'
@@ -374,5 +376,6 @@
 
 " Latex-Box {{{
 let g:LatexBox_ignore_warnings
-                        \ = ['Underfull', 'Overfull', 'specifier changed to', 'You should put a space']
+			\ = ['Underfull', 'Overfull', 'specifier changed to', 'You should put a space']
+
 " }}}
