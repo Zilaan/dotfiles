@@ -4,9 +4,9 @@
 " Syntastic {{{1
 	let g:syntastic_aggregate_errors=1
 	let g:syntastic_loc_list_height=5
-	let g:syntastic_auto_loc_list=1
+	let g:syntastic__loc_list=1
 	let g:syntastic_check_on_open=1
-	let g:syntastic_auto_jump=3
+	let g:syntastic__jump=3
 	let g:syntastic_enable_signs=1
 	let g:syntastic_error_symbol='EE'
 	let g:syntastic_warning_symbol='WW'
@@ -37,11 +37,13 @@
 " CtrlP {{{1
 
 	" Mapping {{{2
+		nnoremap <leader>t :CtrlPTag<CR>
 		nnoremap <leader>p :CtrlP<cr>
 		nnoremap <leader>cd :CtrlPDir<cr>
 		nnoremap <leader>li :CtrlPLine<cr>
 		nnoremap <leader>m :CtrlPMixed<cr>
 		nnoremap <leader>b :CtrlPBuffer<cr>
+		nnoremap <leader>bt :CtrlPBufTag<cr>
 		nnoremap <leader>q :CtrlPQuickfix<cr>
 		let g:ctrlp_map='<Leader>cf'
 	" }}}
@@ -87,8 +89,8 @@
 
 " Taglist {{{1
 	filetype plugin on
-	let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
-	nnoremap <c-t> :TlistToggle<cr>
+		let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+	"nnoremap <c-t> :TlistToggle<cr>
 	let Tlist_Auto_Open=0
 
 	" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
@@ -103,7 +105,7 @@
 	" program to always generate a file-name.
 	set grepprg=grep\ -nH\ $*
 
-	" OPTIONAL: This enables automatic indentation as you type.
+	" OPTIONAL: This enables matic indentation as you type.
 	filetype indent on
 
 	" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
@@ -174,20 +176,20 @@
 	" let g:neocomplete#enable_insert_char_pre=1
 
 	" AutoComplPop like behavior.
-	" let g:neocomplete#enable_auto_select=1
+	" let g:neocomplete#enable__select=1
 
 	" Shell like behavior(not recommended).
 	" set completeopt+=longest
-	" let g:neocomplete#enable_auto_select=1
-	autocmd BufReadPost *.tex let g:neocomplete#disable_auto_complete=1
+	" let g:neocomplete#enable__select=1
+	cmd BufReadPost *.tex let g:neocomplete#disable_auto_complete=1
 	" inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 	" Enable omni completion.
-	autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-	autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-	autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-	autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-	autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+	cmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+	cmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+	cmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+	cmd FileType python setlocal omnifunc=pythoncomplete#Complete
+	cmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 	" Enable heavy omni completion.
 	if !exists('g:neocomplete#sources#omni#input_patterns')
@@ -216,7 +218,7 @@
 	let g:indent_guides_indent_levels = 30
 
 	" Auto colors
-	let g:indent_guides_auto_colors = 1
+	let g:indent_guides__colors = 1
 
 	" Size of guides
 	let g:indent_guides_guide_size = 1
@@ -258,7 +260,7 @@
 " Arduino {{{
 	" How to interpret files
 	augroup filetype_arduino
-		autocmd!
+		cmd!
 		au BufRead, BufNewFile *.pde set filetype=arduino
 		au BufRead, BufNewFile *.ino set filetype=arduino
 	augroup END
@@ -378,4 +380,13 @@
 let g:LatexBox_ignore_warnings
 			\ = ['Underfull', 'Overfull', 'specifier changed to', 'You should put a space']
 
+" }}}
+
+" Tagbar {{{
+let g:tagbar_left=1
+let g:tagbar_ctags_bin="/usr/local/bin/ctags"
+let g:tagbar_width=30
+let g:tagbar_iconchars=['+', '-']
+let g:tagbar_preview=1
+nnoremap <silent> <F9> :TagbarToggle<CR>
 " }}}

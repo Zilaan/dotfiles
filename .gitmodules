@@ -88,3 +88,6 @@
 [submodule "bundle/Tagbar"]
 	path = bundle/Tagbar
 	url = https://github.com/majutsushi/tagbar.git
+[submodule "bundle/NeoComplete"]
+	path = bundle/NeoComplete
+	url = https://github.com/Shougo/neocomplete.vim.git
