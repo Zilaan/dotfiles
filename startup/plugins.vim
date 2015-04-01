@@ -185,11 +185,11 @@
 	" inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 	" Enable omni completion.
-	cmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-	cmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-	cmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-	cmd FileType python setlocal omnifunc=pythoncomplete#Complete
-	cmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+	"cmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+	"cmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+	"cmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+	"cmd FileType python setlocal omnifunc=pythoncomplete#Complete
+	"cmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 	" Enable heavy omni completion.
 	if !exists('g:neocomplete#sources#omni#input_patterns')
