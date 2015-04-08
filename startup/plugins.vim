@@ -181,7 +181,7 @@
 	" Shell like behavior(not recommended).
 	" set completeopt+=longest
 	" let g:neocomplete#enable__select=1
-	cmd BufReadPost *.tex let g:neocomplete#disable_auto_complete=1
+	" cmd BufReadPost *.tex let g:neocomplete#disable_auto_complete=1
 	" inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 	" Enable omni completion.
@@ -259,11 +259,11 @@
 
 " Arduino {{{
 	" How to interpret files
-	augroup filetype_arduino
-		cmd!
-		au BufRead, BufNewFile *.pde set filetype=arduino
-		au BufRead, BufNewFile *.ino set filetype=arduino
-	augroup END
+"	augroup filetype_arduino
+"		cmd!
+"		au BufRead, BufNewFile *.pde set filetype=arduino
+"		au BufRead, BufNewFile *.ino set filetype=arduino
+"	augroup END
 " }}}
 
 " Airline {{{

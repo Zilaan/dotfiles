@@ -91,3 +91,6 @@
 [submodule "bundle/NeoComplete"]
 	path = bundle/NeoComplete
 	url = https://github.com/Shougo/neocomplete.vim.git
+[submodule "bundle/Manpages"]
+	path = bundle/Manpages
+	url = https://github.com/bruno-/vim-man.git
