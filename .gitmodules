@@ -94,3 +94,6 @@
 [submodule "bundle/Manpages"]
 	path = bundle/Manpages
 	url = https://github.com/bruno-/vim-man.git
+[submodule "bundle/Ultisnips"]
+	path = bundle/Ultisnips
+	url = https://github.com/SirVer/ultisnips.git
