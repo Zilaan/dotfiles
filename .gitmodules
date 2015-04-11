@@ -109,3 +109,6 @@
 [submodule "bundle/Taboo"]
 	path = bundle/Taboo
 	url = https://github.com/gcmt/taboo.vim.git
+[submodule "bundle/Undotree"]
+	path = bundle/Undotree
+	url = https://github.com/mbbill/undotree.git

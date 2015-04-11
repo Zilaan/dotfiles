@@ -206,7 +206,7 @@
 " }}}
 
 " Gundo {{{1
-	nnoremap <F5> :GundoToggle<CR>
+	"nnoremap <F6> :GundoToggle<CR>
 	let g:gundo_right=1
 " }}}
 
@@ -420,3 +420,8 @@ nmap ga <Plug>(EasyAlign)
 	let taboo_renamed_tab_format='[%l]%m'
 	let taboo_tab_format='%f%m'
 " }}} Taboo "
+
+" Undotree {{{ "
+	let g:undotree_HighlightChangedText=0
+	nnoremap <F6> :UndotreeToggle<cr>
+" }}} Undotree "
