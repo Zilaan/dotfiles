@@ -103,3 +103,6 @@
 [submodule "bundle/Semantic-Highlight"]
 	path = bundle/Semantic-Highlight
 	url = https://github.com/jaxbot/semantic-highlight.vim.git
+[submodule "bundle/Gundo"]
+	path = bundle/Gundo
+	url = https://github.com/sjl/gundo.vim.git
