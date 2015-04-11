@@ -271,7 +271,14 @@
 	set ttimeoutlen=50
 	" Theme
 	let g:airline_theme = 'powerlineish'
+
+	" Taboo
+	let g:airline#extensions#taboo#enabled = 1
+	let g:taboo_tabline = 0
+
 	" Tabline
+	let g:airline#extensions#tabline#show_tab_nr = 1
+	let g:airline#extensions#tabline#tab_nr_type = 2 " splits and tab number
 	let g:airline#extensions#tabline#enabled = 1
 	let g:airline#extensions#tabline#show_buffers = 1
 	let g:airline#extensions#tabline#left_sep = ''
@@ -408,3 +415,8 @@ vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 " }}} Easy Align "
+
+" Taboo {{{ "
+	let taboo_renamed_tab_format='[%l]%m'
+	let taboo_tab_format='%f%m'
+" }}} Taboo "
