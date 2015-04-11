@@ -106,3 +106,6 @@
 [submodule "bundle/Gundo"]
 	path = bundle/Gundo
 	url = https://github.com/sjl/gundo.vim.git
+[submodule "bundle/Taboo"]
+	path = bundle/Taboo
+	url = https://github.com/gcmt/taboo.vim.git

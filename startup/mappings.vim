@@ -3,11 +3,18 @@
 " vim: foldcolumn=3
 
 " Mappings {{{1
+	" Tabs
+	nnoremap <silent> tt :tabnew<CR>
+	nnoremap <silent> TT :tabclose<CR>
+	nnoremap <silent> [g :tabprevious<CR>
+	nnoremap <silent> ]g :tabnext<CR>
+	nnoremap <silent> [G :tabrewind<CR>
+	nnoremap <silent> ]G :tablast<CR>
 	" Quickfix
-	nnoremap [q :cprev<CR>
-	nnoremap ]q :cnext<CR>
-	nnoremap [Q :cfirst<CR>
-	nnoremap ]Q :clast<CR>
+	"nnoremap [q :cprev<CR>
+	"nnoremap ]q :cnext<CR>
+	"nnoremap [Q :cfirst<CR>
+	"nnoremap ]Q :clast<CR>
 
 	" Tabs
 	nnoremap <leader>( :bprev<CR>
