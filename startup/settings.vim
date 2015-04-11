@@ -151,7 +151,7 @@
 	augroup latex_compiling
 		autocmd!
 		autocmd FileType *.tex :map <leader>ll :!latexmk -pdf % <CR>
-		autocmd FileType *.tex :map <F3> :!bibtex %:r <CR>
+		autocmd FileType *.tex :map <F3> :w !detex \| wc -w<CR>
 		autocmd FileType *.tex setlocal foldmethod=marker
 	augroup END
 " }}}

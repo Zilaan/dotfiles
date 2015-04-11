@@ -97,3 +97,9 @@
 [submodule "bundle/Ultisnips"]
 	path = bundle/Ultisnips
 	url = https://github.com/SirVer/ultisnips.git
+[submodule "bundle/EasyAlign"]
+	path = bundle/EasyAlign
+	url = https://github.com/junegunn/vim-easy-align.git
+[submodule "bundle/Semantic-Highlight"]
+	path = bundle/Semantic-Highlight
+	url = https://github.com/jaxbot/semantic-highlight.vim.git
