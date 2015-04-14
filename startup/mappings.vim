@@ -3,6 +3,7 @@
 " vim: foldcolumn=3
 
 " Mappings {{{1
+
 	" Tabs
 	nnoremap <silent> tt :tabnew<CR>
 	nnoremap <silent> TT :tabclose<CR>
@@ -10,15 +11,6 @@
 	nnoremap <silent> ]g :tabnext<CR>
 	nnoremap <silent> [G :tabrewind<CR>
 	nnoremap <silent> ]G :tablast<CR>
-	" Quickfix
-	"nnoremap [q :cprev<CR>
-	"nnoremap ]q :cnext<CR>
-	"nnoremap [Q :cfirst<CR>
-	"nnoremap ]Q :clast<CR>
-
-	" Tabs
-	nnoremap <leader>( :bprev<CR>
-	nnoremap <leader>) :bnext<CR>
 
 	" Mode completion
 	inoremap <c-f> <c-x><c-f>
@@ -31,15 +23,12 @@
 	noremap <C-K> <C-W>k
 	noremap <C-L> <C-W>l
 
-	" Kortkommando för list
-	" nmap <leader>l :set list!<CR>
-
-	nmap j gj
-	nmap k gk
-	nmap <left> g<s-^>
-	nmap <right> g$
-	nmap <s-left> <s-^>
-	nmap <s-right> $
+	noremap j gj
+	noremap k gk
+	noremap <left> g<s-^>
+	noremap <right> g$
+	noremap <s-left> <s-^>
+	noremap <s-right> $
 
 	vmap j gj
 	vmap k gk
@@ -118,5 +107,3 @@
 	nnoremap d<C-J> <C-W>j<C-W>c
 	nnoremap d<C-K> <C-W>k<C-W>c
 	nnoremap d<C-L> <C-W>l<C-W>c
-
-	nnoremap <F2> :!latexmk -pdf % <CR>
