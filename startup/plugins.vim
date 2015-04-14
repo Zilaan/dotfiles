@@ -257,15 +257,6 @@
 	let g:ackhighlight = 1
 " }}}
 
-" Arduino {{{
-	" How to interpret files
-"	augroup filetype_arduino
-"		cmd!
-"		au BufRead, BufNewFile *.pde set filetype=arduino
-"		au BufRead, BufNewFile *.ino set filetype=arduino
-"	augroup END
-" }}}
-
 " Airline {{{
 	" Set no delay
 	set ttimeoutlen=50
@@ -374,13 +365,13 @@
 " }}}
 
 " Latex-Suite {{{
-	let g:tex_flavor='latex'
-	let g:Tex_TreatMacViewerAsUNIX = 1
-	let g:Tex_ExecuteUNIXViewerInForeground = 1
-	let g:Tex_GotoError = 0
-	let g:Tex_CompileRule_pdf = 'latexmk -pdf'
-	let g:Tex_DefaultTargetFormat='pdf'
-	let g:Tex_MultipleCompileFormats='pdf'
+	"let g:tex_flavor='latex'
+	"let g:Tex_TreatMacViewerAsUNIX = 1
+	"let g:Tex_ExecuteUNIXViewerInForeground = 1
+	"let g:Tex_GotoError = 0
+	"let g:Tex_CompileRule_pdf = 'latexmk -pdf'
+	"let g:Tex_DefaultTargetFormat='pdf'
+	"let g:Tex_MultipleCompileFormats='pdf'
 " }}}
 
 " Latex-Box {{{
@@ -390,30 +381,30 @@ let g:LatexBox_ignore_warnings
 " }}}
 
 " Tagbar {{{
-let g:tagbar_left=1
-let g:tagbar_ctags_bin="/usr/local/bin/ctags"
-let g:tagbar_width=30
-let g:tagbar_iconchars=['+', '-']
-let g:tagbar_preview=1
-nnoremap <silent> <F9> :TagbarToggle<CR>
+	let g:tagbar_left=1
+	let g:tagbar_ctags_bin="/usr/local/bin/ctags"
+	let g:tagbar_width=30
+	let g:tagbar_iconchars=['+', '-']
+	let g:tagbar_preview=1
+	nnoremap <silent> <F9> :TagbarToggle<CR>
 " }}}
 
 " Ultisnips {{{
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+	" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+	let g:UltiSnipsExpandTrigger="<tab>"
+	let g:UltiSnipsJumpForwardTrigger="<c-b>"
+	let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+	" If you want :UltiSnipsEdit to split your window.
+	let g:UltiSnipsEditSplit="vertical"
 " }}}
 
 " Easy Align {{{ "
-" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vmap <Enter> <Plug>(EasyAlign)
+	" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+	vmap <Enter> <Plug>(EasyAlign)
 
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
+	" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+	nmap ga <Plug>(EasyAlign)
 " }}} Easy Align "
 
 " Taboo {{{ "
