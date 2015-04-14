@@ -8,8 +8,8 @@
 	let g:syntastic_check_on_open=1
 	let g:syntastic__jump=3
 	let g:syntastic_enable_signs=1
-	let g:syntastic_error_symbol='EE'
-	let g:syntastic_warning_symbol='WW'
+	let g:syntastic_error_symbol='✗'
+	let g:syntastic_warning_symbol='░'
 	let g:syntastic_enable_balloons=1
 	let g:syntastic_enable_highlighting=1
 	let g:pymode_lint_write=0
