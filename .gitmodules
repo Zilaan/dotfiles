@@ -103,3 +103,6 @@
 [submodule "bundle/Undotree"]
 	path = bundle/Undotree
 	url = https://github.com/mbbill/undotree.git
+[submodule "bundle/Theme_Solarized"]
+	path = bundle/Theme_Solarized
+	url = https://github.com/altercation/vim-colors-solarized.git

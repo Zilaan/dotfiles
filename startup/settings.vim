@@ -21,6 +21,7 @@
 	set termencoding=utf-8
     highlight ColorColumn ctermbg=magenta
     set colorcolumn=81
+	set showcmd
 " }}}
 
 	" Disable gui {{{
@@ -91,7 +92,7 @@
 	set linebreak
 
 	" Textvikningsmetod ska va syntaxberoende
-	set fdm=syntax
+	set foldmethod=syntax
 
 	" Textvikning ska va fönsterberoende
 	set textwidth=0
@@ -100,7 +101,8 @@
 	set ts=4
 	set sts=4
 	set sw=4
-	set noexpandtab
+	set expandtab
+	set shiftround
 
 	" Sökning ska ske i realtid
 	set incsearch
@@ -110,6 +112,7 @@
 
 	" Slå på automatisk styckeindrag
 	set autoindent
+	set smartindent
 
 	" Styckeindrag ska göras som i C-programmering
 	set cindent
