@@ -78,11 +78,11 @@ if executable('ag')
     "Use Ag over Grep
     set grepprg=ag\ --nogroup\ --nocolor
     let g:ctrlp_user_command = 'ag %s -l --nocolor
-                \ --ignore-dir Dropbox
-                \ --ignore-dir Library
-                \ --ignore-dir Arduino
-                \ --ignore-dir Arduino_Build
-                \ -g  ""'
+        \ --ignore-dir Dropbox
+        \ --ignore-dir Library
+        \ --ignore-dir Arduino
+        \ --ignore-dir Arduino_Build
+        \ -g  ""'
 endif
 " }}}
 " }}}
@@ -94,7 +94,6 @@ let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 let Tlist_Auto_Open=0
 
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
-filetype plugin on
 
 " IMPORTANT: win32 users will need to have 'shellslash' set so that latex
 " can be called correctly.
@@ -106,7 +105,6 @@ filetype plugin on
 set grepprg=grep\ -nH\ $*
 
 " OPTIONAL: This enables matic indentation as you type.
-filetype indent on
 
 " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
