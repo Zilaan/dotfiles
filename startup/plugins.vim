@@ -49,7 +49,7 @@ let g:ctrlp_map='<Leader>cf'
 " }}}
 
 " Ignore {{{2
-set wildignore+=*/Dropbox/*,*/Library/*,*/tmp/*,*.so,*.jpegs,*.swp,*.jpeg,*.xls,*.pdf,*.mat,*.xlsx,*.png,*.gz,*.out,*.rar,*.zip,*.mp4,*.tiff,*.bmp,*.gif,*.pyc,*.jpg,*.wav,*.mp3,*.ogg,*.blend,*.aux,*.log,*.toc,*.blg,*.db,*.rdp,*.epf,*.prj,*.h,
+set wildignore+=*/Dropbox/*,*/Applications/*,*/DaisyDisk.app/*,*/Library/*,*/tmp/*,*.so,*.jpegs,*.swp,*.jpeg,*.xls,*.pdf,*.mat,*.xlsx,*.png,*.gz,*.out,*.rar,*.zip,*.mp4,*.tiff,*.bmp,*.gif,*.pyc,*.jpg,*.wav,*.mp3,*.ogg,*.blend,*.aux,*.log,*.toc,*.blg,*.db,*.rdp,*.epf,*.prj,*.h,
 "let g:ctrlp_custom_ignore='\v\~$|\.(o|swp|jpeg|docx|doc|eps|gz|xls|pdf|m|mat|xlsx|png|gz|out|rar|zip|mp4|tiff|bmp|gif|pyc|jpg|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py|^Dropbox.*'
 
 let g:ctrlp_custom_ignore = {
@@ -76,12 +76,13 @@ let g:ctrlp_mruf_max = 10
 "Use "ag" for searching
 if executable('ag')
     "Use Ag over Grep
-    set grepprg=ag\ --nogroup\ --nocolor
+    set grepprg=ag\ --nogroup\ --nocolor\ --column
     let g:ctrlp_user_command = 'ag %s -l --nocolor
         \ --ignore-dir Dropbox
         \ --ignore-dir Library
         \ --ignore-dir Arduino
         \ --ignore-dir Arduino_Build
+        \ --ignore-dir Applications
         \ -g  ""'
 endif
 " }}}
@@ -102,7 +103,7 @@ let Tlist_Auto_Open=0
 " IMPORTANT: grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse Latex-Suite. Set your grep
 " program to always generate a file-name.
-set grepprg=grep\ -nH\ $*
+" set grepprg=grep\ -nH\ $*
 
 " OPTIONAL: This enables matic indentation as you type.
 
