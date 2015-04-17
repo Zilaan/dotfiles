@@ -16,82 +16,143 @@ let g:pymode_lint_write=0
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{,}%W{Warn: %fw #%w}]'
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_tex_checkers = ['chktex']
-let g:syntastic_python_flake8_args = '--ignore="E251,F403,E501,E502,E126,E127,E128,W801,W191,E101,F401,E221,E203,E202,E261,E222,E262"'
+let g:syntastic_python_flake8_args = '--ignore="
+            \ E251,
+            \ F403,
+            \ E501,
+            \ E502,
+            \ E126,
+            \ E127,
+            \ E128,
+            \ W801,
+            \ W191,
+            \ E101,
+            \ F401,
+            \ E221,
+            \ E203,
+            \ E202,
+            \ E261,
+            \ E222,
+            \ E262"'
 " }}}
 
 " NERDTree {{{1
-nmap <LEADER>nt :NERDTreeToggle<CR>
-let g:NERDTreeWinPos='right'
+if exists('g:loaded_nerd_tree')
+    nnoremap <LEADER>nt :NERDTreeToggle<CR>
+    let g:NERDTreeWinPos='right'
+endif
 "}}}
 
 " Inställningar för SkyBison {{{1
-nnoremap <space>e :<c-u>call SkyBison("e ")<cr>
-nnoremap <space>cd :<c-u>call SkyBison("cd ")<cr>
-nnoremap <space>h :<c-u>call SkyBison("h ")<cr>
-nnoremap <space>; :<c-u>call SkyBison("")<cr>
-nnoremap <space>b :<c-u>call SkyBison("b ")<cr>
-nnoremap <space>t :<c-u>call SkyBison("tag ")<cr>
-let g:skybison_fuzz=1
+if exists('g:skybison_loaded')
+    nnoremap <space>e :<c-u>call SkyBison("e ")<cr>
+    nnoremap <space>cd :<c-u>call SkyBison("cd ")<cr>
+    nnoremap <space>h :<c-u>call SkyBison("h ")<cr>
+    nnoremap <space>; :<c-u>call SkyBison("")<cr>
+    nnoremap <space>b :<c-u>call SkyBison("b ")<cr>
+    nnoremap <space>t :<c-u>call SkyBison("tag ")<cr>
+    let g:skybison_fuzz=1
+endif
 "}}}
 
 " CtrlP {{{1
 
 " Mapping {{{2
-nnoremap <leader>t :CtrlPTag<CR>
-nnoremap <leader>p :CtrlP<cr>
-nnoremap <leader>cd :CtrlPDir<cr>
-nnoremap <leader>li :CtrlPLine<cr>
-nnoremap <leader>m :CtrlPMixed<cr>
-nnoremap <leader>b :CtrlPBuffer<cr>
-nnoremap <leader>bt :CtrlPBufTag<cr>
-nnoremap <leader>q :CtrlPQuickfix<cr>
-let g:ctrlp_map='<Leader>cf'
-" }}}
+if exists('g:loaded_ctrlp')
+    nnoremap <leader>t :CtrlPTag<CR>
+    nnoremap <leader>p :CtrlP<cr>
+    nnoremap <leader>cd :CtrlPDir<cr>
+    nnoremap <leader>li :CtrlPLine<cr>
+    nnoremap <leader>m :CtrlPMixed<cr>
+    nnoremap <leader>b :CtrlPBuffer<cr>
+    nnoremap <leader>bt :CtrlPBufTag<cr>
+    nnoremap <leader>q :CtrlPQuickfix<cr>
+    let g:ctrlp_map='<Leader>cf'
+    " }}}
 
-" Ignore {{{2
-set wildignore+=*/Dropbox/*,*/Applications/*,*/DaisyDisk.app/*,*/Library/*,*/tmp/*,*.so,*.jpegs,*.swp,*.jpeg,*.xls,*.pdf,*.mat,*.xlsx,*.png,*.gz,*.out,*.rar,*.zip,*.mp4,*.tiff,*.bmp,*.gif,*.pyc,*.jpg,*.wav,*.mp3,*.ogg,*.blend,*.aux,*.log,*.toc,*.blg,*.db,*.rdp,*.epf,*.prj,*.h,
-"let g:ctrlp_custom_ignore='\v\~$|\.(o|swp|jpeg|docx|doc|eps|gz|xls|pdf|m|mat|xlsx|png|gz|out|rar|zip|mp4|tiff|bmp|gif|pyc|jpg|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py|^Dropbox.*'
+    " Ignore {{{2
+    set wildignore+=
+                \ */Dropbox/*,
+                \ */Applications/*,
+                \ */DaisyDisk.app/*,
+                \ */Library/*,
+                \ */tmp/*,
+                \ *.so,
+                \ *.jpegs,
+                \ *.swp,
+                \ *.jpeg,
+                \ *.xls,
+                \ *.pdf,
+                \ *.mat,
+                \ *.xlsx,
+                \ *.png,
+                \ *.gz,
+                \ *.out,
+                \ *.rar,
+                \ *.zip,
+                \ *.mp4,
+                \ *.tiff,
+                \ *.bmp,
+                \ *.gif,
+                \ *.pyc,
+                \ *.jpg,
+                \ *.wav,
+                \ *.mp3,
+                \ *.ogg,
+                \ *.blend,
+                \ *.aux,
+                \ *.log,
+                \ *.toc,
+                \ *.blg,
+                \ *.db,
+                \*.rdp,
+                \ *.epf,
+                \ *.prj,
+                \ *.h,
+    " let g:ctrlp_custom_ignore='\v\~$|\.(o|swp|jpeg|docx|doc|eps|gz|xls|pdf|m|mat|xlsx|png|gz|out|rar|zip|mp4|tiff|bmp|gif|pyc|jpg|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py|^Dropbox.*'
 
-let g:ctrlp_custom_ignore = {
-            \ 'dir': '\v[\/]\.(git|hg|svn|bzr)$|.*Dropbox.*,.*Library.*',
-            \ 'file': '\v\.(o|swp|jpeg|docx|doc|gz|xls|pdf|mat|xlsx|png|gz|out|rar|zip|mp4|tiff|bmp|gif|pyc|jpg|wav|mp3|ogg|blend|nb|pptx|gdoc|rtf|plist)$'}
-" }}}
+    let g:ctrlp_custom_ignore = {
+                \ 'dir': '\v[\/]\.(git|hg|svn|bzr)$|.*Dropbox.*,.*Library.*',
+                \ 'file': '\v\.(o|swp|jpeg|docx|doc|gz|xls|pdf|mat|xlsx|png|gz|out|rar|zip|mp4|tiff|bmp|gif|pyc|jpg|wav|mp3|ogg|blend|nb|pptx|gdoc|rtf|plist)$'}
+    " }}}
 
-" Settings {{{2
-let g:ctrl_max_files = 0
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:20'
-let g:ctrlp_match_window_bottom=0
-let g:ctrlp_match_window_reversed=0
-let g:ctrlp_working_path_mode=0
-let g:ctrlp_dotfiles=0
-let g:ctrlp_switch_buffer='Et'
-let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
-let g:ctrlp_use_caching = 1
-let g:ctrlp_max_depth = 100
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_extensions=['tag', 'buffertag', 'quickfix', 'dir', 'undo', 'line', 'changes', 'mixed', 'bookmardir', 'rtscript']
-let g:ctrlp_buftag_ctags_bin='/usr/local/bin/ctags'
-let g:ctrlp_mruf_max = 10
+    " Settings {{{2
+    let g:ctrl_max_files = 0
+    let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:20'
+    let g:ctrlp_match_window_bottom=0
+    let g:ctrlp_match_window_reversed=0
+    let g:ctrlp_working_path_mode=0
+    let g:ctrlp_dotfiles=0
+    let g:ctrlp_switch_buffer='Et'
+    let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+    let g:ctrlp_use_caching = 1
+    let g:ctrlp_max_depth = 100
+    let g:ctrlp_clear_cache_on_exit = 0
+    let g:ctrlp_extensions=['tag', 'buffertag', 'quickfix', 'dir', 'undo', 'line',
+                \ 'changes', 'mixed', 'bookmardir', 'rtscript']
+    let g:ctrlp_buftag_ctags_bin='/usr/local/bin/ctags'
+    let g:ctrlp_mruf_max = 10
 
-"Use "ag" for searching
-if executable('ag')
-    "Use Ag over Grep
-    set grepprg=ag\ --nogroup\ --nocolor\ --column
-    let g:ctrlp_user_command = 'ag %s -l --nocolor
-        \ --ignore-dir Dropbox
-        \ --ignore-dir Library
-        \ --ignore-dir Arduino
-        \ --ignore-dir Arduino_Build
-        \ --ignore-dir Applications
-        \ -g  ""'
+    " Use "ag" for searching
+    if executable('ag')
+        "Use Ag over Grep
+        set grepprg=ag\ --nogroup\ --nocolor\ --column
+        let g:ctrlp_user_command = 'ag %s -l --nocolor
+                    \ --ignore-dir Dropbox
+                    \ --ignore-dir Library
+                    \ --ignore-dir Arduino
+                    \ --ignore-dir Arduino_Build
+                    \ --ignore-dir Applications
+                    \ -g  ""'
+    endif
+    " }}}
 endif
-" }}}
 " }}}
 
 " Taglist {{{1
 filetype plugin on
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
-"nnoremap <c-t> :TlistToggle<cr>
+" nnoremap <c-t> :TlistToggle<cr>
 let Tlist_Auto_Open=0
 
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
@@ -205,7 +266,7 @@ let g:neocomplete#ctags_command='/usr/local/bin/ctags'
 " }}}
 
 " Gundo {{{1
-"nnoremap <F6> :GundoToggle<CR>
+" nnoremap <F6> :GundoToggle<CR>
 let g:gundo_right=1
 " }}}
 
@@ -316,8 +377,10 @@ let g:airline#extensions#whitespace#symbol = '!'
 " }}}
 
 " Better whitespace {{{
-nnoremap <Leader>w :StripWhitespace<CR>
-let g:strip_whitespace_on_save = 0
+if exists('g:loaded_better_whitespace_plugin')
+    nnoremap <Leader>w :StripWhitespace<CR>
+    let g:strip_whitespace_on_save = 0
+endif
 " }}}
 
 " Matchmaker {{{
@@ -358,34 +421,43 @@ nnoremap <leader>mm :<C-u>MatchmakerToggle<CR>
 " }}}
 
 " Incsearch {{{
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
+if exists('g:loaded_incsearch')
+    map /  <Plug>(incsearch-forward)
+    map ?  <Plug>(incsearch-backward)
+    map g/ <Plug>(incsearch-stay)
+endif
 " }}}
 
 " Latex-Suite {{{
-"let g:tex_flavor='latex'
-"let g:Tex_TreatMacViewerAsUNIX = 1
-"let g:Tex_ExecuteUNIXViewerInForeground = 1
-"let g:Tex_GotoError = 0
-"let g:Tex_CompileRule_pdf = 'latexmk -pdf'
-"let g:Tex_DefaultTargetFormat='pdf'
-"let g:Tex_MultipleCompileFormats='pdf'
+" let g:tex_flavor='latex'
+" let g:Tex_TreatMacViewerAsUNIX = 1
+" let g:Tex_ExecuteUNIXViewerInForeground = 1
+" let g:Tex_GotoError = 0
+" let g:Tex_CompileRule_pdf = 'latexmk -pdf'
+" let g:Tex_DefaultTargetFormat='pdf'
+" let g:Tex_MultipleCompileFormats='pdf'
 " }}}
 
 " Latex-Box {{{
 let g:LatexBox_ignore_warnings
-            \ = ['Underfull', 'Overfull', 'specifier changed to', 'You should put a space']
+            \ = [
+            \ 'Underfull',
+            \ 'Overfull',
+            \ 'specifier changed to',
+            \ 'You should put a space'
+            \ ]
 
 " }}}
 
 " Tagbar {{{
-let g:tagbar_left=1
-let g:tagbar_ctags_bin="/usr/local/bin/ctags"
-let g:tagbar_width=30
-let g:tagbar_iconchars=['+', '-']
-let g:tagbar_preview=1
-nnoremap <silent> <F9> :TagbarToggle<CR>
+if exists('g:loaded_tagbar')
+    let g:tagbar_left=1
+    let g:tagbar_ctags_bin="/usr/local/bin/ctags"
+    let g:tagbar_width=30
+    let g:tagbar_iconchars=['+', '-']
+    let g:tagbar_preview=1
+    nnoremap <silent> <F9> :TagbarToggle<CR>
+endif
 " }}}
 
 " Ultisnips {{{
@@ -399,11 +471,13 @@ let g:UltiSnipsEditSplit="vertical"
 " }}}
 
 " Easy Align {{{ "
-" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vmap <Enter> <Plug>(EasyAlign)
+if exists('g:loaded_easy_align')
+    " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+    vmap <Enter> <Plug>(EasyAlign)
 
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
+    " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+    nmap ga <Plug>(EasyAlign)
+endif
 " }}} Easy Align "
 
 " Taboo {{{ "
@@ -412,6 +486,8 @@ let taboo_tab_format='%f%m'
 " }}} Taboo "
 
 " Undotree {{{ "
-let g:undotree_HighlightChangedText=0
-nnoremap <F6> :UndotreeToggle<cr>
+if exists('g:loaded_undotree')
+    let g:undotree_HighlightChangedText=0
+    nnoremap <F6> :UndotreeToggle<cr>
+endif
 " }}} Undotree "
