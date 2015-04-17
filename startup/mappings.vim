@@ -112,8 +112,8 @@ nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*:call winrestview(st
 " }}} Don't move on * "
 
 " Open splits {{{ "
-nnoremap <C-c><C-l> :rightb vsp new<cr>
-nnoremap <C-c><C-h> :leftb vsp new<cr>
+nnoremap <C-c><C-l> :bel vsp new<cr>
+nnoremap <C-c><C-h> :abo vsp new<cr>
 nnoremap <C-c><C-j> :bel sp new<cr>
 nnoremap <C-c><C-k> :abo sp new<cr>
 
