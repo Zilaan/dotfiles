@@ -76,114 +76,71 @@ let g:airline#extensions#whitespace#symbol = '!'
 " }}}
 
 " Better whitespace {{{1
-if exists('g:loaded_better_whitespace_plugin')
-    nnoremap <Leader>w :StripWhitespace<CR>
-    let g:strip_whitespace_on_save = 0
-endif
+nnoremap <Leader>w :StripWhitespace<CR>
+let g:strip_whitespace_on_save = 0
 " }}}
 
 " CtrlP {{{1
 
 " Mapping {{{2
-if exists('g:loaded_ctrlp')
-    nnoremap <leader>t :CtrlPTag<CR>
-    nnoremap <leader>p :CtrlP<cr>
-    nnoremap <leader>cd :CtrlPDir<cr>
-    nnoremap <leader>li :CtrlPLine<cr>
-    nnoremap <leader>m :CtrlPMixed<cr>
-    nnoremap <leader>b :CtrlPBuffer<cr>
-    nnoremap <leader>bt :CtrlPBufTag<cr>
-    nnoremap <leader>q :CtrlPQuickfix<cr>
-    let g:ctrlp_map='<Leader>cf'
-    " }}}
+nnoremap <leader>t :CtrlPTag<CR>
+nnoremap <leader>p :CtrlP<cr>
+nnoremap <leader>cd :CtrlPDir<cr>
+nnoremap <leader>li :CtrlPLine<cr>
+nnoremap <leader>m :CtrlPMixed<cr>
+nnoremap <leader>b :CtrlPBuffer<cr>
+nnoremap <leader>bt :CtrlPBufTag<cr>
+nnoremap <leader>q :CtrlPQuickfix<cr>
+let g:ctrlp_map='<Leader>cf'
+" }}}
 
-    " Ignore {{{2
-    set wildignore+=
-                \ */Dropbox/*,
-                \ */Applications/*,
-                \ */DaisyDisk.app/*,
-                \ */Library/*,
-                \ */tmp/*,
-                \ *.so,
-                \ *.jpegs,
-                \ *.swp,
-                \ *.jpeg,
-                \ *.xls,
-                \ *.pdf,
-                \ *.mat,
-                \ *.xlsx,
-                \ *.png,
-                \ *.gz,
-                \ *.out,
-                \ *.rar,
-                \ *.zip,
-                \ *.mp4,
-                \ *.tiff,
-                \ *.bmp,
-                \ *.gif,
-                \ *.pyc,
-                \ *.jpg,
-                \ *.wav,
-                \ *.mp3,
-                \ *.ogg,
-                \ *.blend,
-                \ *.aux,
-                \ *.log,
-                \ *.toc,
-                \ *.blg,
-                \ *.db,
-                \*.rdp,
-                \ *.epf,
-                \ *.prj,
-                \ *.h,
-    " let g:ctrlp_custom_ignore='\v\~$|\.(o|swp|jpeg|docx|doc|eps|gz|xls|pdf|m|mat|xlsx|png|gz|out|rar|zip|mp4|tiff|bmp|gif|pyc|jpg|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py|^Dropbox.*'
+" Ignore {{{2
+set wildignore+=*/Dropbox/*,*/Applications/*,*/DaisyDisk.app/*,*/Library/*,*/tmp/*,*.so,*.jpegs,*.swp,*.jpeg,*.xls,*.pdf,*.mat,*.xlsx,*.png,*.gz,*.out,*.rar,*.zip,*.mp4,*.tiff,*.bmp,*.gif,*.pyc,*.jpg,*.wav,*.mp3,*.ogg,*.blend,*.aux,*.log,*.toc,*.blg,*.db,*.rdp,*.epf,*.prj,*.h,
+" let g:ctrlp_custom_ignore='\v\~$|\.(o|swp|jpeg|docx|doc|eps|gz|xls|pdf|m|mat|xlsx|png|gz|out|rar|zip|mp4|tiff|bmp|gif|pyc|jpg|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py|^Dropbox.*'
 
-    let g:ctrlp_custom_ignore = {
-                \ 'dir': '\v[\/]\.(git|hg|svn|bzr)$|.*Dropbox.*,.*Library.*',
-                \ 'file': '\v\.(o|swp|jpeg|docx|doc|gz|xls|pdf|mat|xlsx|png|gz|out|rar|zip|mp4|tiff|bmp|gif|pyc|jpg|wav|mp3|ogg|blend|nb|pptx|gdoc|rtf|plist)$'}
-    " }}}
+let g:ctrlp_custom_ignore = {
+            \ 'dir': '\v[\/]\.(git|hg|svn|bzr)$|.*Dropbox.*,.*Library.*',
+            \ 'file': '\v\.(o|swp|jpeg|docx|doc|gz|xls|pdf|mat|xlsx|png|gz|out|rar|zip|mp4|tiff|bmp|gif|pyc|jpg|wav|mp3|ogg|blend|nb|pptx|gdoc|rtf|plist)$'}
+" }}}
 
-    " Settings {{{2
-    let g:ctrl_max_files = 0
-    let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:20'
-    let g:ctrlp_match_window_bottom=0
-    let g:ctrlp_match_window_reversed=0
-    let g:ctrlp_working_path_mode=0
-    let g:ctrlp_dotfiles=0
-    let g:ctrlp_switch_buffer='Et'
-    let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
-    let g:ctrlp_use_caching = 1
-    let g:ctrlp_max_depth = 100
-    let g:ctrlp_clear_cache_on_exit = 0
-    let g:ctrlp_extensions=['tag', 'buffertag', 'quickfix', 'dir', 'undo', 'line',
-                \ 'changes', 'mixed', 'bookmardir', 'rtscript']
-    let g:ctrlp_buftag_ctags_bin='/usr/local/bin/ctags'
-    let g:ctrlp_mruf_max = 10
+" Settings {{{2
+let g:ctrl_max_files = 0
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:20'
+let g:ctrlp_match_window_bottom=0
+let g:ctrlp_match_window_reversed=0
+let g:ctrlp_working_path_mode=0
+let g:ctrlp_dotfiles=0
+let g:ctrlp_switch_buffer='Et'
+let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+let g:ctrlp_use_caching = 1
+let g:ctrlp_max_depth = 100
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_extensions=['tag', 'buffertag', 'quickfix', 'dir', 'undo', 'line',
+            \ 'changes', 'mixed', 'bookmardir', 'rtscript']
+let g:ctrlp_buftag_ctags_bin='/usr/local/bin/ctags'
+let g:ctrlp_mruf_max = 10
 
-    " Use "ag" for searching
-    if executable('ag')
-        "Use Ag over Grep
-        set grepprg=ag\ --nogroup\ --nocolor\ --column
-        let g:ctrlp_user_command = 'ag %s -l --nocolor
-                    \ --ignore-dir Dropbox
-                    \ --ignore-dir Library
-                    \ --ignore-dir Arduino
-                    \ --ignore-dir Arduino_Build
-                    \ --ignore-dir Applications
-                    \ -g  ""'
-    endif
-    " }}}
+" Use "ag" for searching
+if executable('ag')
+    "Use Ag over Grep
+    set grepprg=ag\ --nogroup\ --nocolor\ --column
+    let g:ctrlp_user_command = 'ag %s -l --nocolor
+                \ --ignore-dir Dropbox
+                \ --ignore-dir Library
+                \ --ignore-dir Arduino
+                \ --ignore-dir Arduino_Build
+                \ --ignore-dir Applications
+                \ -g  ""'
 endif
+" }}}
 " }}}
 
 " Easy Align {{{1
-if exists('g:loaded_easy_align')
-    " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-    vmap <Enter> <Plug>(EasyAlign)
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
 
-    " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-    nmap ga <Plug>(EasyAlign)
-endif
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 " }}} Easy Align "
 
 " Gundo {{{1
@@ -192,11 +149,9 @@ let g:gundo_right=1
 " }}}
 
 " Incsearch {{{1
-if exists('g:loaded_incsearch')
-    map /  <Plug>(incsearch-forward)
-    map ?  <Plug>(incsearch-backward)
-    map g/ <Plug>(incsearch-stay)
-endif
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 " }}}
 
 " Indent Guides {{{1
@@ -253,10 +208,8 @@ nnoremap <leader>mm :<C-u>MatchmakerToggle<CR>
 " }}}
 
 " NERDTree {{{1
-if exists('g:loaded_nerd_tree')
-    nnoremap <LEADER>nt :NERDTreeToggle<CR>
-    let g:NERDTreeWinPos='right'
-endif
+nnoremap <LEADER>nt :NERDTreeToggle<CR>
+let g:NERDTreeWinPos='right'
 "}}}
 
 " NeoComplete {{{1
@@ -384,15 +337,13 @@ let g:Powerline_mode_n = 'N'
 " }}}
 
 " SkyBison {{{1
-if exists('g:skybison_loaded')
-    nnoremap <space>e :<c-u>call SkyBison("e ")<cr>
-    nnoremap <space>cd :<c-u>call SkyBison("cd ")<cr>
-    nnoremap <space>h :<c-u>call SkyBison("h ")<cr>
-    nnoremap <space>; :<c-u>call SkyBison("")<cr>
-    nnoremap <space>b :<c-u>call SkyBison("b ")<cr>
-    nnoremap <space>t :<c-u>call SkyBison("tag ")<cr>
-    let g:skybison_fuzz=1
-endif
+nnoremap <space>e :<c-u>call SkyBison("e ")<cr>
+nnoremap <space>cd :<c-u>call SkyBison("cd ")<cr>
+nnoremap <space>h :<c-u>call SkyBison("h ")<cr>
+nnoremap <space>; :<c-u>call SkyBison("")<cr>
+nnoremap <space>b :<c-u>call SkyBison("b ")<cr>
+nnoremap <space>t :<c-u>call SkyBison("tag ")<cr>
+let g:skybison_fuzz=1
 "}}}
 
 " Syntastic {{{1
@@ -436,14 +387,12 @@ let taboo_tab_format='%f%m'
 " }}} Taboo "
 
 " Tagbar {{{1
-if exists('g:loaded_tagbar')
-    let g:tagbar_left=1
-    let g:tagbar_ctags_bin="/usr/local/bin/ctags"
-    let g:tagbar_width=30
-    let g:tagbar_iconchars=['+', '-']
-    let g:tagbar_preview=1
-    nnoremap <silent> <F9> :TagbarToggle<CR>
-endif
+let g:tagbar_left=1
+let g:tagbar_ctags_bin="/usr/local/bin/ctags"
+let g:tagbar_width=30
+let g:tagbar_iconchars=['+', '-']
+let g:tagbar_preview=1
+nnoremap <silent> <F9> :TagbarToggle<CR>
 " }}}
 
 " Taglist {{{1
@@ -486,8 +435,6 @@ let g:UltiSnipsEditSplit="vertical"
 " }}}
 
 " Undotree {{{1
-if exists('g:loaded_undotree')
-    let g:undotree_HighlightChangedText=0
-    nnoremap <F6> :UndotreeToggle<cr>
-endif
+let g:undotree_HighlightChangedText=0
+nnoremap <F6> :UndotreeToggle<cr>
 " }}} Undotree "
