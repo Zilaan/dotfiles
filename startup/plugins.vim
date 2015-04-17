@@ -1,59 +1,86 @@
 " vim: foldmethod=marker
 " vim: foldcolumn=3
 
-" Syntastic {{{1
-let g:syntastic_aggregate_errors=1
-let g:syntastic_loc_list_height=5
-let g:syntastic__loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic__jump=3
-let g:syntastic_enable_signs=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='░'
-let g:syntastic_enable_balloons=1
-let g:syntastic_enable_highlighting=1
-let g:pymode_lint_write=0
-let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{,}%W{Warn: %fw #%w}]'
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_tex_checkers = ['chktex']
-let g:syntastic_python_flake8_args = '--ignore="
-            \ E251,
-            \ F403,
-            \ E501,
-            \ E502,
-            \ E126,
-            \ E127,
-            \ E128,
-            \ W801,
-            \ W191,
-            \ E101,
-            \ F401,
-            \ E221,
-            \ E203,
-            \ E202,
-            \ E261,
-            \ E222,
-            \ E262"'
+" Ack {{{1
+let g:ackhighlight = 1
 " }}}
 
-" NERDTree {{{1
-if exists('g:loaded_nerd_tree')
-    nnoremap <LEADER>nt :NERDTreeToggle<CR>
-    let g:NERDTreeWinPos='right'
+" Ag {{{1
+let g:ackhighlight = 1
+let g:ag_apply_qmappings = 1
+let g:agprg = 'ag --nogroup --nocolor --column'
+if executable('ag')
+    " Note we extract the column as well as the file and line number
+    set grepprg=ag\ --nogroup\ --nocolor\ --column
+    set grepformat=%f:%l:%c%m
 endif
-"}}}
+" }}}
 
-" Inställningar för SkyBison {{{1
-if exists('g:skybison_loaded')
-    nnoremap <space>e :<c-u>call SkyBison("e ")<cr>
-    nnoremap <space>cd :<c-u>call SkyBison("cd ")<cr>
-    nnoremap <space>h :<c-u>call SkyBison("h ")<cr>
-    nnoremap <space>; :<c-u>call SkyBison("")<cr>
-    nnoremap <space>b :<c-u>call SkyBison("b ")<cr>
-    nnoremap <space>t :<c-u>call SkyBison("tag ")<cr>
-    let g:skybison_fuzz=1
+" Airline {{{1
+" Set no delay
+set ttimeoutlen=50
+" Theme
+let g:airline_theme = 'powerlineish'
+
+" Taboo
+let g:airline#extensions#taboo#enabled = 1
+let g:taboo_tabline = 0
+
+" Tabline
+let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#tab_nr_type = 2 " splits and tab number
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+
+" Powerline symbols
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
 endif
-"}}}
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+let g:airline_symbols.whitespace = 'Ξ'
+
+" QuickFix
+let g:airline#extensions#quickfix#quickfix_text = 'Quickfix'
+let g:airline#extensions#quickfix#location_text = 'Location'
+
+" Buffer
+let g:airline#extensions#bufferline#enabled = 1
+let g:airline#extensions#bufferline#overwrite_variables = 1
+
+" Fugitive
+let g:airline#extensions#branch#enabled = 1
+
+" Syntastic
+let g:airline#extensions#syntastic#enabled = 1
+
+" Tagbar
+let g:airline#extensions#tagbar#enabled = 1
+
+" CtrlP
+let g:airline#extensions#ctrlp#color_template = 'replace'
+let g:airline#extensions#ctrlp#show_adjacent_modes = 1
+
+" Whitespace
+let g:airline#extensions#whitespace#enabled = 1
+let g:airline#extensions#whitespace#symbol = '!'
+" }}}
+
+" Better whitespace {{{1
+if exists('g:loaded_better_whitespace_plugin')
+    nnoremap <Leader>w :StripWhitespace<CR>
+    let g:strip_whitespace_on_save = 0
+endif
+" }}}
 
 " CtrlP {{{1
 
@@ -149,34 +176,88 @@ if exists('g:loaded_ctrlp')
 endif
 " }}}
 
-" Taglist {{{1
-filetype plugin on
-let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
-" nnoremap <c-t> :TlistToggle<cr>
-let Tlist_Auto_Open=0
+" Easy Align {{{1
+if exists('g:loaded_easy_align')
+    " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+    vmap <Enter> <Plug>(EasyAlign)
 
-" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
+    " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+    nmap ga <Plug>(EasyAlign)
+endif
+" }}} Easy Align "
 
-" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
-" can be called correctly.
-" set shellslash
-
-" IMPORTANT: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse Latex-Suite. Set your grep
-" program to always generate a file-name.
-" set grepprg=grep\ -nH\ $*
-
-" OPTIONAL: This enables matic indentation as you type.
-
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
-let g:Tex_TreatMacViewerAsUNIX=1
-let g:Tex_ExecuteUNIXViewerInForeground=1
-let g:Tex_ViewRule_pdf='open -a /Applications/Preview.app'
-let g:Tex_MultipleCompileFormats='pdf'
+" Gundo {{{1
+" nnoremap <F6> :GundoToggle<CR>
+let g:gundo_right=1
 " }}}
+
+" Incsearch {{{1
+if exists('g:loaded_incsearch')
+    map /  <Plug>(incsearch-forward)
+    map ?  <Plug>(incsearch-backward)
+    map g/ <Plug>(incsearch-stay)
+endif
+" }}}
+
+" Indent Guides {{{1
+" Enable Indent Guides
+let g:indent_guides_enable_on_vim_startup = 0
+
+" Number of indent levels
+let g:indent_guides_indent_levels = 30
+
+" Auto colors
+let g:indent_guides__colors = 1
+
+" Size of guides
+let g:indent_guides_guide_size = 1
+
+" Start at level
+let g:indent_guides_start_level = 2
+
+" Disable for filetypes
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+
+" Default mapping <Leader>ig
+let g:indent_guides_default_mapping = 1
+" }}}
+
+" Latex-Box {{{1
+let g:LatexBox_ignore_warnings
+            \ = [
+            \ 'Underfull',
+            \ 'Overfull',
+            \ 'specifier changed to',
+            \ 'You should put a space'
+            \ ]
+
+" }}}
+
+" Latex-Suite {{{1
+" let g:tex_flavor='latex'
+" let g:Tex_TreatMacViewerAsUNIX = 1
+" let g:Tex_ExecuteUNIXViewerInForeground = 1
+" let g:Tex_GotoError = 0
+" let g:Tex_CompileRule_pdf = 'latexmk -pdf'
+" let g:Tex_DefaultTargetFormat='pdf'
+" let g:Tex_MultipleCompileFormats='pdf'
+" }}}
+
+" Matchit {{{1
+let loaded_mathit = 1
+" }}}
+
+" Matchmaker {{{1
+let g:matchmaker_enable_startup = 0
+nnoremap <leader>mm :<C-u>MatchmakerToggle<CR>
+" }}}
+
+" NERDTree {{{1
+if exists('g:loaded_nerd_tree')
+    nnoremap <LEADER>nt :NERDTreeToggle<CR>
+    let g:NERDTreeWinPos='right'
+endif
+"}}}
 
 " NeoComplete {{{1
 " Note: This option must set it in .vimrc(_vimrc). NOT IN .gvimrc(_gvimrc)!
@@ -265,130 +346,12 @@ let g:neocomplete#sources#omni#input_patterns.perl='\h\w*->\h\w*\|\h\w*::'
 let g:neocomplete#ctags_command='/usr/local/bin/ctags'
 " }}}
 
-" Gundo {{{1
-" nnoremap <F6> :GundoToggle<CR>
-let g:gundo_right=1
-" }}}
-
-" Indent Guides {{{1
-" Enable Indent Guides
-let g:indent_guides_enable_on_vim_startup = 0
-
-" Number of indent levels
-let g:indent_guides_indent_levels = 30
-
-" Auto colors
-let g:indent_guides__colors = 1
-
-" Size of guides
-let g:indent_guides_guide_size = 1
-
-" Start at level
-let g:indent_guides_start_level = 2
-
-" Disable for filetypes
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-
-" Default mapping <Leader>ig
-let g:indent_guides_default_mapping = 1
-" }}}
-
-" Matchit {{{1
-let loaded_mathit = 1
-" }}}
-
 " Poweline {{{1
 let g:Powerline_symbols='fancy'
 let g:Powerline_mode_n = 'N'
 " }}}
 
-" Ag {{{
-let g:ackhighlight = 1
-let g:ag_apply_qmappings = 1
-let g:agprg = 'ag --nogroup --nocolor --column'
-if executable('ag')
-    " Note we extract the column as well as the file and line number
-    set grepprg=ag\ --nogroup\ --nocolor\ --column
-    set grepformat=%f:%l:%c%m
-endif
-" }}}
-
-" Ack {{{
-let g:ackhighlight = 1
-" }}}
-
-" Airline {{{
-" Set no delay
-set ttimeoutlen=50
-" Theme
-let g:airline_theme = 'powerlineish'
-
-" Taboo
-let g:airline#extensions#taboo#enabled = 1
-let g:taboo_tabline = 0
-
-" Tabline
-let g:airline#extensions#tabline#show_tab_nr = 1
-let g:airline#extensions#tabline#tab_nr_type = 2 " splits and tab number
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 1
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline#extensions#tabline#right_sep = ''
-let g:airline#extensions#tabline#right_alt_sep = ''
-
-" Powerline symbols
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-let g:airline_symbols.whitespace = 'Ξ'
-
-" QuickFix
-let g:airline#extensions#quickfix#quickfix_text = 'Quickfix'
-let g:airline#extensions#quickfix#location_text = 'Location'
-
-" Buffer
-let g:airline#extensions#bufferline#enabled = 1
-let g:airline#extensions#bufferline#overwrite_variables = 1
-
-" Fugitive
-let g:airline#extensions#branch#enabled = 1
-
-" Syntastic
-let g:airline#extensions#syntastic#enabled = 1
-
-" Tagbar
-let g:airline#extensions#tagbar#enabled = 1
-
-" CtrlP
-let g:airline#extensions#ctrlp#color_template = 'replace'
-let g:airline#extensions#ctrlp#show_adjacent_modes = 1
-
-" Whitespace
-let g:airline#extensions#whitespace#enabled = 1
-let g:airline#extensions#whitespace#symbol = '!'
-" }}}
-
-" Better whitespace {{{
-if exists('g:loaded_better_whitespace_plugin')
-    nnoremap <Leader>w :StripWhitespace<CR>
-    let g:strip_whitespace_on_save = 0
-endif
-" }}}
-
-" Matchmaker {{{
-let g:matchmaker_enable_startup = 0
-nnoremap <leader>mm :<C-u>MatchmakerToggle<CR>
-" }}}
-
-" Rainbow parentheses {{{
+" Rainbow parentheses {{{1
 " Set colors
 "	let g:rbpt_colorpairs = [
 "		\ ['brown',       'RoyalBlue3'],
@@ -420,36 +383,59 @@ nnoremap <leader>mm :<C-u>MatchmakerToggle<CR>
 "	au Syntax * RainbowParenthesesLoadBraces
 " }}}
 
-" Incsearch {{{
-if exists('g:loaded_incsearch')
-    map /  <Plug>(incsearch-forward)
-    map ?  <Plug>(incsearch-backward)
-    map g/ <Plug>(incsearch-stay)
+" SkyBison {{{1
+if exists('g:skybison_loaded')
+    nnoremap <space>e :<c-u>call SkyBison("e ")<cr>
+    nnoremap <space>cd :<c-u>call SkyBison("cd ")<cr>
+    nnoremap <space>h :<c-u>call SkyBison("h ")<cr>
+    nnoremap <space>; :<c-u>call SkyBison("")<cr>
+    nnoremap <space>b :<c-u>call SkyBison("b ")<cr>
+    nnoremap <space>t :<c-u>call SkyBison("tag ")<cr>
+    let g:skybison_fuzz=1
 endif
+"}}}
+
+" Syntastic {{{1
+let g:syntastic_aggregate_errors=1
+let g:syntastic_loc_list_height=5
+let g:syntastic__loc_list=1
+let g:syntastic_check_on_open=1
+let g:syntastic__jump=3
+let g:syntastic_enable_signs=1
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='░'
+let g:syntastic_enable_balloons=1
+let g:syntastic_enable_highlighting=1
+let g:pymode_lint_write=0
+let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{,}%W{Warn: %fw #%w}]'
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_tex_checkers = ['chktex']
+let g:syntastic_python_flake8_args = '--ignore="
+            \ E251,
+            \ F403,
+            \ E501,
+            \ E502,
+            \ E126,
+            \ E127,
+            \ E128,
+            \ W801,
+            \ W191,
+            \ E101,
+            \ F401,
+            \ E221,
+            \ E203,
+            \ E202,
+            \ E261,
+            \ E222,
+            \ E262"'
 " }}}
 
-" Latex-Suite {{{
-" let g:tex_flavor='latex'
-" let g:Tex_TreatMacViewerAsUNIX = 1
-" let g:Tex_ExecuteUNIXViewerInForeground = 1
-" let g:Tex_GotoError = 0
-" let g:Tex_CompileRule_pdf = 'latexmk -pdf'
-" let g:Tex_DefaultTargetFormat='pdf'
-" let g:Tex_MultipleCompileFormats='pdf'
-" }}}
+" Taboo {{{1
+let taboo_renamed_tab_format='[%l]%m'
+let taboo_tab_format='%f%m'
+" }}} Taboo "
 
-" Latex-Box {{{
-let g:LatexBox_ignore_warnings
-            \ = [
-            \ 'Underfull',
-            \ 'Overfull',
-            \ 'specifier changed to',
-            \ 'You should put a space'
-            \ ]
-
-" }}}
-
-" Tagbar {{{
+" Tagbar {{{1
 if exists('g:loaded_tagbar')
     let g:tagbar_left=1
     let g:tagbar_ctags_bin="/usr/local/bin/ctags"
@@ -460,7 +446,36 @@ if exists('g:loaded_tagbar')
 endif
 " }}}
 
-" Ultisnips {{{
+" Taglist {{{1
+filetype plugin on
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+" nnoremap <c-t> :TlistToggle<cr>
+let Tlist_Auto_Open=0
+
+" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
+
+" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
+" can be called correctly.
+" set shellslash
+
+" IMPORTANT: grep will sometimes skip displaying the file name if you
+" search in a singe file. This will confuse Latex-Suite. Set your grep
+" program to always generate a file-name.
+" set grepprg=grep\ -nH\ $*
+
+" OPTIONAL: This enables matic indentation as you type.
+
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+let g:Tex_TreatMacViewerAsUNIX=1
+let g:Tex_ExecuteUNIXViewerInForeground=1
+let g:Tex_ViewRule_pdf='open -a /Applications/Preview.app'
+let g:Tex_MultipleCompileFormats='pdf'
+" }}}
+
+" Ultisnips {{{1
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -470,22 +485,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 " }}}
 
-" Easy Align {{{ "
-if exists('g:loaded_easy_align')
-    " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-    vmap <Enter> <Plug>(EasyAlign)
-
-    " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-    nmap ga <Plug>(EasyAlign)
-endif
-" }}} Easy Align "
-
-" Taboo {{{ "
-let taboo_renamed_tab_format='[%l]%m'
-let taboo_tab_format='%f%m'
-" }}} Taboo "
-
-" Undotree {{{ "
+" Undotree {{{1
 if exists('g:loaded_undotree')
     let g:undotree_HighlightChangedText=0
     nnoremap <F6> :UndotreeToggle<cr>
