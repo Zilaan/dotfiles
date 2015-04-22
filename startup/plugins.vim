@@ -426,6 +426,7 @@ let g:Tex_MultipleCompileFormats='pdf'
 
 " Ultisnips {{{1
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsListSnippets="<leader><tab>"
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
