@@ -346,6 +346,51 @@ nnoremap <space>t :<c-u>call SkyBison("tag ")<cr>
 let g:skybison_fuzz=1
 "}}}
 
+" Startify {{{1
+" Change to files dir
+let g:startify_change_to_dir = 1
+
+" Skip following files
+let g:startify_skiplist = [
+            \ 'COMMIT_EDITMSG',
+            \ fnamemodify($VIMRUNTIME, ':p') .'/doc',
+            \ fnamemodify($VIMRUNTIME, ':p') .'/doc/.*',
+            \ fnamemodify($HOME, ':p') .'/Documents/Dropbox/.*',
+            \ fnamemodify($HOME, ':p') .'/Documents/Jobb/.*',
+            \ 'Documents/Jobb/.*',
+            \ 'bundle/.*/doc',
+            \ '\.git/',
+            \ ]
+
+" Bookmarks
+let g:startify_bookmarks = [
+        \ '~/.vim/',
+        \ '~/Documents/Programmering/',
+        \ '~/Documents/Latex/',
+        \ ]
+
+" Set names
+let g:startify_list_order = [
+        \ ['   MRU:'],
+        \ 'files',
+        \ ['   MRU (dir):'],
+        \ 'dir',
+        \ ['   Sessions:'],
+        \ 'sessions',
+        \ ['   Bookmarks:'],
+        \ 'bookmarks',
+        \ ]
+
+hi StartifyBracket ctermfg=240
+hi StartifyFile    ctermfg=147
+hi StartifyFooter  ctermfg=240
+hi StartifyHeader  ctermfg=114
+hi StartifyNumber  ctermfg=215
+hi StartifyPath    ctermfg=245
+hi StartifySlash   ctermfg=240
+hi StartifySpecial ctermfg=240
+" }}}
+
 " Syntastic {{{1
 let g:syntastic_aggregate_errors=1
 let g:syntastic_loc_list_height=5
