@@ -112,3 +112,6 @@
 [submodule "bundle/vim-startify"]
 	path = bundle/vim-startify
 	url = https://github.com/mhinz/vim-startify.git
+[submodule "bundle/NERDTree-Git-Plugin"]
+	path = bundle/NERDTree-Git-Plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
