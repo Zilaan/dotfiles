@@ -276,6 +276,7 @@ inoremap <expr><C-e> neocomplete#cancel_popup()
 " set completeopt+=longest
 " let g:neocomplete#enable__select=1
 autocmd BufReadPost *.tex let g:neocomplete#disable_auto_complete=1
+autocmd BufReadPost *.java let g:neocomplete#disable_auto_complete=1
 inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
@@ -284,18 +285,24 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType java let g:neocomplete#enable_at_startup=0
+autocmd FileType java set cot-=preview
+autocmd BufEnter *.java let g:neocomplete#enable_at_startup=0
+autocmd BufEnter *.java set cot-=preview
 
 " Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns={}
+if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
 endif
+let g:neocomplete#force_omni_input_patterns.java =
+            \ '\%(\h\w*\|)\)\.\w*'
 " let g:neocomplete#sources#omni#input_patterns.php='[^. \t]->\h\w*\|\h\w*::'
 " let g:neocomplete#sources#omni#input_patterns.c='[^.[:digit:] *\t]\%(\.\|->\)'
 " let g:neocomplete#sources#omni#input_patterns.cpp='[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl='\h\w*->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.perl='\h\w*->\h\w*\|\h\w*::'
 let g:neocomplete#ctags_command='/usr/local/bin/ctags'
 " }}}
 
