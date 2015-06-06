@@ -118,3 +118,12 @@
 [submodule "bundle/Bufonly"]
 	path = bundle/Bufonly
 	url = https://github.com/vim-scripts/BufOnly.vim.git
+[submodule "bundle/PaperColor"]
+	path = bundle/PaperColor
+	url = https://github.com/NLKNguyen/papercolor-theme.git
+[submodule "bundle/Gruvbox"]
+	path = bundle/Gruvbox
+	url = https://github.com/morhetz/gruvbox.git
+[submodule "bundle/Fold-cycle"]
+	path = bundle/Fold-cycle
+	url = https://github.com/arecarn/fold-cycle.vim.git

@@ -202,3 +202,7 @@ nmap <silent> <f4> :QFixToggle<cr>
 set wildmenu
 set completeopt=menuone,preview
 " }}}
+
+" Use clipboard {{{
+set clipboard=unnamed
+" }}}
