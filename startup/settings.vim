@@ -82,6 +82,9 @@ endif
 " Sätt på radnumrering
 set number
 
+" Relative number
+set relativenumber
+
 " Statusbar ska alltid vara på
 set laststatus=2
 
