@@ -1,2 +1,4 @@
 tags
 bundle/*
+bundle/tlib/*
+bundle/vim-startify/*

@@ -50,6 +50,7 @@ Plugin 'vim-scripts/tlib'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'mhinz/vim-startify'
 Plugin 'https://github.com/lervag/vimtex'
+Plugin 'SirVer/ultisnips'
 
 
 " All of your Plugins must be added before the following line
