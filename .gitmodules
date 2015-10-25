@@ -1,9 +1,0 @@
-[submodule "bundle/Fugitive"]
-	path = bundle/Fugitive
-	url = https://github.com/tpope/vim-fugitive.git
-[submodule "bundle/Unite"]
-	path = bundle/Unite
-	url = https://github.com/Shougo/unite.vim.git
-[submodule "bundle/NeoComplete"]
-	path = bundle/NeoComplete
-	url = https://github.com/Shougo/neocomplete.vim.git
