@@ -7,6 +7,7 @@ set gfn=Sauce\ Code\ Powerline\ Regular:h15
 
 " Välj färgschema
 let g:hybrid_use_iTerm_colors = 1
+colo blue
 colo hybrid
 
 " Sätt på syntaxfärg
