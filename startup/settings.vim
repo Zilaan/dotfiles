@@ -22,6 +22,10 @@ set termencoding=utf-8
 highlight ColorColumn ctermbg=magenta
 set colorcolumn=81
 set showcmd
+
+" Slow redraw
+set lazyredraw
+set ttyfast
 " }}}
 
 " Disable gui {{{

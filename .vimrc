@@ -21,36 +21,37 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'rking/ag.vim'
-Plugin 'bling/vim-airline'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'schickling/vim-bufonly'
-Plugin 'kien/ctrlp.vim'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'sjl/gundo.vim'
-Plugin 'haya14busa/incsearch.vim'
-Plugin 'tmhedberg/matchit'
-Plugin 'qstrahl/vim-matchmaker'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'paradigm/SkyBison'
-Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/syntastic'
-Plugin 'gcmt/taboo.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'w0ng/vim-hybrid'
-Plugin 'mbbill/undotree'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'vim-scripts/tlib'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'mhinz/vim-startify'
-Plugin 'https://github.com/lervag/vimtex'
-Plugin 'SirVer/ultisnips'
+Plugin 'VundleVim/Vundle.vim'             " Vundle
+Plugin 'tpope/vim-fugitive'               " Fugitive
+Plugin 'rking/ag.vim'                     " Ag
+Plugin 'bling/vim-airline'                " Airline
+Plugin 'ntpeters/vim-better-whitespace'   " Better-whitespace
+Plugin 'schickling/vim-bufonly'           " Bufonly
+Plugin 'kien/ctrlp.vim'                   " CtrlP
+Plugin 'junegunn/vim-easy-align'          " Easy-align
+Plugin 'easymotion/vim-easymotion'        " Easymotion
+Plugin 'airblade/vim-gitgutter'           " Gitgutter
+Plugin 'sjl/gundo.vim'                    " Gundo
+Plugin 'haya14busa/incsearch.vim'         " Incsearch
+Plugin 'tmhedberg/matchit'                " Matchit
+Plugin 'qstrahl/vim-matchmaker'           " Matchmaker
+Plugin 'scrooloose/nerdtree'              " NerdTree
+Plugin 'Xuyuanp/nerdtree-git-plugin'      " NerdTree-git
+Plugin 'Shougo/neocomplete.vim'           " NeoComplete
+Plugin 'paradigm/SkyBison'                " Skybison
+Plugin 'tpope/vim-surround'               " Surround
+Plugin 'scrooloose/syntastic'             " Syntastic
+Plugin 'gcmt/taboo.vim'                   " Taboo
+Plugin 'majutsushi/tagbar'                " Taboo
+Plugin 'w0ng/vim-hybrid'                  " Hybrid
+Plugin 'mbbill/undotree'                  " Undotree
+Plugin 'tpope/vim-unimpaired'             " Unimpared
+Plugin 'vim-scripts/tlib'                 " Tlib
+Plugin 'MarcWeber/vim-addon-mw-utils'     " Mw-utils
+Plugin 'mhinz/vim-startify'               " Startify
+Plugin 'https://github.com/lervag/vimtex' " Vimtex
+Plugin 'SirVer/ultisnips'                 " Ultisnips
+
 
 
 " All of your Plugins must be added before the following line

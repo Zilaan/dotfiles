@@ -118,4 +118,73 @@ endsnippet
 snippet lp "Long parenthesis"
 \left(${1:${VISUAL:contents}}\right)$0
 endsnippet
+
+snippet doc "Template"
+\documentclass[11pt]{article}
+\title{Title}
+\author{Raman Haddad}
+\date{\today}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}      % change font encoding to T1
+\usepackage{amsmath}          % Used for equations and math
+\usepackage{amssymb}
+\usepackage{fancyhdr}         % Nice headings
+\usepackage[]{graphicx}       % Figures
+\usepackage{caption}          % Captions
+%\usepackage{subcaption}       % Sub captions
+\usepackage[parfill]{parskip} % Paragraph indent
+\usepackage{placeins}         % Something
+\usepackage{bondgraph}        % Bondgraph
+\usepackage{booktabs}         % Better tables
+\usepackage{listings}         % For code
+\usepackage{color}
+%\usepackage[framed,numbered]{matlab-prettifier}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\captionsetup{width=0.6\linewidth}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+
+\lstset{frame=tb,
+  language=MATLAB,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  numberstyle=\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+
+\newcommand{\MV}[1]{\mathbf{#1
+\newcommand{\E}[1]{\mathbb{E}\left \{#1\right \
+\newcommand{\Var}{\mathrm{Var
+\newcommand{\Cov}[1]{\mathrm{Cov}\left \{#1\right \
+\newcommand{\Prob}[1]{{p}\left (#1\right )}
+\newcommand{\N}[1]{\mathcal{N}\left (#1\right )}
+\newcommand{\Caption}[1]{\caption{\small{#1
+% User commands
+
+\begin{document}
+
+\maketitle
+\newpage
+
+${0}
+
+\end{document}
+endsnippet
 # vim:ft=snippets:
