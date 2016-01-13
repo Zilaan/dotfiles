@@ -6,14 +6,17 @@ let g:ackhighlight = 1
 " }}}
 
 " Ag {{{1
-let g:ackhighlight = 1
+let g:ag_highlight = 1
 let g:ag_apply_qmappings = 1
-let g:agprg = 'ag --nogroup --nocolor --column'
+let g:ag_prg = 'ag --nogroup --nocolor --column'
 if executable('ag')
     " Note we extract the column as well as the file and line number
     set grepprg=ag\ --nogroup\ --nocolor\ --column
     set grepformat=%f:%l:%c%m
 endif
+
+"command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+"nnoremap \ :Ag<SPACE>
 " }}}
 
 " Airline {{{1
@@ -142,6 +145,10 @@ vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 " }}} Easy Align "
+
+" fzf {{{1
+set rtp+=~/.fzf
+" }}}
 
 " Gundo {{{1
 " nnoremap <F6> :GundoToggle<CR>

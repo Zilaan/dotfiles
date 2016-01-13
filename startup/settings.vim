@@ -26,6 +26,9 @@ set showcmd
 " Slow redraw
 set lazyredraw
 set ttyfast
+
+" Thesaurus
+set thesaurus+=~/.vim/thesaurus/mthesaur.txt
 " }}}
 
 " Disable gui {{{

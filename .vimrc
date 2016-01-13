@@ -51,6 +51,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'     " Mw-utils
 Plugin 'mhinz/vim-startify'               " Startify
 Plugin 'https://github.com/lervag/vimtex' " Vimtex
 Plugin 'SirVer/ultisnips'                 " Ultisnips
+Plugin 'beloglazov/vim-online-thesaurus'  " Thesaurus
 
 
 
