@@ -22,7 +22,6 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'             " Vundle
-Plugin 'tpope/vim-fugitive'               " Fugitive
 Plugin 'rking/ag.vim'                     " Ag
 Plugin 'bling/vim-airline'                " Airline
 Plugin 'ntpeters/vim-better-whitespace'   " Better-whitespace
@@ -30,6 +29,7 @@ Plugin 'schickling/vim-bufonly'           " Bufonly
 Plugin 'kien/ctrlp.vim'                   " CtrlP
 Plugin 'junegunn/vim-easy-align'          " Easy-align
 Plugin 'easymotion/vim-easymotion'        " Easymotion
+Plugin 'tpope/vim-fugitive'               " Fugitive
 Plugin 'airblade/vim-gitgutter'           " Gitgutter
 Plugin 'sjl/gundo.vim'                    " Gundo
 Plugin 'haya14busa/incsearch.vim'         " Incsearch
@@ -42,7 +42,7 @@ Plugin 'paradigm/SkyBison'                " Skybison
 Plugin 'tpope/vim-surround'               " Surround
 Plugin 'scrooloose/syntastic'             " Syntastic
 Plugin 'gcmt/taboo.vim'                   " Taboo
-Plugin 'majutsushi/tagbar'                " Taboo
+Plugin 'majutsushi/tagbar'                " Tagbar
 Plugin 'w0ng/vim-hybrid'                  " Hybrid
 Plugin 'mbbill/undotree'                  " Undotree
 Plugin 'tpope/vim-unimpaired'             " Unimpared
