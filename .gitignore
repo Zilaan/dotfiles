@@ -1,4 +1,4 @@
 *tags
-bundle/*
+bundle/**/*
 bundle/tlib/*
 bundle/vim-startify/*
