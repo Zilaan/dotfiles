@@ -1,0 +1,39 @@
+tmux
+    tacklebox
+fish shell
+    fisherman
+    oh my fish
+
+[Brew]
+    brew-cask
+    ecj
+    emacs
+    findutils
+    fish
+    gdbm
+    gmp
+    gnu-sed
+    grep
+    isl
+    libevent
+    libmpc
+    lua
+    mercurial
+    mpfr
+    openssl
+    pandoc
+    pcre
+    pkg-config
+    pv
+    python3
+    readline
+    reattach-to-user-namespace
+    rename
+    spark
+    sqlite
+    the_silver_searcher
+    tmux
+    vcprompt
+    wget
+    xz
+    zsh

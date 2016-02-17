@@ -1,0 +1,33 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+#
+
+PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+
+alias gst='git status'
+alias gia='git add'
+alias getPic='wget -r -l1 --no-parent -nH -nd -P. -A ".gif,.jpg"'
+
+#GP() {
+#        cd ~/Downloads/ST/; mkdir "$1"; cd "$1"
+#        wget -r -l1 --no-parent -nH -nd -P. -A ".jpg" http://
+#}
+
+export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+[[ $TERM != "screen" ]] && exec tmux
+
+
+# [-f ~/.fzf.zsh ] && source ~/.fzf.zsh
