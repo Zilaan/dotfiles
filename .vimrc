@@ -12,56 +12,44 @@
 
 
 set nocompatible              " be iMproved, required
-filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/.vim/bundle')
+Plug 'VundleVim/Vundle.vim'             " Vundle
+Plug 'rking/ag.vim'                     " Ag
+Plug 'bling/vim-airline'                " Airline
+Plug 'ntpeters/vim-better-whitespace'   " Better-whitespace
+Plug 'schickling/vim-bufonly'           " Bufonly
+Plug 'kien/ctrlp.vim'                   " CtrlP
+Plug 'junegunn/vim-easy-align'          " Easy-align
+Plug 'easymotion/vim-easymotion'        " Easymotion
+Plug 'tpope/vim-fugitive'               " Fugitive
+Plug 'airblade/vim-gitgutter'           " Gitgutter
+Plug 'sjl/gundo.vim'                    " Gundo
+Plug 'haya14busa/incsearch.vim'         " Incsearch
+Plug 'tmhedberg/matchit'                " Matchit
+Plug 'qstrahl/vim-matchmaker'           " Matchmaker
+Plug 'scrooloose/nerdtree'              " NerdTree
+Plug 'Xuyuanp/nerdtree-git-plugin'      " NerdTree-git
+Plug 'Shougo/neocomplete.vim'           " NeoComplete
+Plug 'NLKNguyen/papercolor-theme'       " PaperColor
+Plug 'paradigm/SkyBison'                " Skybison
+Plug 'altercation/vim-colors-solarized' " Solarized
+Plug 'tpope/vim-surround'               " Surround
+Plug 'scrooloose/syntastic'             " Syntastic
+Plug 'gcmt/taboo.vim'                   " Taboo
+Plug 'majutsushi/tagbar'                " Tagbar
+Plug 'abudden/taghighlight-automirror'  " TagHighlight
+Plug 'w0ng/vim-hybrid'                  " Hybrid
+Plug 'mbbill/undotree'                  " Undotree
+Plug 'tpope/vim-unimpaired'             " Unimpared
+Plug 'vim-scripts/tlib'                 " Tlib
+Plug 'MarcWeber/vim-addon-mw-utils'     " Mw-utils
+Plug 'mhinz/vim-startify'               " Startify
+Plug 'https://github.com/lervag/vimtex' " Vimtex
+Plug 'SirVer/ultisnips'                 " Ultisnips
+Plug 'beloglazov/vim-online-thesaurus'  " Thesaurus
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'             " Vundle
-Plugin 'rking/ag.vim'                     " Ag
-Plugin 'bling/vim-airline'                " Airline
-Plugin 'ntpeters/vim-better-whitespace'   " Better-whitespace
-Plugin 'schickling/vim-bufonly'           " Bufonly
-Plugin 'kien/ctrlp.vim'                   " CtrlP
-Plugin 'junegunn/vim-easy-align'          " Easy-align
-Plugin 'easymotion/vim-easymotion'        " Easymotion
-Plugin 'tpope/vim-fugitive'               " Fugitive
-Plugin 'airblade/vim-gitgutter'           " Gitgutter
-Plugin 'sjl/gundo.vim'                    " Gundo
-Plugin 'haya14busa/incsearch.vim'         " Incsearch
-Plugin 'tmhedberg/matchit'                " Matchit
-Plugin 'qstrahl/vim-matchmaker'           " Matchmaker
-Plugin 'scrooloose/nerdtree'              " NerdTree
-Plugin 'Xuyuanp/nerdtree-git-plugin'      " NerdTree-git
-Plugin 'Shougo/neocomplete.vim'           " NeoComplete
-Plugin 'NLKNguyen/papercolor-theme'       " PaperColor
-Plugin 'paradigm/SkyBison'                " Skybison
-Plugin 'altercation/vim-colors-solarized' " Solarized
-Plugin 'tpope/vim-surround'               " Surround
-Plugin 'scrooloose/syntastic'             " Syntastic
-Plugin 'gcmt/taboo.vim'                   " Taboo
-Plugin 'majutsushi/tagbar'                " Tagbar
-Plugin 'abudden/taghighlight-automirror'  " TagHighlight
-Plugin 'w0ng/vim-hybrid'                  " Hybrid
-Plugin 'mbbill/undotree'                  " Undotree
-Plugin 'tpope/vim-unimpaired'             " Unimpared
-Plugin 'vim-scripts/tlib'                 " Tlib
-Plugin 'MarcWeber/vim-addon-mw-utils'     " Mw-utils
-Plugin 'mhinz/vim-startify'               " Startify
-Plugin 'https://github.com/lervag/vimtex' " Vimtex
-Plugin 'SirVer/ultisnips'                 " Ultisnips
-Plugin 'beloglazov/vim-online-thesaurus'  " Thesaurus
-
-
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
+call plug#end()
 
 " Sätt "," som <leader>
 let mapleader=","
