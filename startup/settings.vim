@@ -3,6 +3,8 @@
 " vim: foldmethod=marker
 " vim: foldcolumn=3
 
+inoremap kj <esc>
+
 " General settings {{{
 set tags=./tags;
 set t_Co=256
@@ -35,7 +37,7 @@ set thesaurus+=~/.vim/thesaurus/mthesaur.txt
 if has('gui_running')
     " GUI Vim
 
-    set guifont=Meslo\ LG\ DZ\ Regular\ for\ Powerline:h12
+    set guifont=Sauce\ Code\ Powerline:h12
 
     " Remove all the UI cruft
     set go-=T

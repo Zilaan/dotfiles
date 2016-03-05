@@ -38,11 +38,14 @@ Plugin 'qstrahl/vim-matchmaker'           " Matchmaker
 Plugin 'scrooloose/nerdtree'              " NerdTree
 Plugin 'Xuyuanp/nerdtree-git-plugin'      " NerdTree-git
 Plugin 'Shougo/neocomplete.vim'           " NeoComplete
+Plugin 'NLKNguyen/papercolor-theme'       " PaperColor
 Plugin 'paradigm/SkyBison'                " Skybison
+Plugin 'altercation/vim-colors-solarized' " Solarized
 Plugin 'tpope/vim-surround'               " Surround
 Plugin 'scrooloose/syntastic'             " Syntastic
 Plugin 'gcmt/taboo.vim'                   " Taboo
 Plugin 'majutsushi/tagbar'                " Tagbar
+Plugin 'abudden/taghighlight-automirror'  " TagHighlight
 Plugin 'w0ng/vim-hybrid'                  " Hybrid
 Plugin 'mbbill/undotree'                  " Undotree
 Plugin 'tpope/vim-unimpaired'             " Unimpared
