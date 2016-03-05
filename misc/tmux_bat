@@ -1,0 +1,17 @@
+#!/usr/local/bin/fish
+
+set -l BAT_LEV (pmset -g batt | ggrep -oP '[0-9]+(?=\%)')
+set -l BAT_VAL ''
+if math "$BAT_LEV >= 90" > /dev/null
+    echo '◼ ◼ ◼ ◼ ◼ '
+else if math "$BAT_LEV >= 80 && $BAT_LEV < 90" > /dev/null
+    echo '◼ ◼ ◼ ◼ ◻ '
+else if math "$BAT_LEV >= 50 && $BAT_LEV < 80" > /dev/null
+    echo '◼ ◼ ◼ ◻ ◻ '
+else if math "$BAT_LEV >= 40 && $BAT_LEV < 50" > /dev/null
+    echo '◼ ◼ ◻ ◻ ◻ '
+else if math "$BAT_LEV >= 20 && $BAT_LEV < 40" > /dev/null
+    echo '◼ ◻ ◻ ◻ ◻ '
+else
+    echo '◻ ◻ ◻ ◻ ◻ '
+end
