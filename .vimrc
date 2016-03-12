@@ -6,7 +6,7 @@
 " Activate "Pathogen"
 " call pathogen#infect()
 
-" Misc
+" Misc (are these needed?)
 " filetype plugin on
 " filetype indent on
 
@@ -19,9 +19,11 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'rking/ag.vim'                     " Ag
 Plug 'bling/vim-airline'                " Airline
+Plug 'vim-airline/vim-airline-themes'   " Airline themes
 Plug 'ntpeters/vim-better-whitespace'   " Better-whitespace
 Plug 'schickling/vim-bufonly'           " Bufonly
 Plug 'kien/ctrlp.vim'                   " CtrlP
+Plug 'wincent/command-t'                " Command-T
 Plug 'junegunn/vim-easy-align'          " Easy-align
 Plug 'easymotion/vim-easymotion'        " Easymotion
 Plug 'tpope/vim-fugitive'               " Fugitive
@@ -52,6 +54,7 @@ Plug 'SirVer/ultisnips'                 " Ultisnips
 Plug 'mbbill/undotree'                  " Undotree
 Plug 'tpope/vim-unimpaired'             " Unimpared
 Plug 'https://github.com/lervag/vimtex' " Vimtex
+Plug 'junegunn/vim-xmark', { 'do': 'make' }
 
 call plug#end()
 
