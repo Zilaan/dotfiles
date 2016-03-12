@@ -83,10 +83,14 @@ nnoremap <Leader>w :StripWhitespace<CR>
 let g:strip_whitespace_on_save = 0
 " }}}
 
+" Command-T {{{1
+nnoremap <Leader>t :CommandT<CR>
+" }}}
+
 " CtrlP {{{1
 
 " Mapping {{{2
-nnoremap <leader>t :CtrlPTag<CR>
+"nnoremap <leader>t :CtrlPTag<CR>
 nnoremap <leader>p :CtrlP<cr>
 nnoremap <leader>cd :CtrlPDir<cr>
 nnoremap <leader>li :CtrlPLine<cr>
@@ -357,7 +361,8 @@ nnoremap <space>h :<c-u>call SkyBison("h ")<cr>
 nnoremap <space>; :<c-u>call SkyBison("")<cr>
 nnoremap <space>b :<c-u>call SkyBison("b ")<cr>
 nnoremap <space>t :<c-u>call SkyBison("tag ")<cr>
-let g:skybison_fuzz=1
+cnoremap <c-l> <C-r>=SkyBison("")<cr><cr>
+let g:skybison_fuzz=0
 "}}}
 
 " Startify {{{1
