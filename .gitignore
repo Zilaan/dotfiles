@@ -3,3 +3,4 @@ bundle/**/*
 bundle/tlib/*
 bundle/vim-startify/*
 .netrwhist
+*.swp
