@@ -96,11 +96,11 @@ nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
 " }}} Source "
 
 " Quick editing {{{ "
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>em :vsplit ~/.vim/startup/mappings.vim<cr>
-nnoremap <leader>ep :vsplit ~/.vim/startup/plugins.vim<cr>
-nnoremap <leader>es :vsplit ~/.vim/startup/settings.vim<cr>
-nnoremap <leader>eV :vsplit ~/.vim/startup/visual.vim<cr>
+nnoremap <leader>ev :e $MYVIMRC<cr>
+nnoremap <leader>em :e ~/.vim/startup/mappings.vim<cr>
+nnoremap <leader>ep :e ~/.vim/startup/plugins.vim<cr>
+nnoremap <leader>es :e ~/.vim/startup/settings.vim<cr>
+nnoremap <leader>eV :e ~/.vim/startup/visual.vim<cr>
 " }}} Quick editing "
 
 " Clear matches {{{ "
