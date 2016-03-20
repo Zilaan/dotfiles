@@ -36,7 +36,7 @@ Plug 'tmhedberg/matchit'                " Matchit
 Plug 'qstrahl/vim-matchmaker'           " Matchmaker
 Plug 'MarcWeber/vim-addon-mw-utils'     " Mw-utils
 Plug 'scrooloose/nerdtree'              " NerdTree
-Plug 'Xuyuanp/nerdtree-git-plugin'      " NerdTree-git
+"Plug 'Xuyuanp/nerdtree-git-plugin'      " NerdTree-git
 Plug 'Shougo/neocomplete.vim'           " NeoComplete
 Plug 'NLKNguyen/papercolor-theme'       " PaperColor
 Plug 'paradigm/SkyBison'                " Skybison
