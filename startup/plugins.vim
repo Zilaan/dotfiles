@@ -84,7 +84,7 @@ let g:strip_whitespace_on_save = 0
 " }}}
 
 " Command-T {{{1
-nnoremap <Leader>t :CommandT<CR>
+nnoremap <Leader>t :CommandT .<CR>
 " }}}
 
 " CtrlP {{{1
