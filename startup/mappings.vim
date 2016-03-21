@@ -38,8 +38,6 @@ vmap 9 g<s-^>
 vmap 0 g$
 vmap <leader>0 0
 
-noremap H ^
-noremap L $
 " }}} Navigering "
 
 " Avmappa piltangenterna {{{ "
