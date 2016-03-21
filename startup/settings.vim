@@ -17,7 +17,7 @@ set nocompatible
 set langmenu=none
 set fileencodings=ucs-bom,utf-8,default,latin1
 set guitablabel=%M%t
-set helplang=sv
+set helplang=en
 set mouse=a
 set printexpr=system('open\ -a\ Preview\ '.v:fname_in)\ +\ v:shell_error
 set termencoding=utf-8
@@ -92,7 +92,11 @@ endif
 set number
 
 " Relative number
-"set relativenumber
+set relativenumber
+autocmd FocusLost   * :set norelativenumber
+autocmd FocusGained * :set relativenumber
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
 
 " Statusbar ska alltid vara på
 set laststatus=2
