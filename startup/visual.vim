@@ -6,8 +6,9 @@
 set gfn=Sauce\ Code\ Powerline\ Regular:h15
 
 " Välj färgschema
-let g:hybrid_use_iTerm_colors = 1
-colo hybrid
+"let g:hybrid_use_iTerm_colors = 1
+set background=dark
+colo OceanicNext
 
 " Sätt på syntaxfärg
 syntax on

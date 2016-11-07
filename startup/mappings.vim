@@ -117,8 +117,8 @@ nnoremap <C-c><C-h> :abo vsp new<cr>
 nnoremap <C-c><C-j> :bel sp new<cr>
 nnoremap <C-c><C-k> :abo sp new<cr>
 
-nnoremap <C-d><C-H> <C-W>h<C-W>c
-nnoremap <C-d><C-J> <C-W>j<C-W>c
-nnoremap <C-d><C-K> <C-W>k<C-W>c
-nnoremap <C-d><C-L> <C-W>l<C-W>c
+"nnoremap <C-d><C-H> <C-W>h<C-W>c
+"nnoremap <C-d><C-J> <C-W>j<C-W>c
+"nnoremap <C-d><C-K> <C-W>k<C-W>c
+"nnoremap <C-d><C-L> <C-W>l<C-W>c
 " }}} Open splits "
