@@ -33,6 +33,7 @@ Plug 'mhartington/oceanic-next'         " Oceanic-next
 Plug 'junegunn/rainbow_parentheses.vim' " Rainbow parentheses
 Plug 'mhinz/vim-sayonara'               " Sayonara
 Plug 'junegunn/seoul256.vim'            " Seoul256
+Plug 'w0ng/vim-hybrid'                   " Hybrid colors
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'               " Surround
 Plug 'gcmt/taboo.vim'                   " Taboo
@@ -41,7 +42,7 @@ Plug 'SirVer/ultisnips'                 " Ultisnips
 Plug 'tpope/vim-unimpaired'             " Unimpared
 Plug 'Valloric/YouCompleteMe'            " YouCompelteMe
 Plug 'rdnetto/YCM-Generator'
-Plug 'gorodinskiy/vim-coloresque'
+"Plug 'gorodinskiy/vim-coloresque'
 
 
 call plug#end()
@@ -64,26 +65,45 @@ source ~/.vim/startup/plugins.vim
 " Load "Visual"
 source ~/.vim/startup/visual.vim
 
-hi clear LineNr
-hi LineNr ctermfg=white ctermbg=black
-hi clear CursorLineNr
-hi CursorLineNr ctermfg=209 ctermbg=00
-hi clear FoldColumn
-hi FoldColumn ctermfg=32 ctermbg=black
+set t_Co=256
+set t_ut=
+
+if (has("termguicolors"))
+    set termguicolors
+endif
+
+colo OceanicNext
+" Use correct codes to get italic text
+set t_ZH=[3m
+set t_ZR=[0m
+
+let g:airline_theme='oceanicnext'
+" enable italics, disabled by default
+let g:oceanic_next_terminal_italic = 1
+" enable bold, disabled by default
+let g:oceanic_next_terminal_bold = 1
+
+ 
+"hi clear LineNr
+"hi LineNr ctermfg=white ctermbg=black
+"hi clear CursorLineNr
+"hi CursorLineNr ctermfg=209 ctermbg=00
+"hi clear FoldColumn
+"hi FoldColumn ctermfg=32 ctermbg=black
 "hi clear Comment
 "hi Comment ctermfg=250 ctermbg=00
-hi clear Folded
-hi Folded ctermfg=242 ctermbg=235
-hi clear CursorLine
-hi CursorLine ctermbg=233
+"hi clear Folded
+"hi Folded ctermfg=242 ctermbg=235
+"hi clear CursorLine
+"hi CursorLine ctermbg=233
 
 " Spelling colors {{{1
-	highlight clear SpellBad
-	highlight SpellBad cterm=underline ctermbg=00 ctermfg=209
+"	highlight clear SpellBad
+"	highlight SpellBad cterm=underline ctermbg=00 ctermfg=209
 
-	highlight clear SpellCap
-	highlight SpellCap cterm=underline ctermbg=00 ctermfg=47
+"	highlight clear SpellCap
+"	highlight SpellCap cterm=underline ctermbg=00 ctermfg=47
 
-	highlight clear SpellLocal
-	highlight SpellLocal cterm=underline ctermbg=00 ctermfg=32
+"	highlight clear SpellLocal
+"	highlight SpellLocal cterm=underline ctermbg=00 ctermfg=32
 " }}}
