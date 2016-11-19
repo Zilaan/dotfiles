@@ -426,7 +426,7 @@ let g:Tex_MultipleCompileFormats='pdf'
 
 " Ultisnips {{{1
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
@@ -441,4 +441,24 @@ nnoremap <F6> :UndotreeToggle<cr>
 
 " YouCompleteMe {{{1
 let g:ycm_global_ycm_extra_conf='~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+nmap <leader>gd :YcmDiags<CR>
+nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_error_symbol = '>>'
+let g:ycm_warning_symbol = '>*'
+let g:ycm_confirm_extra_conf = 0 "no annoying tips on vim starting
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_cache_omnifunc = 0
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 0
+let g:ycm_filetype_blacklist = {'tex' : 1, 'markdown' : 1, 'text' : 1, 'html' : 1}
+"let g:syntastic_ignore_files = [".*\.py$"] "python has its own check engine
+"let g:ycm_semantic_triggers = {}
+"let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&']
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " }}}
