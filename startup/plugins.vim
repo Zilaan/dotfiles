@@ -354,31 +354,41 @@ let g:syntastic_check_on_open=1
 let g:syntastic__jump=3
 let g:syntastic_enable_signs=1
 let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='░'
+let g:syntastic_style_error_symbol='※'
+let g:syntastic_warning_symbol='★'
+let g:syntastic_style_warning_symbol='☆'
 let g:syntastic_enable_balloons=1
 let g:syntastic_enable_highlighting=1
 let g:pymode_lint_write=0
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{,}%W{Warn: %fw #%w}]'
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_tex_checkers = ['chktex']
+
+" Bad color, not visible
+highlight link SyntasticErrorSign NeomakeErrorSign
+highlight link SyntasticWarningSign NeomakeErrorSign
+highlight link SyntasticStyleErrorSign NeomakeWarningSign
+highlight link SyntasticStyleWarningSign NeomakeWarningSign
 let g:syntastic_python_flake8_args = '--ignore="
-            \ E251,
-            \ F403,
-            \ E501,
-            \ E502,
-            \ E126,
-            \ E127,
-            \ E128,
-            \ W801,
-            \ W191,
-            \ E101,
-            \ F401,
-            \ E221,
-            \ E203,
-            \ E202,
-            \ E261,
-            \ E222,
-            \ E262"'
+            \ E501"'
+"let g:syntastic_python_flake8_args = '--ignore="
+"            \ E251,
+"            \ F403,
+"            \ E501,
+"            \ E502,
+"            \ E126,
+"            \ E127,
+"            \ E128,
+"            \ W801,
+"            \ W191,
+"            \ E101,
+"            \ F401,
+"            \ E221,
+"            \ E203,
+"            \ E202,
+"            \ E261,
+"            \ E222,
+"            \ E262"'
 " }}}
 
 " Taboo {{{1
@@ -462,3 +472,23 @@ let g:ycm_filetype_blacklist = {'tex' : 1, 'markdown' : 1, 'text' : 1, 'html' : 
 "let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&']
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " }}}
+
+" Flake8 {{{1
+"let g:flake8_cmd="/opt/strangebin/flake8000"
+
+let g:flake8_show_quickfix     = 1    " show (default)
+let g:flake8_show_in_gutter    = 1    " show
+let g:flake8_max_markers       = 500  " (default)
+let g:flake8_error_marker      = 'EE' " set error marker to 'EE'
+let g:flake8_warning_marker    = 'WW' " set warning marker to 'WW'
+let g:flake8_pyflake_marker    = ''   " disable PyFlakes warnings
+let g:flake8_complexity_marker = ''   " disable McCabe complexity warnings
+let g:flake8_naming_marker     = ''   " disable naming warnings
+
+" to use colors defined in the colorscheme
+highlight link Flake8_Error      Error
+highlight link Flake8_Warning    WarningMsg
+highlight link Flake8_Complexity WarningMsg
+highlight link Flake8_Naming     WarningMsg
+highlight link Flake8_PyFlake    WarningMsg
+" }}} Flake8
