@@ -203,3 +203,8 @@ nmap <silent> <f4> :QFixToggle<cr>
 set wildmenu
 set completeopt=menuone,preview
 " }}}
+
+" Keep folds when edeting {{{1
+autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
+" }}}

@@ -492,3 +492,5 @@ highlight link Flake8_Complexity WarningMsg
 highlight link Flake8_Naming     WarningMsg
 highlight link Flake8_PyFlake    WarningMsg
 " }}} Flake8
+
+let python_highlight_all = 1
