@@ -38,6 +38,7 @@ Plug 'tyrannicaltoucan/vim-quantum'     " Quantum
 Plug 'scrooloose/syntastic'             " Syntastic
 Plug 'hdima/python-syntax'              " Python syntax
 Plug 'nvie/vim-flake8'                  " Flake8
+Plug 'LaTeX-Box-Team/LaTeX-Box'         " LaTeX-Box
 Plug 'tpope/vim-surround'               " Surround
 Plug 'gcmt/taboo.vim'                   " Taboo
 Plug 'majutsushi/tagbar'                " Tagbar

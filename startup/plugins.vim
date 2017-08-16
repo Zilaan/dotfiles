@@ -362,7 +362,8 @@ let g:syntastic_enable_highlighting=1
 let g:pymode_lint_write=0
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{,}%W{Warn: %fw #%w}]'
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_tex_checkers = ['chktex']
+" let g:syntastic_tex_checkers = ['chktex']
+let g:syntastic_tex_checkers = ['']
 
 " Bad color, not visible
 highlight link SyntasticErrorSign NeomakeErrorSign
