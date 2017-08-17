@@ -38,14 +38,13 @@ Plug 'tyrannicaltoucan/vim-quantum'     " Quantum
 Plug 'scrooloose/syntastic'             " Syntastic
 Plug 'hdima/python-syntax'              " Python syntax
 Plug 'nvie/vim-flake8'                  " Flake8
-Plug 'LaTeX-Box-Team/LaTeX-Box'         " LaTeX-Box
 Plug 'tpope/vim-surround'               " Surround
 Plug 'gcmt/taboo.vim'                   " Taboo
 Plug 'majutsushi/tagbar'                " Tagbar
-Plug 'SirVer/ultisnips'                 " Ultisnips
+"Plug 'SirVer/ultisnips'                 " Ultisnips
 Plug 'tpope/vim-unimpaired'             " Unimpared
-Plug 'Valloric/YouCompleteMe'           " YouCompelteMe
-Plug 'rdnetto/YCM-Generator'            " YCM generator
+"Plug 'Valloric/YouCompleteMe'           " YouCompelteMe
+"Plug 'rdnetto/YCM-Generator'            " YCM generator
 "Plug 'gorodinskiy/vim-coloresque'
 
 
@@ -61,11 +60,10 @@ let mapleader=","
 source ~/.vim/startup/settings.vim
 
 " Load "Mappings"
-source ~/.vim/startup/mappings.vim
+"source ~/.vim/startup/mappings.vim
 
 " Load "Plugins"
 source ~/.vim/startup/plugins.vim
 
 " Load "Visual"
 source ~/.vim/startup/visual.vim
-
