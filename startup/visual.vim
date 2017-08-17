@@ -3,7 +3,7 @@
 
 " Text, färg och utseende {{{1
 " Välj typsnitt
-set gfn=Sauce\ Code\ Powerline\ Regular:h15
+" set gfn=Sauce\ Code\ Powerline\ Regular:h15
 
 " Sätt på syntaxfärg
 syntax on
@@ -17,24 +17,24 @@ map <leader>hl :set hlsearch! <CR>
 " Set no higligh
 map <leader>nhl :set nohlsearch <CR>
 
-set t_Co=256
-set t_ut=
+"set t_Co=256
+"set t_ut=
 
-if (has("termguicolors"))
-    set termguicolors
-endif
+" if (has("termguicolors"))
+"    set termguicolors
+" endif
 
 " Use correct codes to get italic text
 "set t_ZH=[3m
 "set t_ZR=[0m
-set t_ZH="\e[3m"
-set t_ZR="\e[23m"
+" set t_ZH="\e[3m"
+" set t_ZR="\e[23m"
 
 " OceanicNext {{{1
 colo OceanicNext
-let g:airline_theme='oceanicnext'
-let g:oceanic_next_terminal_italic = 1 " enable italics, disabled by default
-let g:oceanic_next_terminal_bold = 1   " enable bold, disabled by default
+" let g:airline_theme='oceanicnext'
+" let g:oceanic_next_terminal_italic = 1 " enable italics, disabled by default
+" let g:oceanic_next_terminal_bold = 1   " enable bold, disabled by default
 " }}} OceanicNext
 
 " Colors {{{1
