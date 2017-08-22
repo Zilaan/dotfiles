@@ -37,6 +37,11 @@ colo OceanicNext
 " let g:oceanic_next_terminal_bold = 1   " enable bold, disabled by default
 " }}} OceanicNext
 
+" To handle background issues with Tmux (black background around text)
+if exists('$TMUX')
+  set term=screen-256color
+endif
+
 " Colors {{{1
     "hi clear LineNr
     "hi LineNr ctermfg=white ctermbg=black
