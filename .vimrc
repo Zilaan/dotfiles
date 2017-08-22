@@ -60,7 +60,7 @@ let mapleader=","
 source ~/.vim/startup/settings.vim
 
 " Load "Mappings"
-"source ~/.vim/startup/mappings.vim
+source ~/.vim/startup/mappings.vim
 
 " Load "Plugins"
 source ~/.vim/startup/plugins.vim
