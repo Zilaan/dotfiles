@@ -22,7 +22,7 @@ set termencoding=utf-8
 highlight ColorColumn ctermbg=magenta
 set colorcolumn=81
 set showcmd
-set clipboard=unnamed
+set clipboard=unnamedplus
 " }}}
 
 " Disable gui {{{
