@@ -212,6 +212,23 @@ nnoremap <LEADER>nt :NERDTreeToggle<CR>
 let g:NERDTreeWinPos='right'
 "}}}
 
+" NERDCommenter {{{1
+" Add spaces after comment delimiter by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiter flush left instad of following code indent
+let g:NERDDefaultAlign = 'left'
+
+" Allow commenting and inverting empty lines
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" }}}
+
 "" NeoComplete {{{1
 "" Note: This option must set it in .vimrc(_vimrc). NOT IN .gvimrc(_gvimrc)!
 "" Disable AutoComplPop.
