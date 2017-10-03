@@ -29,6 +29,7 @@ Plug 'qstrahl/vim-matchmaker'           " Matchmaker
 Plug 'tmhedberg/matchit'                " Matchit
 Plug 'scrooloose/nerdtree'              " NerdTree
 Plug 'Xuyuanp/nerdtree-git-plugin'      " NerdTree Git
+Plug 'scrooloose/nerdcommenter'         " NERDCommenter
 Plug 'mhartington/oceanic-next'         " Oceanic-next
 Plug 'junegunn/rainbow_parentheses.vim' " Rainbow parentheses
 Plug 'mhinz/vim-sayonara'               " Sayonara
