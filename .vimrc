@@ -23,6 +23,7 @@ Plug 'kien/ctrlp.vim'                   " CtrlP
 Plug 'junegunn/vim-easy-align'          " Easy align
 Plug 'easymotion/vim-easymotion'        " Easy motion
 Plug 'tpope/vim-fugitive'               " Fugitive
+Plug 'airblade/vim-gitgutter'           " GitGutter
 Plug 'junegunn/goyo.vim'                " Goyo
 Plug 'haya14busa/incsearch.vim'         " Incsearch
 Plug 'qstrahl/vim-matchmaker'           " Matchmaker
@@ -36,6 +37,7 @@ Plug 'mhinz/vim-sayonara'               " Sayonara
 Plug 'junegunn/seoul256.vim'            " Seoul256
 Plug 'w0ng/vim-hybrid'                  " Hybrid colors
 Plug 'tyrannicaltoucan/vim-quantum'     " Quantum
+Plug 'NLKNguyen/papercolor-theme'       " PaperColor
 Plug 'scrooloose/syntastic'             " Syntastic
 Plug 'hdima/python-syntax'              " Python syntax
 Plug 'nvie/vim-flake8'                  " Flake8
