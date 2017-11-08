@@ -42,6 +42,9 @@ if exists('$TMUX')
   set term=screen-256color
 endif
 
+" Needed in Windows 10 Bash
+set term=screen-256color
+
 " Colors {{{1
     "hi clear LineNr
     "hi LineNr ctermfg=white ctermbg=black
