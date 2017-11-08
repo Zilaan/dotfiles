@@ -31,7 +31,14 @@ map <leader>nhl :set nohlsearch <CR>
 " set t_ZR="\e[23m"
 
 " OceanicNext {{{1
+" set background=light
+" colo PaperColor
 colo OceanicNext
+
+" Airline Theme
+let g:airline_theme = 'powerlineish'
+" let g:airline_theme='papercolor'
+
 " let g:airline_theme='oceanicnext'
 " let g:oceanic_next_terminal_italic = 1 " enable italics, disabled by default
 " let g:oceanic_next_terminal_bold = 1   " enable bold, disabled by default

@@ -19,8 +19,8 @@ endif
 " Airline {{{1
 " Set no delay
 set ttimeoutlen=50
-" Theme
-let g:airline_theme = 'powerlineish'
+
+autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
 
 " Taboo
 let g:airline#extensions#taboo#enabled = 1
@@ -212,6 +212,23 @@ nnoremap <LEADER>nt :NERDTreeToggle<CR>
 let g:NERDTreeWinPos='right'
 "}}}
 
+" NERDCommenter {{{1
+" Add spaces after comment delimiter by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiter flush left instad of following code indent
+let g:NERDDefaultAlign = 'left'
+
+" Allow commenting and inverting empty lines
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" }}}
+
 "" NeoComplete {{{1
 "" Note: This option must set it in .vimrc(_vimrc). NOT IN .gvimrc(_gvimrc)!
 "" Disable AutoComplPop.
@@ -347,21 +364,22 @@ let g:skybison_fuzz=1
 "}}}
 
 " Syntastic {{{1
-let g:syntastic_aggregate_errors=1
-let g:syntastic_loc_list_height=5
-let g:syntastic__loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic__jump=3
-let g:syntastic_enable_signs=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_style_error_symbol='※'
-let g:syntastic_warning_symbol='★'
-let g:syntastic_style_warning_symbol='☆'
-let g:syntastic_enable_balloons=1
-let g:syntastic_enable_highlighting=1
-let g:pymode_lint_write=0
-let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{,}%W{Warn: %fw #%w}]'
-let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_aggregate_errors         = 1
+let g:syntastic_loc_list_height          = 5
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list            = 0
+let g:syntastic_check_on_open            = 1
+let g:syntastic_auto_jump                = 0
+let g:syntastic_enable_signs             = 1
+let g:syntastic_error_symbol             = '✗'
+let g:syntastic_style_error_symbol       = '※'
+let g:syntastic_warning_symbol           = '★'
+let g:syntastic_style_warning_symbol     = '☆'
+let g:syntastic_enable_balloons          = 1
+let g:syntastic_enable_highlighting      = 1
+let g:pymode_lint_write                  = 0
+let g:syntastic_stl_format               = '[%E{Err: %fe #%e}%B{,}%W{Warn: %fw #%w}]'
+let g:syntastic_python_checkers          = ['flake8']
 " let g:syntastic_tex_checkers = ['chktex']
 let g:syntastic_tex_checkers = ['']
 
@@ -370,8 +388,13 @@ highlight link SyntasticErrorSign NeomakeErrorSign
 highlight link SyntasticWarningSign NeomakeErrorSign
 highlight link SyntasticStyleErrorSign NeomakeWarningSign
 highlight link SyntasticStyleWarningSign NeomakeWarningSign
-let g:syntastic_python_flake8_args = '--ignore="
-            \ E501"'
+
+" E501: Line too long
+" E841: Unused variable
+
+"let g:syntastic_python_flake8_args = '--ignore="
+"            \ E841"'
+
 "let g:syntastic_python_flake8_args = '--ignore="
 "            \ E251,
 "            \ F403,
