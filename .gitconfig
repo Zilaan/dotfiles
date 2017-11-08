@@ -1,22 +1,17 @@
+[alias]
+    glc = shortlog --summary --numbered
+    lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[push]
+	default = matching
 [user]
 	name = Raman Haddad
 	email = raman.haddad@gmail.com
 [core]
-	editor = mvim
+	editor = vim
 [merge]
 	tool = vimdiff
-
-[alias]
-	st = status
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative
-	lol = log --oneline --graph --all --decorate
-	ch = checkout
-	co = commit
-	br = branch
-[filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
-[difftool]
-	promt = false
-[push]
-	default = matching
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
