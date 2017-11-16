@@ -193,4 +193,6 @@ alias grb='git rebase'
 alias gst='git status'
 alias gcu='git shortlog -s -n --all --no-merges'
 
+export TERM=xterm-256color
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
