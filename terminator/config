@@ -1,0 +1,38 @@
+[global_config]
+  focus = system
+  title_inactive_bg_color = "#65737E"
+  title_transmit_bg_color = "#EC5f67"
+  window_state = fullscreen
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = raman
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#323232"
+    cursor_color = "#eee8d5"
+    custom_command = tmux
+    font = Source Code Pro for Powerline Semi-Bold 10
+    foreground_color = "#eee8d5"
+    scrollbar_position = hidden
+    use_custom_command = True
+    use_system_font = False
+  [[raman]]
+    allow_bold = False
+    background_color = "#323232"
+    copy_on_selection = True
+    cursor_color = "#eee8d5"
+    custom_command = tmux
+    font = Source Code Pro for Powerline Medium 10
+    foreground_color = "#eee8d5"
+    palette = "#1b2b34:#ec5f67:#99c794:#fac863:#6699cc:#c594c5:#5fb3b3:#c0c5ce:#65737e:#ec5f67:#99c794:#fac863:#6699cc:#c594c5:#5fb3b3:#d8dee9"
+    scrollbar_position = hidden
+    use_custom_command = True
+    use_system_font = False
