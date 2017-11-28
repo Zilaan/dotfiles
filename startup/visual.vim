@@ -36,8 +36,9 @@ map <leader>nhl :set nohlsearch <CR>
 colo OceanicNext
 
 " Airline Theme
-let g:airline_theme = 'powerlineish'
+" let g:airline_theme = 'powerlineish'
 " let g:airline_theme='papercolor'
+let g:airline_theme='base16'
 
 " let g:airline_theme='oceanicnext'
 " let g:oceanic_next_terminal_italic = 1 " enable italics, disabled by default
