@@ -25,6 +25,7 @@ Plug 'easymotion/vim-easymotion'        " Easy motion
 Plug 'tpope/vim-fugitive'               " Fugitive
 Plug 'junegunn/goyo.vim'                " Goyo
 Plug 'haya14busa/incsearch.vim'         " Incsearch
+Plug 'pangloss/vim-javascript'          " Javascript
 Plug 'qstrahl/vim-matchmaker'           " Matchmaker
 Plug 'tmhedberg/matchit'                " Matchit
 Plug 'scrooloose/nerdtree'              " NerdTree
