@@ -36,3 +36,15 @@
     scrollbar_position = hidden
     use_custom_command = True
     use_system_font = False
+  [[Base16_Dark]]
+    allow_bold = False
+    background_color = "#1B2B34"
+    copy_on_selection = True
+    cursor_color = "#C0C5CE"
+    custom_command = tmux
+    font = Source Code Pro for Powerline Medium 10
+    foreground_color = "#C0C5CE"
+    palette = "#1B2B34:#EC5f67:#99C794:#FAC863:#6699CC:#C594C5:#5FB3B3:#C0C5CE:#65737E:#EC5f67:#99C794:#FAC863:#6699CC:#C594C5:#5FB3B3:#D8DEE9"
+    scrollbar_position = hidden
+    use_custom_command = True
+    use_system_font = False
