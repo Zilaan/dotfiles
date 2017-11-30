@@ -27,7 +27,7 @@
     ("628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" default)))
  '(package-selected-packages
    (quote
-    (auto-complete powerline color-theme-sanityinc-tomorrow)))
+    (evil matlab-mode auto-complete powerline color-theme-sanityinc-tomorrow)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -37,3 +37,15 @@
  )
 
  (powerline-default-theme)
+ (setq linum-format "%4d \u2502 ")
+(linum-mode)
+
+ (autoload 'matlab-mode "matlab" "Matlab Editing Mode" t)
+ (add-to-list
+  'auto-mode-alist
+  '("\\.m$" . matlab-mode))
+ (setq matlab-indent-function t)
+ (setq matlab-shell-command "matlab")
+(add-hook 'matlab-mode-hook 'linum-mode)
+
+(evil-mode 1)
