@@ -392,8 +392,11 @@ highlight link SyntasticStyleWarningSign NeomakeWarningSign
 " E501: Line too long
 " E841: Unused variable
 
-"let g:syntastic_python_flake8_args = '--ignore="
-"            \ E841"'
+let g:syntastic_python_flake8_args = '--ignore="
+            \ E501,
+            \ E401,
+            \ E402,
+            \ E841"'
 
 "let g:syntastic_python_flake8_args = '--ignore="
 "            \ E251,
