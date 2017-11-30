@@ -26,6 +26,7 @@ Plug 'tpope/vim-fugitive'               " Fugitive
 Plug 'airblade/vim-gitgutter'           " GitGutter
 Plug 'junegunn/goyo.vim'                " Goyo
 Plug 'haya14busa/incsearch.vim'         " Incsearch
+Plug 'nathanaelkane/vim-indent-guides'  " IndentGuide
 Plug 'qstrahl/vim-matchmaker'           " Matchmaker
 Plug 'tmhedberg/matchit'                " Matchit
 Plug 'scrooloose/nerdtree'              " NerdTree
@@ -70,3 +71,10 @@ source ~/.vim/startup/plugins.vim
 
 " Load "Visual"
 source ~/.vim/startup/visual.vim
+
+highlight ExtraWhitespace ctermfg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
