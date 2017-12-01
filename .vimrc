@@ -45,11 +45,11 @@ Plug 'nvie/vim-flake8'                  " Flake8
 Plug 'tpope/vim-surround'               " Surround
 Plug 'gcmt/taboo.vim'                   " Taboo
 Plug 'majutsushi/tagbar'                " Tagbar
-Plug 'SirVer/ultisnips'                 " Ultisnips
+" Plug 'SirVer/ultisnips'                 " Ultisnips
 Plug 'tpope/vim-unimpaired'             " Unimpared
-Plug 'Valloric/YouCompleteMe'           " YouCompelteMe
-"Plug 'rdnetto/YCM-Generator'            " YCM generator
-"Plug 'gorodinskiy/vim-coloresque'
+" Plug 'Valloric/YouCompleteMe'           " YouCompelteMe
+" Plug 'rdnetto/YCM-Generator'            " YCM generator
+" Plug 'gorodinskiy/vim-coloresque'
 
 
 call plug#end()
@@ -72,9 +72,9 @@ source ~/.vim/startup/plugins.vim
 " Load "Visual"
 source ~/.vim/startup/visual.vim
 
-highlight ExtraWhitespace ctermfg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
+" highlight ExtraWhitespace ctermfg=red
+" match ExtraWhitespace /\s\+$/
+" autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+" autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+" autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+" autocmd BufWinLeave * call clearmatches()
