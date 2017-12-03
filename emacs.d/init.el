@@ -54,7 +54,7 @@
 
 ;; Show line number
 ;; (setq linum-format "%4d \u2502 ")
-(setq linum-format "%4d ")
+(setq linum-format "%5d ")
 (global-linum-mode 1)
 (global-hl-line-mode 1)
 
@@ -122,3 +122,11 @@
 ;; Highlight parantheses
 (require 'rainbow-delimiters)
 (add-hook 'python-mode-hook #'rainbow-delimiters-mode)
+
+;; Org-mode
+(require 'org)
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+(setq org-agenda-files (list "~/.emacs.d/org/work.org"
+                             "~/.emacs.d/org/home.org"))
