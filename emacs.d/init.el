@@ -8,6 +8,24 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+(require 'use-package)
+(setq use-package-always-ensure t)
+
+;; Install packages
+(use-package rainbow-delimiters)
+(use-package git-gutter)
+(use-package avy)
+(use-package auto-complete)
+(use-package beacon)
+(use-package rainbow-mode)
+(use-package neotree)
+(use-package minimap)
+(use-package hlinum)
+(use-package helm)
+(use-package smart-mode-line)
+(use-package evil)
+(use-package color-theme-sanityinc-tomorrow)
+(use-package diminish)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
