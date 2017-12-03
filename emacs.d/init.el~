@@ -1,7 +1,6 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 (package-initialize)
 
@@ -20,7 +19,7 @@
     ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" default)))
  '(package-selected-packages
    (quote
-    (helm smart-mode-line evil color-theme-sanityinc-tomorrow use-package diminish))))
+    (avy auto-complete beacon rainbow-mode neotree minimap hlinum helm smart-mode-line evil color-theme-sanityinc-tomorrow use-package diminish))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -28,8 +27,26 @@
  ;; If there is more than one, they won't work right.
  )
 
+;; No splash screen
+(setq inhibit-splash-screen t)
+(setq inhibit-startup-message t)
+
+;; Font
 (set-face-font 'default' "DejaVu Sans Mono for Powerline:12")
 
+;; Show line number
+;; (setq linum-format "%4d \u2502 ")
+(setq linum-format "%4d ")
+(global-linum-mode 1)
+(global-hl-line-mode 1)
+
+;; Disable tool bar and scroll bar
+(if (display-graphic-p)
+    (progn
+      (tool-bar-mode -1)
+      (scroll-bar-mode -1)))
+
+;; Use-package
 (eval-when-compile
   (require 'use-package))
 (require 'diminish)
@@ -53,3 +70,25 @@
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
 (global-set-key (kbd "C-x C-f") #'helm-find-files)
 (helm-mode 1)
+
+;; Highlight current line
+(require 'hlinum)
+(hlinum-activate)
+
+;; Sublime minibar
+(require 'minimap)
+
+;; NERDTree
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+
+;; Rainbow mode, use color for hex
+(require 'rainbow-mode)
+(rainbow-mode 1)
+
+;; Beacon, flash cursor position
+(beacon-mode 1)
+
+;; Auto-complete
+(auto-complete-mode 1)
