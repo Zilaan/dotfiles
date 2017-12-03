@@ -16,10 +16,10 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" default)))
+    ("ed317c0a3387be628a48c4bbdb316b4fa645a414838149069210b66dd521733f" "6de7c03d614033c0403657409313d5f01202361e35490a3404e33e46663c2596" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" default)))
  '(package-selected-packages
    (quote
-    (avy auto-complete beacon rainbow-mode neotree minimap hlinum helm smart-mode-line evil color-theme-sanityinc-tomorrow use-package diminish))))
+    (rainbow-delimiters git-gutter avy auto-complete beacon rainbow-mode neotree minimap hlinum helm smart-mode-line evil color-theme-sanityinc-tomorrow use-package diminish))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -91,8 +91,16 @@
 (beacon-mode 1)
 
 ;; Auto-complete
-(auto-complete-mode 1)
+(global-auto-complete-mode 1)
 
 ;; Avy (like easymotion)
 (require 'avy)
 (global-set-key (kbd "C-:") 'avy-goto-char)
+
+;; Git-gutter
+(require 'git-gutter)
+(global-git-gutter-mode +1)
+
+;; Highlight parantheses
+(require 'rainbow-delimiters)
+(add-hook 'python-mode-hook #'rainbow-delimiters-mode)
