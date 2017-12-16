@@ -30,34 +30,5 @@ set t_ut=
 set t_ZH="\e[3m"
 set t_ZR="\e[23m"
 
-" OceanicNext {{{1
-"colo OceanicNext
 colo nord
 let g:airline_theme='nord'
-" let g:oceanic_next_terminal_italic = 1 " enable italics, disabled by default
-" let g:oceanic_next_terminal_bold = 1   " enable bold, disabled by default
-" }}} OceanicNext
-
-" Colors {{{1
-    "hi clear LineNr
-    "hi LineNr ctermfg=white ctermbg=black
-    "hi clear CursorLineNr
-    "hi CursorLineNr ctermfg=209 ctermbg=00
-    "hi clear FoldColumn
-    "hi FoldColumn ctermfg=32 ctermbg=black
-    "hi clear Comment
-    "hi Comment ctermfg=250 ctermbg=00
-    "hi clear Folded
-    "hi Folded ctermfg=242 ctermbg=235
-    "hi clear CursorLine
-    "hi CursorLine ctermbg=233
-
-    "highlight clear SpellBad
-    "highlight SpellBad cterm=underline ctermbg=00 ctermfg=209
-    "
-    "highlight clear SpellCap
-    "highlight SpellCap cterm=underline ctermbg=00 ctermfg=47
-    "
-    "highlight clear SpellLocal
-    "highlight SpellLocal cterm=underline ctermbg=00 ctermfg=32
-" }}}
