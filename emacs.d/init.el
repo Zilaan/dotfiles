@@ -12,20 +12,21 @@
 (setq use-package-always-ensure t)
 
 ;; Install packages
-(use-package rainbow-delimiters)
-(use-package git-gutter)
-(use-package avy)
 (use-package auto-complete)
+(use-package avy)
 (use-package beacon)
-(use-package rainbow-mode)
-(use-package neotree)
-(use-package minimap)
-(use-package hlinum)
-(use-package helm)
-(use-package smart-mode-line)
-(use-package evil)
 (use-package color-theme-sanityinc-tomorrow)
 (use-package diminish)
+(use-package elpy)
+(use-package evil)
+(use-package git-gutter)
+(use-package helm)
+(use-package hlinum)
+(use-package minimap)
+(use-package neotree)
+(use-package rainbow-delimiters)
+(use-package rainbow-mode)
+(use-package smart-mode-line)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -37,7 +38,7 @@
     ("ed317c0a3387be628a48c4bbdb316b4fa645a414838149069210b66dd521733f" "6de7c03d614033c0403657409313d5f01202361e35490a3404e33e46663c2596" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" default)))
  '(package-selected-packages
    (quote
-    (rainbow-delimiters git-gutter avy auto-complete beacon rainbow-mode neotree minimap hlinum helm smart-mode-line evil color-theme-sanityinc-tomorrow use-package diminish))))
+    (elpy rainbow-delimiters git-gutter avy auto-complete beacon rainbow-mode neotree minimap hlinum helm smart-mode-line evil color-theme-sanityinc-tomorrow use-package diminish))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -118,6 +119,7 @@
 ;; Git-gutter
 (require 'git-gutter)
 (global-git-gutter-mode +1)
+(git-gutter:linum-setup)
 
 ;; Highlight parantheses
 (require 'rainbow-delimiters)
@@ -130,3 +132,6 @@
 (setq org-log-done t)
 (setq org-agenda-files (list "~/.emacs.d/org/work.org"
                              "~/.emacs.d/org/home.org"))
+
+;; Elpy, Python IDE
+(elpy-enable)
