@@ -19,6 +19,7 @@ Plug 'octol/vim-cpp-enhanced-highlight', {'for': ['c', 'cpp']}
 Plug 'junegunn/vim-easy-align'          " Easy align
 Plug 'easymotion/vim-easymotion'        " Easy motion
 Plug 'tpope/vim-fugitive'               " Fugitive
+Plug 'airblade/vim-gitgutter'           " Git-gutter
 Plug 'junegunn/goyo.vim'                " Goyo
 Plug 'haya14busa/incsearch.vim'         " Incsearch
 Plug 'pangloss/vim-javascript'          " Javascript
