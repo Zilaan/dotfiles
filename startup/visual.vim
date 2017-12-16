@@ -20,9 +20,9 @@ map <leader>nhl :set nohlsearch <CR>
 set t_Co=256
 set t_ut=
 
-if (has("termguicolors"))
-    set termguicolors
-endif
+"if (has("termguicolors"))
+"    set termguicolors
+"endif
 
 " Use correct codes to get italic text
 "set t_ZH=[3m
@@ -31,10 +31,11 @@ set t_ZH="\e[3m"
 set t_ZR="\e[23m"
 
 " OceanicNext {{{1
-colo OceanicNext
-let g:airline_theme='oceanicnext'
-let g:oceanic_next_terminal_italic = 1 " enable italics, disabled by default
-let g:oceanic_next_terminal_bold = 1   " enable bold, disabled by default
+"colo OceanicNext
+colo nord
+let g:airline_theme='nord'
+" let g:oceanic_next_terminal_italic = 1 " enable italics, disabled by default
+" let g:oceanic_next_terminal_bold = 1   " enable bold, disabled by default
 " }}} OceanicNext
 
 " Colors {{{1
