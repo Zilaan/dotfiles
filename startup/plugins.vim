@@ -75,7 +75,7 @@ function! s:goyo_enter()
   silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
   set noshowmode
   set noshowcmd
-  set scrolloff=999
+  "set scrolloff=999
   set nolist
   " ...
 endfunction
@@ -85,7 +85,7 @@ function! s:goyo_leave()
   silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
   set showmode
   set showcmd
-  set scrolloff=5
+  "set scrolloff=5
   set list
   " ...
 endfunction
