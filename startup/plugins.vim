@@ -69,6 +69,31 @@ vmap <Enter> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 " }}} Easy Align "
 
+" Goyo {{{1
+function! s:goyo_enter()
+  silent !tmux set status off
+  silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+  set nolist
+  " ...
+endfunction
+
+function! s:goyo_leave()
+  silent !tmux set status on
+  silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+  set showmode
+  set showcmd
+  set scrolloff=5
+  set list
+  " ...
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+" }}}
+
 " Incsearch {{{1
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
@@ -88,6 +113,10 @@ nnoremap <leader>mm :<C-u>MatchmakerToggle<CR>
 nnoremap <LEADER>nt :NERDTreeToggle<CR>
 let g:NERDTreeWinPos='right'
 "}}}
+
+" Nord {{{1
+let g:nord_uniform_diff_background = 1
+" }}}
 
 " Syntastic {{{1
 let g:syntastic_aggregate_errors=1
