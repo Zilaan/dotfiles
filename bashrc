@@ -195,4 +195,11 @@ alias gcu='git shortlog -s -n --all --no-merges'
 
 export TERM=xterm-256color
 
+# Use Vim mode
+set -o vi
+
+export EDITOR=vim
+bind -m vi-insert "\C-l":clear-screen
+bind 'set show-mode-in-prompt on'
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
