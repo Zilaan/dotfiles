@@ -4,54 +4,10 @@
 
 " Mappings
 
-" Tabs {{{ "
-nnoremap <silent> tt :tabnew<CR>
-nnoremap <silent> TT :tabclose<CR>
-nnoremap <silent> [g :tabprevious<CR>
-nnoremap <silent> ]g :tabnext<CR>
-nnoremap <silent> [G :tabrewind<CR>
-nnoremap <silent> ]G :tablast<CR>
-" }}} Tabs "
-
-" Mode completion {{{ "
-inoremap <c-f> <c-x><c-f>
-inoremap <c-b> <c-x><c-]>
-inoremap <c-l> <c-x><c-l>
-" }}} Mode completion "
-
 " Navigering {{{ "
-noremap <C-H> <C-W>h
-noremap <C-J> <C-W>j
-noremap <C-K> <C-W>k
-noremap <C-L> <C-W>l
-
 noremap j gj
 noremap k gk
-noremap <left> g<s-^>
-noremap <right> g$
-noremap <s-left> <s-^>
-noremap <s-right> $
-
-vmap j gj
-vmap k gk
-vmap 9 g<s-^>
-vmap 0 g$
-vmap <leader>0 0
-
 " }}} Navigering "
-
-" Avmappa piltangenterna {{{ "
-" no <left> <Nop>
-" no <right> <Nop>
-ino <down> <Nop>
-" ino <left> <Nop>
-" ino <right> <Nop>
-ino <up> <Nop>
-vno <down> <Nop>
-vno <left> <Nop>
-vno <right> <Nop>
-vno <up> <Nop>
-" }}} Avmappa piltangenterna "
 
 " Flytta rader med piltangenterna {{{ "
 nmap <up> ddkP
@@ -92,14 +48,6 @@ nnoremap <leader>V V`]
 vnoremap <leader>S y:execute @@<cr>:echo 'Sourced selection.'<cr>
 nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
 " }}} Source "
-
-" Quick editing {{{ "
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>em :vsplit ~/.vim/startup/mappings.vim<cr>
-nnoremap <leader>ep :vsplit ~/.vim/startup/plugins.vim<cr>
-nnoremap <leader>es :vsplit ~/.vim/startup/settings.vim<cr>
-nnoremap <leader>eV :vsplit ~/.vim/startup/visual.vim<cr>
-" }}} Quick editing "
 
 " Clear matches {{{ "
 noremap <silent> <leader><space> :noh<cr>:call clearmatches()<cr>
