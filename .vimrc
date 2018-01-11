@@ -4,6 +4,7 @@
 " vim: foldcolumn=3
 
 set shell=/bin/bash
+set path=.,/usr/include/,,**
 
 set nocompatible
 filetype off
@@ -29,9 +30,11 @@ Plug 'haya14busa/incsearch.vim'         " Incsearch
 Plug 'nathanaelkane/vim-indent-guides'  " IndentGuide
 Plug 'qstrahl/vim-matchmaker'           " Matchmaker
 Plug 'tmhedberg/matchit'                " Matchit
+Plug 'vim-scripts/MatlabFilesEdition'   " MATLAB
 Plug 'scrooloose/nerdtree'              " NerdTree
 Plug 'Xuyuanp/nerdtree-git-plugin'      " NerdTree Git
 Plug 'scrooloose/nerdcommenter'         " NERDCommenter
+Plug 'arcticicestudio/nord-vim'         " Nord theme
 Plug 'mhartington/oceanic-next'         " Oceanic-next
 Plug 'junegunn/rainbow_parentheses.vim' " Rainbow parentheses
 Plug 'mhinz/vim-sayonara'               " Sayonara
