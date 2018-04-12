@@ -82,3 +82,17 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+
+colo nord
+
+if has('gui_running')
+    colo OceanicNext
+    "set guifont=Monospace\ 11
+    set guifont=Source\ Code\ Pro\ for\ Powerline\ Medium\ 12
+    set go-=T
+    set go-=l
+    set go-=L
+    set go-=r
+    set go-=R
+    set go-=m
+endif

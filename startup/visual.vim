@@ -38,6 +38,7 @@ colo nord
 " Airline Theme
 " let g:airline_theme = 'powerlineish'
 " let g:airline_theme='papercolor'
+colo nord
 let g:airline_theme='nord'
 
 " let g:airline_theme='oceanicnext'
