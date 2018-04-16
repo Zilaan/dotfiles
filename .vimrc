@@ -16,9 +16,9 @@ Plug 'VundleVim/Vundle.vim'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
-Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" Plug 'itchyny/lightline.vim'
 Plug 'schickling/vim-bufonly'           " BufOnly
 Plug 'octol/vim-cpp-enhanced-highlight', {'for': ['c', 'cpp']}
 Plug 'kien/ctrlp.vim'                   " CtrlP
@@ -49,9 +49,9 @@ Plug 'nvie/vim-flake8'                  " Flake8
 Plug 'tpope/vim-surround'               " Surround
 Plug 'gcmt/taboo.vim'                   " Taboo
 Plug 'majutsushi/tagbar'                " Tagbar
-"Plug 'SirVer/ultisnips'                 " Ultisnips
+Plug 'SirVer/ultisnips'                 " Ultisnips
 Plug 'tpope/vim-unimpaired'             " Unimpared
-"Plug 'Valloric/YouCompleteMe'           " YouCompelteMe
+Plug 'Valloric/YouCompleteMe'           " YouCompelteMe
 "Plug 'rdnetto/YCM-Generator'            " YCM generator
 "Plug 'gorodinskiy/vim-coloresque'
 
@@ -83,16 +83,3 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-colo nord
-
-if has('gui_running')
-    colo OceanicNext
-    "set guifont=Monospace\ 11
-    set guifont=Source\ Code\ Pro\ for\ Powerline\ Medium\ 12
-    set go-=T
-    set go-=l
-    set go-=L
-    set go-=r
-    set go-=R
-    set go-=m
-endif

@@ -196,10 +196,12 @@ alias gcu='git shortlog -s -n --all --no-merges'
 export TERM=xterm-256color
 
 # Use Vim mode
-set -o vi
+# set -o vi
 
 export EDITOR=vim
-bind -m vi-insert "\C-l":clear-screen
-bind 'set show-mode-in-prompt on'
+# bind -m vi-insert "\C-l":clear-screen
+# bind 'set show-mode-in-prompt on'
+
+PATH=$PATH:/usr/local/matlab/R2015b/bin/
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
