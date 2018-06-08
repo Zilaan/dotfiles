@@ -13,6 +13,15 @@ if executable('ag')
 endif
 " }}}
 
+" Ale {{{1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_linters = {
+\   'python': ['flake8'],
+\}
+" }}}
+
 " Airline {{{1
 " Set no delay
 set ttimeoutlen=50
@@ -59,6 +68,9 @@ let g:airline#extensions#branch#enabled = 1
 
 " Syntastic
 let g:airline#extensions#syntastic#enabled = 1
+
+" Ale
+let g:airline#extensions#ale#enabled = 1
 
 " Whitespace
 let g:airline#extensions#whitespace#enabled = 1
@@ -110,60 +122,60 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 " }}}
 
-" Syntastic {{{1
-let g:syntastic_aggregate_errors         = 1
-let g:syntastic_loc_list_height          = 5
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list            = 0
-let g:syntastic_check_on_open            = 1
-let g:syntastic_auto_jump                = 0
-let g:syntastic_enable_signs             = 1
-let g:syntastic_error_symbol             = '✗'
-let g:syntastic_style_error_symbol       = '※'
-let g:syntastic_warning_symbol           = '★'
-let g:syntastic_style_warning_symbol     = '☆'
-let g:syntastic_enable_balloons          = 1
-let g:syntastic_enable_highlighting      = 1
-let g:pymode_lint_write                  = 0
-let g:syntastic_stl_format               = '[%E{Err: %fe #%e}%B{,}%W{Warn: %fw #%w}]'
-let g:syntastic_python_checkers          = ['flake8']
-" let g:syntastic_tex_checkers = ['chktex']
-let g:syntastic_tex_checkers = ['']
-
-" Bad color, not visible
-highlight link SyntasticErrorSign NeomakeErrorSign
-highlight link SyntasticWarningSign NeomakeErrorSign
-highlight link SyntasticStyleErrorSign NeomakeWarningSign
-highlight link SyntasticStyleWarningSign NeomakeWarningSign
-
-" E501: Line too long
-" E841: Unused variable
-
-let g:syntastic_python_flake8_args = '--ignore="
-            \ E501,
-            \ E401,
-            \ E402,
-            \ E841"'
-
-"let g:syntastic_python_flake8_args = '--ignore="
-"            \ E251,
-"            \ F403,
-"            \ E501,
-"            \ E502,
-"            \ E126,
-"            \ E127,
-"            \ E128,
-"            \ W801,
-"            \ W191,
-"            \ E101,
-"            \ F401,
-"            \ E221,
-"            \ E203,
-"            \ E202,
-"            \ E261,
-"            \ E222,
-"            \ E262"'
-" }}}
+" " Syntastic {{{1
+" let g:syntastic_aggregate_errors         = 1
+" let g:syntastic_loc_list_height          = 5
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list            = 0
+" let g:syntastic_check_on_open            = 1
+" let g:syntastic_auto_jump                = 0
+" let g:syntastic_enable_signs             = 1
+" let g:syntastic_error_symbol             = '✗'
+" let g:syntastic_style_error_symbol       = '※'
+" let g:syntastic_warning_symbol           = '★'
+" let g:syntastic_style_warning_symbol     = '☆'
+" let g:syntastic_enable_balloons          = 1
+" let g:syntastic_enable_highlighting      = 1
+" let g:pymode_lint_write                  = 0
+" let g:syntastic_stl_format               = '[%E{Err: %fe #%e}%B{,}%W{Warn: %fw #%w}]'
+" let g:syntastic_python_checkers          = ['flake8']
+" " let g:syntastic_tex_checkers = ['chktex']
+" let g:syntastic_tex_checkers = ['']
+" 
+" " Bad color, not visible
+" highlight link SyntasticErrorSign NeomakeErrorSign
+" highlight link SyntasticWarningSign NeomakeErrorSign
+" highlight link SyntasticStyleErrorSign NeomakeWarningSign
+" highlight link SyntasticStyleWarningSign NeomakeWarningSign
+" 
+" " E501: Line too long
+" " E841: Unused variable
+" 
+" let g:syntastic_python_flake8_args = '--ignore="
+"             \ E501,
+"             \ E401,
+"             \ E402,
+"             \ E841"'
+" 
+" "let g:syntastic_python_flake8_args = '--ignore="
+" "            \ E251,
+" "            \ F403,
+" "            \ E501,
+" "            \ E502,
+" "            \ E126,
+" "            \ E127,
+" "            \ E128,
+" "            \ W801,
+" "            \ W191,
+" "            \ E101,
+" "            \ F401,
+" "            \ E221,
+" "            \ E203,
+" "            \ E202,
+" "            \ E261,
+" "            \ E222,
+" "            \ E262"'
+" " }}}
 
 " Taboo {{{1
 let taboo_renamed_tab_format='[%l]%m'

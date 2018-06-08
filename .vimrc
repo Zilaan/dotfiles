@@ -18,6 +18,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'w0rp/ale'                         " Ale
 " Plug 'itchyny/lightline.vim'
 Plug 'schickling/vim-bufonly'           " BufOnly
 Plug 'octol/vim-cpp-enhanced-highlight', {'for': ['c', 'cpp']}
@@ -43,7 +44,7 @@ Plug 'junegunn/seoul256.vim'            " Seoul256
 Plug 'w0ng/vim-hybrid'                  " Hybrid colors
 Plug 'tyrannicaltoucan/vim-quantum'     " Quantum
 Plug 'NLKNguyen/papercolor-theme'       " PaperColor
-Plug 'scrooloose/syntastic'             " Syntastic
+"Plug 'scrooloose/syntastic'             " Syntastic
 Plug 'hdima/python-syntax'              " Python syntax
 Plug 'nvie/vim-flake8'                  " Flake8
 Plug 'tpope/vim-surround'               " Surround
@@ -76,7 +77,7 @@ source ~/.vim/startup/plugins.vim
 " Load "Visual"
 source ~/.vim/startup/visual.vim
 
-highlight ExtraWhitespace ctermfg=red
+highlight ExtraWhitespace ctermfg=red guifg=red
 match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/

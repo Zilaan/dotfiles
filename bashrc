@@ -192,6 +192,7 @@ alias gp='git push'
 alias grb='git rebase'
 alias gst='git status'
 alias gcu='git shortlog -s -n --all --no-merges'
+alias ag='ag --nogroup --column'
 
 export TERM=xterm-256color
 

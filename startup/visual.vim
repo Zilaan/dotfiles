@@ -6,7 +6,9 @@
 syntax on
 
 " Visa aktuell rad
-set cul
+" set cul
+
+set lazyredraw
 
 " Toggla highlight searh
 map <leader>hl :set hlsearch! <CR>
