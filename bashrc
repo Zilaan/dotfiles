@@ -194,6 +194,7 @@ alias gst='git status'
 alias gcu='git shortlog -s -n --all --no-merges'
 alias ag='ag --nogroup --column'
 
+alias emacs='emacs -q --load ~/init_raman.el'
 export TERM=xterm-256color
 
 # Use Vim mode
