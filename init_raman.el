@@ -22,6 +22,7 @@
     fill-column-indicator
     git-gutter
     helm
+    hlinum
     magit
     material-theme
     matlab-mode
@@ -113,4 +114,7 @@
 ;; Avy (like easymotion)
 (global-set-key (kbd "C-:") 'avy-goto-char)
 
+;; Highlight current line number
+(hlinum-activate)
+(setq hlinum-highlight-in-all-buffersp t)
 ;; init.el ends here
