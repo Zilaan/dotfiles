@@ -17,10 +17,12 @@
     avy
     better-defaults
     diminish
+    doom-themes
     evil
     fill-column-indicator
     git-gutter
     helm
+    magit
     material-theme
     matlab-mode
     neotree
@@ -37,11 +39,29 @@
 ;; --------------------------------------
 
 (setq inhibit-startup-message t) ;; hide the startup message
-(setq inhibit-splash-screen t)
-(load-theme 'material t) ;; load material theme
+(setq inhibit-splash-screen t) ;; No splash screen
+
+;; Global settings (defaults)
+(setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+      doom-themes-enable-italic t) ; if nil, italics is universally disabled
+
+;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
+;; may have their own settings.
+(load-theme 'doom-one t)
+
+;; Enable flashing mode-line on errors
+(doom-themes-visual-bell-config)
+
+;; Enable custom neotree theme
+(doom-themes-neotree-config)  ; all-the-icons fonts must be installed!
+
+;; Corrects (and improves) org-mode's native fontification.
+(doom-themes-org-config)
+
 (global-linum-mode t) ;; enable line numbers globally
-(setq linum-format "%4d ")
-(setq column-number-mode t)
+(setq linum-format "%4d ") ;; Format of line numbers
+(setq column-number-mode t) ;; Show column number
+
 (setq-default fill-column 91)
 (global-hl-line-mode t)
 
@@ -50,17 +70,26 @@
      (tool-bar-mode -1)
      (scroll-bar-mode -1)))
 
+;; Rainbow parantheses etc
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'matlab-mode-hook #'rainbow-delimiters-mode)
 (rainbow-mode 1)
+
+;; Auto complete
 (global-auto-complete-mode t)
 (ac-config-default)
+
+;; Like easymotion in Vim
 (global-set-key (kbd "C-:") 'avy-goto-char)
+
+;; Git-gutter
 (global-git-gutter-mode +1)
 (git-gutter:linum-setup)
 
-;; (set-face-font 'default' "Fira Mono for Powerline:12")
+;; Set font settings
 (set-face-attribute 'default nil
 		    :font "Fira Mono for Powerline"
-		    :height 130
+		    :height 120
 		    :weight 'normal
 		    :width 'normal)
 
@@ -83,4 +112,5 @@
 
 ;; Avy (like easymotion)
 (global-set-key (kbd "C-:") 'avy-goto-char)
+
 ;; init.el ends here
