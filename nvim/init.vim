@@ -66,16 +66,16 @@ filetype indent on
 let mapleader=","
 
 " Load "Settings"
-source ~/.vim/startup/settings.vim
+source ./startup/settings.vim
 
 " Load "Mappings"
-source ~/.vim/startup/mappings.vim
+source ./startup/mappings.vim
 
 " Load "Plugins"
-source ~/.vim/startup/plugins.vim
+source ./startup/plugins.vim
 
 " Load "Visual"
-source ~/.vim/startup/visual.vim
+source ./startup/visual.vim
 
 " Highlight Trailing spaces {{{1
 highlight ExtraWhitespace ctermfg=red guifg=red
