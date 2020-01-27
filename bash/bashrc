@@ -47,12 +47,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+    # We have color support; assume it's compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=yes
     else
-	color_prompt=
+    color_prompt=
     fi
 fi
 
@@ -147,14 +147,16 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# ======================================================================== 
+# ========================================================================
 # My settings
-# ======================================================================== 
+# ========================================================================
 
 # MATLAB stuff
 export PATH="$PATH:/usr/local/matlab/R2017b/bin/"
 export PATH="$PATH:/usr/local/matlab/R2015b/bin/"
 export PATH="$PATH:/usr/local/matlab/R2015b/bin/glnxa64"
+export PATH="$PATH:/home/ramhad/bin/bin/neovim/bin/"
+export PATH="$PATH:/home/ramhad/bin/bin/"
 alias matlab17='/usr/local/matlab/R2017b/bin/matlab'
 alias matlab15='/usr/local/matlab/R2015b/bin/matlab'
 
@@ -182,6 +184,11 @@ alias grb='git rebase'
 alias gst='git status'
 alias gcu='git shortlog -s -n --all --no-merges'
 alias ag='ag --nogroup --column'
+alias ls='exa'
+alias ll='exa -hl --git'
+alias lla='exa -la --git'
+alias llt='exa -T'
+alias la='exa -a'
 
 # Variable for SVN
 export SVN_REPOS='https://pd.svn.cm.volvocars.biz/svn/VCU1/VCU1_Autosar/Base/Compositions/'
@@ -193,6 +200,16 @@ eval $(thefuck --alias)
 
 set -o vi
 export EDITOR=nvim
+
+# Set default command to use with FZF
+
+if [ -f "$(which rg)" ]; then
+    # Use ripgrep
+    export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+else
+    # Use find
+    export FZF_DEFAULT_COMMAND='find . -type f'
+fi
 
 export FZF_TMUX=1
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

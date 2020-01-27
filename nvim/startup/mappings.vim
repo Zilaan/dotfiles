@@ -19,14 +19,6 @@ vmap <down> xp`[V`]
 vmap <up> xkP`[V`]
 " }}} Flytta flera rader "
 
-" Autocentrering {{{ "
-" nmap G Gzz
-" nmap n nzz
-" nmap N Nzz
-" nmap } }zz
-" nmap { {zz
-" }}} Autocentrering "
-
 " Skapa par {{{ "
 imap <leader>' ''<ESC>i
 imap <leader>" ""<ESC>i

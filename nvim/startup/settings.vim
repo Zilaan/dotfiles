@@ -5,24 +5,12 @@
 
 " General settings {{{
 set tags=./tags;
-"- set t_Co=256
-"- 
-"- if &cp | set nocp | endif
-"- let s:cpo_save=&cpo
-"- set cpo&vim
 set backspace=2
-"- set nocompatible
-"- set langmenu=none
-"- set fileencodings=ucs-bom,utf-8,default,latin1
-"- set guitablabel=%M%t
-"- set helplang=sv
 set mouse=a
-"- set printexpr=system('open\ -a\ Preview\ '.v:fname_in)\ +\ v:shell_error
-"- set termencoding=utf-8
-"- highlight ColorColumn ctermbg=magenta
 set colorcolumn=91
 set showcmd
-set clipboard=unnamedplus
+set clipboard=unnamed
+"set clipboard=unnamedplus
 " }}}
 
 " Rader, tabbar och indrag relaterad {{{1
