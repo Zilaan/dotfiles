@@ -6,64 +6,112 @@
 set shell=/bin/bash
 set path=.,/usr/include/,,**
 
+set encoding=utf8
 set nocompatible
 filetype off
 
 call plug#begin('~/.config/nvim/plugged')
 
 " Plugins {{{1
+" === FZF === "
+" Fuzzy file finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+" === Vim-Airline === "
+" Status line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'w0rp/ale'                         " Ale
-Plug 'tmhedberg/SimpylFold'             " SimplyIFold
-"Plug 'ncm2/ncm2'                        " Autocomplete
+Plug 'tmhedberg/SimpylFold'
+
+" === Yarp === "
 Plug 'roxma/nvim-yarp'
-"Plug 'ncm2/ncm2-bufword'
-"Plug 'ncm2/ncm2-path'
-"Plug 'ncm2/ncm2-jedi'
-Plug 'Chiel92/vim-autoformat'           " Formater
-Plug 'schickling/vim-bufonly'           " BufOnly
 
+" === BufOnly === "
+" Close all other buffers
+Plug 'schickling/vim-bufonly'
+
+" === CPP-enhanced-highlight === "
+" Better syntax for c/c++
 Plug 'octol/vim-cpp-enhanced-highlight', {'for': ['c', 'cpp']}
-Plug 'junegunn/vim-easy-align'          " Easy align
-Plug 'easymotion/vim-easymotion'        " Easy motion
 
-Plug 'tpope/vim-fugitive'               " Fugitive
-Plug 'airblade/vim-gitgutter'           " GitGutter
+if has('nvim') || has('patch-8.0.902')
+  Plug 'mhinz/vim-signify'
+else
+  Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+endif
 
-Plug 'morhetz/gruvbox'                  " Gruvbox
-Plug 'haya14busa/incsearch.vim'         " Incsearch
-Plug 'qstrahl/vim-matchmaker'           " Matchmaker
+" === Easy align === "
+" Ailgn stuff
+Plug 'junegunn/vim-easy-align'
 
-Plug 'tmhedberg/matchit'                " Matchit
+" === Easy motion === "
+" Easy navigation
+Plug 'easymotion/vim-easymotion'
 
-Plug 'vim-scripts/MatlabFilesEdition'   " MATLAB
-Plug 'scrooloose/nerdtree'              " NerdTree
-Plug 'Xuyuanp/nerdtree-git-plugin'      " NerdTree Git
-Plug 'scrooloose/nerdcommenter'         " NERDCommenter
-Plug 'arcticicestudio/nord-vim'         " Nord theme
-Plug 'mhartington/oceanic-next'         " Oceanic-next
-Plug 'sonph/onehalf'                    " Onehalf
-"Plug 'junegunn/rainbow_parentheses.vim' " Rainbow parentheses
-Plug 'frazrepo/vim-rainbow'             " vim-rainbow
-Plug 'NLKNguyen/papercolor-theme'       " PaperColor
-Plug 'hdima/python-syntax'              " Python syntax
-Plug 'nvie/vim-flake8'                  " Flake8
-Plug 'tpope/vim-surround'               " Surround
-Plug 'majutsushi/tagbar'                " Tagbar
-Plug 'SirVer/ultisnips'                 " Ultisnips
-Plug 'tpope/vim-unimpaired'             " Unimpared
+" === Unimpared === "
+Plug 'tpope/vim-unimpaired'
 
-Plug 'Valloric/YouCompleteMe'           " YouCompelteMe
-Plug 'rdnetto/YCM-Generator', {'branch': 'stable'}            " YCM generator
-"Plug 'gorodinskiy/vim-coloresque'
-Plug 'jnurmine/Zenburn'                 " Zenburn
+" === Markdown === "
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
+" === Python-syntax === "
+Plug 'hdima/python-syntax'
+Plug 'nvie/vim-flake8'
+
+" === Fugitive === "
+" Git support
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" === Incsearch === "
+Plug 'haya14busa/incsearch.vim'
+
+" === MATLAB === "
+Plug 'vim-scripts/MatlabFilesEdition'
+
+" === NerdTree === "
+Plug 'scrooloose/nerdtree'
+
+" === NerdTree git === "
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" === Gruvbox colors === "
+Plug 'morhetz/gruvbox'
+
+" === Tagbar === "
+Plug 'majutsushi/tagbar'
+
+" === coc.nvim === "
+" Intellisense Engine
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+
+" === Denite === "
+" Denite - Fuzzy finding, buffer management
+Plug 'Shougo/denite.nvim'
+
+" === NeoSnippet === "
+" Snippet support
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+
+" === Icons === "
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+" === Goyo === "
+Plug 'junegunn/goyo.vim'
+
+" === NerdTree icons === "
+Plug 'ryanoasis/vim-devicons'
+
+" === Papercollor === "
+Plug 'NLKNguyen/papercolor-theme'
 " }}}
 
 call plug#end()
+
 " Misc
 filetype plugin on
 filetype indent on
@@ -91,3 +139,7 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 " }}}
+
+highlight Normal guibg=NONE
+highlight Normal ctermbg=NONE
+highlight Comment cterm=italic
