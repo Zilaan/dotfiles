@@ -1,120 +1,157 @@
-;; init.el --- Emacs configuration
-
-;; INSTALL PACKAGES
-;; --------------------------------------
-
+;; ----------------------------------------
+;;           Setup package archive
+;; ----------------------------------------
 (require 'package)
-
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (proto (if no-ssl "http" "https")))
+  (when no-ssl (warn "\
+Your version of Emacs does not support SSL connections,
+which is unsafe because it allows man-in-the-middle attacks.
+There are two things you can do about this warning:
+1. Install an Emacs version that does support SSL and be safe.
+2. Remove this warning from your init file so you won't see it again."))
+  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
+  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
+  )
 (package-initialize)
-(when (not package-archive-contents)
-  (package-refresh-contents))
 
-(defvar myPackages
-  '(auto-complete
-    avy
-    better-defaults
-    diminish
-    doom-themes
-    evil
-    fill-column-indicator
-    git-gutter
-    helm
-    hlinum
-    magit
-    material-theme
-    matlab-mode
-    neotree
-    rainbow-delimiters
-    rainbow-mode
-    smart-mode-line))
+;; ----------------------------------------
+;;           Setup use-package
+;; ----------------------------------------
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
 
-(mapc #'(lambda (package)
-    (unless (package-installed-p package)
-      (package-install package)))
-      myPackages)
+;; ----------------------------------------
+;;           General stuff
+;; ----------------------------------------
 
-;; BASIC CUSTOMIZATION
-;; --------------------------------------
+;; Disable some GUI stuff
+(scroll-bar-mode -1)              ;; Disable the scroll bar
+(tool-bar-mode -1)                ;; Disable GUI icons
+(menu-bar-mode -1)                ;; Disable menu bar, i.e. |File|Edit| etc
+(show-paren-mode t)               ;; Show matching parenthesis
+(setq make-backup-files nil)      ;; Don't backup files
+(defalias 'yes-or-no-p 'y-or-n-p) ;; Simpler yes/no
+(delete-selection-mode t)         ;; Replace region by writing
+(electric-pair-mode t)            ;; Auto insert matching brackets etc
+(setq inhibit-splash-screen t)    ;; No init screen
+(setq inhibit-startup-message t)  ;; No startup message
+(setq-default c-basic-offset 4)   ;; User 4 spaces for indent?
+(setq visible-bell t)             ;; Use visual bell
 
-(setq inhibit-startup-message t) ;; hide the startup message
-(setq inhibit-splash-screen t) ;; No splash screen
-
-;; Global settings (defaults)
-(setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-      doom-themes-enable-italic t) ; if nil, italics is universally disabled
-
-;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
-;; may have their own settings.
-(load-theme 'doom-one t)
-
-;; Enable flashing mode-line on errors
-(doom-themes-visual-bell-config)
-
-;; Enable custom neotree theme
-(doom-themes-neotree-config)  ; all-the-icons fonts must be installed!
-
-;; Corrects (and improves) org-mode's native fontification.
-(doom-themes-org-config)
-
-(global-linum-mode t) ;; enable line numbers globally
-(setq linum-format "%4d ") ;; Format of line numbers
-(setq column-number-mode t) ;; Show column number
-
-(setq-default fill-column 91)
-(global-hl-line-mode t)
-
-(if (display-graphic-p)
-    (progn
-     (tool-bar-mode -1)
-     (scroll-bar-mode -1)))
-
-;; Rainbow parantheses etc
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'matlab-mode-hook #'rainbow-delimiters-mode)
-(rainbow-mode 1)
-
-;; Auto complete
-(global-auto-complete-mode t)
-(ac-config-default)
-
-;; Like easymotion in Vim
-(global-set-key (kbd "C-:") 'avy-goto-char)
-
-;; Git-gutter
-(global-git-gutter-mode +1)
-(git-gutter:linum-setup)
+;; Make the modeline flash for visual bell
+(setq ring-bell-function
+      (lambda ()
+        (let ((orig-fg (face-foreground 'mode-line)))
+          (set-face-foreground 'mode-line "#F2804F")
+          (run-with-idle-timer 0.1 nil
+                               (lambda (fg) (set-face-foreground 'mode-line fg))
+                               orig-fg))))
 
 ;; Set font settings
 (set-face-attribute 'default nil
-		    :font "Fira Mono for Powerline"
+		    :font "Monaco"
 		    :height 120
 		    :weight 'normal
 		    :width 'normal)
+;; ----------------------------------------
+;;           Install packages
+;; ----------------------------------------
 
-;; Helm
-(require 'helm-config)
-(global-set-key (kbd "M-x") #'helm-M-x)
-(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-(global-set-key (kbd "C-x C-f") #'helm-find-files)
-(helm-mode 1)
+;; better-defaults, is this needed?
+(use-package better-defaults
+  :ensure t)
 
-;; Highlight 'fill column' global
-(require 'fill-column-indicator)
-(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
-(global-fci-mode 1)
+;; Company for auto completei
+(use-package company
+  :ensure t
+  :bind (:map company-active-map
+         ("C-n" . company-select-next)
+         ("C-p" . company-select-previous))
+  :config
+  (setq company-idle-delay 0)
+  (setq company-minimum-prefix-length 3))
+(global-company-mode t)
 
-;; Smart line
-(setq sml/theme 'dark)
-(setq sml/no-confirm-load-theme t)
-(sml/setup)
+;; flycheck for syntax checking
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
 
-;; Avy (like easymotion)
-(global-set-key (kbd "C-:") 'avy-goto-char)
+;; which-key to give suggestions for keys
+(use-package which-key
+  :ensure t
+  :config (which-key-mode))
 
-;; Highlight current line number
-(hlinum-activate)
-(setq hlinum-highlight-in-all-buffersp t)
-;; init.el ends here
+;; doom themes
+(use-package doom-themes
+  :ensure t
+  :config
+  (load-theme 'doom-nord t))
+
+;; doom modeline
+(use-package doom-modeline
+  :ensure t
+  :init
+  (doom-modeline-mode t)
+  (setq doom-modeline-icon nil)
+  (setq doom-modeline-major-mode-icon nil)
+  (setq doom-modeline-major-mode-color-icon nil)
+  (setq doom-modeline-buffer-state-icon nil)
+  (setq doom-modeline-buffer-modification-icon nil)
+  (setq doom-modeline-bar-width 3)
+  (setq doom-modeline-minor-modes t))
+
+;; Fany icons
+(use-package all-the-icons
+  :ensure t)
+
+;; Multiple cursors
+(use-package multiple-cursors
+  :bind (("C-<" . mc/mark-previous-like-this)
+	 ("C-M-<" . mc/unmark-previous-like-this)
+	 ("C->" . mc/mark-next-like-this)
+	 ("C-M->" . mc/unmark-next-like-this)
+	 ("<ESC> <ESC>" . mc/keyboard-quit))
+  :ensure t)
+
+;; Avy, like easymotion in Vim
+(use-package avy
+  :bind (("C-:" . avy-goto-char))
+  :ensure t)
+
+;; Magit for git
+(use-package magit
+  :bind (("C-x g" . magit-status))
+  :ensure t)
+
+;; Expand region
+(use-package expand-region
+  :bind ("C-c e" . er/expand-region)
+  :ensure t)
+
+;; Rainbow-mode for coloring hex values
+(use-package rainbow-mode
+  :ensure t
+  :config (rainbow-mode t))
+
+;; Rainbow-delimiters colored parenthesis etc
+(use-package rainbow-delimiters
+  :ensure t
+  :config (rainbow-delimiters-mode))
+
+;; csv
+(use-package csv-mode
+  :mode ("\\.csv\\'"))
+
+;; json
+(use-package json-mode
+  :mode ("\\.json\\'"))
+;; ----------------------------------------
+;;           Keybindings
+;; ----------------------------------------
+
+(global-set-key (kbd "C-c w") 'whitespace-mode)
+(global-set-key (kbd "C-c l") 'display-line-numbers-mode)
