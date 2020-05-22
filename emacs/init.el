@@ -1,3 +1,8 @@
+;;; package --- Summary
+;;; Commentary:
+;; GNU Emacs 26.3
+;;
+;;; Code:
 ;; ----------------------------------------
 ;;           Setup package archive
 ;; ----------------------------------------
@@ -52,13 +57,71 @@ There are two things you can do about this warning:
 
 ;; Set font settings
 (set-face-attribute 'default nil
-		    :font "Monaco"
-		    :height 120
-		    :weight 'normal
-		    :width 'normal)
+                    :font "Monaco"
+                    :height 135
+                    :weight 'normal
+                    :width 'normal)
 ;; ----------------------------------------
 ;;           Install packages
 ;; ----------------------------------------
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Origami - Does code folding, ie hide the body of an
+;; if/else/for/function so that you can fit more code on your screen
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package origami
+  :ensure t
+  :commands (origami-mode)
+  :bind (:map origami-mode-map
+              ("C-c o :" . origami-recursively-toggle-node)
+              ("C-c o a" . origami-toggle-all-nodes)
+              ("C-c o t" . origami-toggle-node)
+              ("C-c o o" . origami-show-only-node)
+              ("C-c o u" . origami-undo)
+              ("C-c o U" . origami-redo)
+              ("C-c o C-r" . origami-reset)
+              )
+  :config
+  (setq origami-show-fold-header t)
+  ;; The python parser currently doesn't fold if/for/etc. blocks, which is
+  ;; something we want. However, the basic indentation parser does support
+  ;; this with one caveat: you must toggle the node when your cursor is on
+  ;; the line of the if/for/etc. statement you want to collapse. You cannot
+  ;; fold the statement by toggling in the body of the if/for/etc.
+  (add-to-list 'origami-parser-alist '(python-mode . origami-indent-parser))
+  :init
+  (add-hook 'prog-mode-hook 'origami-mode))
+
+;; window-numbering use meta with number e.g. M-1, M-2 etc
+(use-package window-numbering
+  :ensure t
+  :config
+  (eval-when-compile
+    ;; Silence missing function warnings
+    (declare-function window-numbering-mode "window-numbering.el"))
+  (window-numbering-mode t))
+
+
+;; string-inflection
+;; used for switching between different cases, eg CamelCase,
+;; lowerCamelCase, snake_case, and SCREAMING_SNAKE_CASE
+(use-package string-inflection
+  :ensure t
+  :defer t
+  :bind (("C-c c i" . string-inflection-cycle)
+         ("C-c c l" . string-inflection-lower-camelcase)
+         ("C-c c c" . string-inflection-camelcase)
+         ("C-c c s" . string-inflection-underscore)
+         ("C-c c u" . string-inflection-upcase)))
+
+;; beacon to higlight cursor line when switching windows
+(use-package beacon
+  :ensure t
+  :init
+  (eval-when-compile
+    ;; Silence missing function warnings
+    (declare-function beacon-mode "beacon.el"))
+  :config
+  (beacon-mode t))
 
 ;; better-defaults, is this needed?
 (use-package better-defaults
@@ -111,10 +174,10 @@ There are two things you can do about this warning:
 ;; Multiple cursors
 (use-package multiple-cursors
   :bind (("C-<" . mc/mark-previous-like-this)
-	 ("C-M-<" . mc/unmark-previous-like-this)
-	 ("C->" . mc/mark-next-like-this)
-	 ("C-M->" . mc/unmark-next-like-this)
-	 ("<ESC> <ESC>" . mc/keyboard-quit))
+         ("C-M-<" . mc/unmark-previous-like-this)
+         ("C->" . mc/mark-next-like-this)
+         ("C-M->" . mc/unmark-next-like-this)
+         ("<ESC> <ESC>" . mc/keyboard-quit))
   :ensure t)
 
 ;; Avy, like easymotion in Vim
@@ -140,7 +203,11 @@ There are two things you can do about this warning:
 ;; Rainbow-delimiters colored parenthesis etc
 (use-package rainbow-delimiters
   :ensure t
-  :config (rainbow-delimiters-mode))
+  :init
+  (eval-when-compile
+    ;; Silence missing function warnings
+    (declare-function rainbow-delimiters-mode "rainbow-delimiters.el"))
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
 ;; csv
 (use-package csv-mode
@@ -155,3 +222,19 @@ There are two things you can do about this warning:
 
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 (global-set-key (kbd "C-c l") 'display-line-numbers-mode)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (origami beacon string-inflection window-numbering rainbow-delimiters rainbow-mode expand-region magit avy multiple-cursors doom-modeline doom-themes which-key flycheck company better-defaults use-package))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;;; init.el ends here
