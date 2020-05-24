@@ -25,13 +25,18 @@
 
     ;; Set font settings
     (set-face-attribute 'default nil
-                        :font "Monaco"
+                        :font "Hack"
                         :height 135
                         :weight 'normal
                         :width 'normal)
   #+END_SRC
 
 * Packages
+** org
+   This will hide markers such as * and / when using bold and italic in org-mode
+   #+BEGIN_SRC emacs-lisp
+     (setq org-hide-emphasis-markers 1)
+   #+END_SRC
 ** org-bullets
    To get nice bullets in org-mode
    #+BEGIN_SRC emacs-lisp
