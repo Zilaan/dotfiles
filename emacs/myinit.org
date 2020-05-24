@@ -40,6 +40,15 @@
        :config
        (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
    #+END_SRC
+** wgrep
+   Allows editing of grep buffers to do search and replaces a cross multiple files
+   #+BEGIN_SRC emacs-lisp
+     (use-package wgrep
+       :ensure t
+       :config
+       (setq wgrep-auto-save-buffer t)
+       (setq wgrep-enable-key "e"))
+   #+END_SRC
 ** origami
    Origami - Does code folding, ie hide the body of an
    if/else/for/function so that you can fit more code on your screen
