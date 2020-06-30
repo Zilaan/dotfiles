@@ -37,6 +37,11 @@
    #+BEGIN_SRC emacs-lisp
      (setq org-hide-emphasis-markers 1)
    #+END_SRC
+
+   Mark done tasks with date
+   #+BEGIN_SRC emacs-lisp
+     (setq org-log-done 'time)
+   #+END_SRC
 ** org-bullets
    To get nice bullets in org-mode
    #+BEGIN_SRC emacs-lisp
@@ -157,7 +162,7 @@
      (use-package doom-themes
        :ensure t
        :config
-       (load-theme 'doom-nord t))
+       (load-theme 'doom-tomorrow-day t))
    #+END_SRC
 ** doom-modeline
    A simple but nice modeline
@@ -230,6 +235,14 @@
          ;; Silence missing function warnings
          (declare-function rainbow-delimiters-mode "rainbow-delimiters.el"))
        (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+   #+END_SRC
+** matlab-mode
+   Mode for editing matlab files
+   #+BEGIN_SRC emacs-lisp
+     (use-package matlab-mode
+       :ensure t
+       :mode ("\\.m\\'")
+       :config (setq matlab-indent-function t))
    #+END_SRC
 ** csv-mode
    Mode for editing csv files

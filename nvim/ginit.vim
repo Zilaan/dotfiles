@@ -11,3 +11,5 @@
 " endif
 
 execute "Guifont Fira Code:h12"
+set background=light
+colorscheme PaperColor

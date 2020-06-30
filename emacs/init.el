@@ -35,7 +35,7 @@ There are two things you can do about this warning:
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (org-bullets origami beacon string-inflection window-numbering rainbow-delimiters rainbow-mode expand-region magit avy multiple-cursors doom-modeline doom-themes which-key flycheck company better-defaults use-package))))
+    (json-mode csv-mode matlab-mode org-bullets origami beacon string-inflection window-numbering rainbow-delimiters rainbow-mode expand-region magit avy multiple-cursors doom-modeline doom-themes which-key flycheck company better-defaults use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -45,3 +45,4 @@ There are two things you can do about this warning:
 
 (org-babel-load-file (expand-file-name "~/.emacs.d/myinit.org"))
 ;;; init.el ends here
+(put 'narrow-to-region 'disabled nil)

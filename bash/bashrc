@@ -90,7 +90,9 @@ if [ "$color_prompt" = yes ]; then
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[31m\]@\[\033[00m\]\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\]\[\033[33m\]$(fast_git_ps1)\[\033[00m\]\$ '
     PS1='${debian_chroot:+($debian_chroot)}\[\033[00m\]\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\] \[\033[33m\]$(fast_git_ps1)\[\033[00m\]$(new_line)'
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\w\$ '
+    #PS1='\r[\u@\w]\$ '
+    #PS1='\r\[\033[00m\]\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\] \[\033[33m\]$(fast_git_ps1)\[\033[00m\]$(new_line)'
 fi
 unset color_prompt force_color_prompt
 
@@ -159,6 +161,7 @@ export PATH="$PATH:/home/ramhad/bin/bin/neovim/bin/"
 export PATH="$PATH:/home/ramhad/bin/bin/"
 alias matlab17='/usr/local/matlab/R2017b/bin/matlab'
 alias matlab15='/usr/local/matlab/R2015b/bin/matlab'
+#alias emacs='emacs -Q --load ~/dotfiles/emacs/init_clean.el'
 
 # Alias
 alias ga='git add'
