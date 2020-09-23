@@ -13,6 +13,7 @@
     (setq inhibit-startup-message t)  ;; No startup message
     (setq-default c-basic-offset 4)   ;; User 4 spaces for indent?
     (setq visible-bell t)             ;; Use visual bell
+    (setq require-final-newline nil)  ;; No newline at end of file
 
     ;; Make the modeline flash for visual bell
     (setq ring-bell-function
@@ -26,12 +27,21 @@
     ;; Set font settings
     (set-face-attribute 'default nil
                         :font "Hack"
-                        :height 135
+                        :height 110
                         :weight 'normal
                         :width 'normal)
   #+END_SRC
 
 * Packages
+** doxymacs
+   #+BEGIN_SRC emacs-lisp
+     (require 'doxymacs)
+     (add-hook 'c-mode-common-hook 'doxymacs-mode)
+     (defun my-doxymacs-font-lock-hook ()
+         (if (or (eq major-mode 'c-mode) (eq major-mode 'c++-mode))
+             (doxymacs-font-lock)))
+     (add-hook 'font-lock-mode-hook 'my-doxymacs-font-lock-hook)
+   #+END_SRC
 ** org
    This will hide markers such as * and / when using bold and italic in org-mode
    #+BEGIN_SRC emacs-lisp
@@ -149,6 +159,17 @@
        :ensure t
        :init (global-flycheck-mode))
    #+END_SRC
+** elpy
+   #+BEGIN_SRC emacs-lisp
+     (use-package elpy
+       :ensure t
+       :init
+       (elpy-enable)
+       :config
+       (setq elpy-rpc-python-command "python3")
+       (setq python-shell-interpreter "python3"
+           python-shell-interpreter-args "-i"))
+   #+END_SRC
 ** which-key
    Gives suggestions for keys after a pause
    #+BEGIN_SRC emacs-lisp
@@ -184,6 +205,10 @@
    #+BEGIN_SRC emacs-lisp
      (use-package all-the-icons
        :ensure t)
+   #+END_SRC
+   #+BEGIN_SRC emacs-lisp
+     ;; (use-package all-the-icons-dired
+     ;;   :hook (dired-mode . all-the-icons-dired-mode))
    #+END_SRC
 ** multiple-cursors
    Use multiple cursors when editing
@@ -256,15 +281,49 @@
      (use-package json-mode
        :mode ("\\.json\\'"))
    #+END_SRC
+** lsp-mode
+   #+BEGIN_SRC emacs-lisp
+     ;; Language Server Protocols
+
+     ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+     (setq lsp-keymap-prefix "C-c l")
+
+     (use-package lsp-mode
+       :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+              (prog-mode . lsp)
+              ;; if you want which-key integration
+              (lsp-mode . lsp-enable-which-key-integration))
+       :commands lsp)
+
+     (use-package lsp-ui)
+     (use-package company-lsp)
+   #+END_SRC
 * Keybindings
 ** Highlight whitespace
    Shortcut to toggle whitespace-mode
    #+BEGIN_SRC emacs-lisp
+     ;; Set keybinding for toggling white space
      (global-set-key (kbd "C-c w") 'whitespace-mode)
    #+END_SRC
 ** Show line number
    Shortcut to toggle line numbers
    #+BEGIN_SRC emacs-lisp
-     (global-set-key (kbd "C-c l") 'display-line-numbers-mode)
+     ;; Set keybinding for toggling line numbers
+     (global-set-key (kbd "C-c n") 'display-line-numbers-mode)
    #+END_SRC
-
+* Not used
+** ccls
+   #+BEGIN_SRC emacs-lisp
+     ;; (use-package ccls
+     ;;   :after projectile
+     ;;   :custom
+     ;;   (ccls-args nil)
+     ;;   (ccls-executable (executable-find "ccls"))
+     ;;   (projectile-project-root-files-top-down-recurring
+     ;;    (append '("compile_commands.json" ".ccls")
+     ;;            projectile-project-root-files-top-down-recurring))
+     ;;   :config (push ".ccls-cache" projectile-globally-ignored-directories))
+     ;; 
+     ;; (setq gc-cons-threshold 100000000)
+     ;; (setq read-process-output-max (* 1024 1024)) ;; 1mb
+   #+END_SRC

@@ -154,6 +154,7 @@ set nowrapscan
 " }}}
 
 " Coc.nvim {{{1
+if !g:use_builtin_lsp
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
@@ -256,6 +257,7 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+endif
 " }}}
 
 "-" Coc.nvim {{{1
@@ -479,7 +481,7 @@ nnoremap <leader>mm :<C-u>MatchmakerToggle<CR>
 
 " NERDTree {{{1
 nnoremap <LEADER>nt :NERDTreeToggle<CR>
-let g:NERDTreeWinPos='right'
+let g:NERDTreeWinPos='left'
 
 " Show hidden files/directories
 let g:NERDTreeShowHidden = 1
@@ -532,6 +534,10 @@ highlight link Flake8_Naming     WarningMsg
 highlight link Flake8_PyFlake    WarningMsg
 " }}} Flake8
 
+" Tagbar {{{1
+nnoremap <silent> <F8> :TagbarToggle<CR>
+" }}}
+
 " Rainbow {{{1
 "au FileType c,cpp,py,m call rainbow#load()
 "let g:rainbow_load_separately = [
@@ -567,3 +573,23 @@ if has('conceal')
 endif
 " }}}
 let python_highlight_all = 1
+
+" nvim-lsp {{{1
+if g:use_builtin_lsp
+:lua << EOF
+local nvim_lsp = require 'nvim_lsp'
+local util = require 'nvim_lsp/util'
+nvim_lsp.clangd.setup{}
+EOF
+
+nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+endif
+" }}}

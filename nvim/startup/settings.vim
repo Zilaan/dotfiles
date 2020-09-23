@@ -10,6 +10,9 @@ set mouse=a
 set colorcolumn=91
 set showcmd
 set clipboard=unnamed
+
+" Don't add newline at end of file
+set nofixendofline
 "set clipboard=unnamedplus
 " }}}
 
@@ -117,7 +120,6 @@ set completeopt=menuone,preview
 " Keep folds when edeting {{{1
 autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
 autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
-" }}}
 
 " Custom folding settings {{{2
 function! NeatFoldText()
@@ -139,4 +141,11 @@ augroup TerminalStuff
     autocmd!
     autocmd TermOpen * setlocal nonumber
 augroup END
+" }}}
+" }}}
+
+" Yaml {{{1
+" add yaml stuffs
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 " }}}

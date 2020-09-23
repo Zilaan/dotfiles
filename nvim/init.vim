@@ -12,6 +12,17 @@ filetype off
 
 call plug#begin('~/.config/nvim/plugged')
 
+redir => s
+silent! version
+redir END
+let g:nvim_version = matchstr(s, 'NVIM v\zs[^-\n]*')
+
+if g:nvim_version == "0.5.0"
+    let g:use_builtin_lsp = 1
+else
+    let g:use_builtin_lsp = 0
+endif
+
 " Plugins {{{1
 " === FZF === "
 " Fuzzy file finder
@@ -73,7 +84,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'vim-scripts/MatlabFilesEdition'
 
 " === NerdTree === "
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 
 " === NerdTree git === "
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -86,8 +97,9 @@ Plug 'majutsushi/tagbar'
 
 " === coc.nvim === "
 " Intellisense Engine
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-
+if !g:use_builtin_lsp
+    Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+endif
 " === Denite === "
 " Denite - Fuzzy finding, buffer management
 Plug 'Shougo/denite.nvim'
@@ -108,6 +120,15 @@ Plug 'ryanoasis/vim-devicons'
 
 " === Papercollor === "
 Plug 'NLKNguyen/papercolor-theme'
+
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+
+Plug 'rhysd/git-messenger.vim'
+
+" === nvim-lsp === "
+if g:use_builtin_lsp
+    Plug 'neovim/nvim-lsp'
+endif
 " }}}
 
 call plug#end()
