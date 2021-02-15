@@ -5,28 +5,5 @@
     "python.linting.enabled": true,
     "python.linting.pep8Enabled": false,
     "python.formatting.provider": "autopep8",
-    "coc.preferences.useQuickfixForLocations": true,
-    "languageserver": {
-            "ccls": {
-                "command": "ccls",
-                "filetypes": [
-                    "c",
-                    "cpp",
-                    "objc",
-                    "objcpp"
-                ],
-                "rootPatterns": [
-                    ".ccls",
-                    "compile_commands.json",
-                    ".vim/",
-                    ".git/",
-                    ".hg/"
-                ],
-                "initializationOptions": {
-                    "cache": {
-                        "directory": "/tmp/ccls"
-                    }
-                }
-            }
-        }
+    "coc.preferences.useQuickfixForLocations": true
 }

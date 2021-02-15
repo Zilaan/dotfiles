@@ -26,8 +26,12 @@ if has('nvim')
         " :Guifont Source Code Pro for Powerline:h13<CR>
         :Guifont Source Code Pro for Powerline:h13
     end
+
+    " let g:solarized_termcolors=256
+    set termguicolors " used for base16 colors
     set background=dark
-    colo gruvbox
+    colo base16-tomorrow-night-eighties
+
     "let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 else
     if has('gui_running')

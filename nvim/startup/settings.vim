@@ -66,55 +66,56 @@ set listchars=eol:¬,extends:»,tab:\|\ ,trail:›
 set showbreak=…
 " }}}
 
-" QuickFix window {{{1
-augroup quickfix_size
-    autocmd!
-    au FileType qf call AdjustWindowHeight(2, 10)
-augroup END
-function! AdjustWindowHeight(minheight, maxheight)
-    exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
-endfunction
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
+"" QuickFix window {{{1
+"augroup quickfix_size
+"    autocmd!
+"    au FileType qf call AdjustWindowHeight(2, 10)
+"augroup END
+"function! AdjustWindowHeight(minheight, maxheight)
+"    exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
+"endfunction
+"let g:syntastic_always_populate_loc_list = 0
+"let g:syntastic_auto_loc_list = 0
+"
+"" Show last search {{{2
+"nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
+"" }}}
+"" }}}
 
-" Show last search {{{2
-nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
-" }}}
-" }}}
-
-" Error Toggles {{{1
-
-command! ErrorsToggle call ErrorsToggle()
-function! ErrorsToggle() " {{{
-    if exists("w:is_error_window")
-        unlet w:is_error_window
-        exec "q"
-    else
-        exec "Errors"
-        lopen
-        let w:is_error_window = 1
-    endif
-endfunction " }}}
-
-command! -bang -nargs=? QFixToggle call QFixToggle(<bang>0)
-function! QFixToggle(forced) " {{{
-    if exists("g:qfix_win") && a:forced == 0
-        cclose
-        unlet g:qfix_win
-    else
-        copen 10
-        let g:qfix_win = bufnr("$")
-    endif
-endfunction " }}}
-
-" nmap <silent> <f3> :ErrorsToggle<cr>
-" nmap <silent> <f4> :QFixToggle<cr>
-
-" }}}
+"" Error Toggles {{{1
+"
+"command! ErrorsToggle call ErrorsToggle()
+"function! ErrorsToggle() " {{{
+"    if exists("w:is_error_window")
+"        unlet w:is_error_window
+"        exec "q"
+"    else
+"        exec "Errors"
+"        lopen
+"        let w:is_error_window = 1
+"    endif
+"endfunction " }}}
+"
+"command! -bang -nargs=? QFixToggle call QFixToggle(<bang>0)
+"function! QFixToggle(forced) " {{{
+"    if exists("g:qfix_win") && a:forced == 0
+"        cclose
+"        unlet g:qfix_win
+"    else
+"        copen 10
+"        let g:qfix_win = bufnr("$")
+"    endif
+"endfunction " }}}
+"
+"" nmap <silent> <f3> :ErrorsToggle<cr>
+"" nmap <silent> <f4> :QFixToggle<cr>
+"
+"" }}}
 
 " Command line popup {{{
 set wildmenu
-set completeopt=menuone,preview
+"set completeopt=menuone,preview
+set completeopt=menuone,noinsert,noselect
 " }}}
 
 " Keep folds when edeting {{{1

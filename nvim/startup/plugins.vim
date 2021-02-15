@@ -1,134 +1,6 @@
 " vim: foldmethod=marker
 " vim: foldcolumn=3
 
-" Denite {{{1
-" Wrap in try/catch to avoid errors on initial install before plugin is available
-try
-" === Denite setup ==="
-" Use ripgrep for searching current directory for files
-" By default, ripgrep will respect rules in .gitignore
-"   --files: Print each file that would be searched (but don't search)
-"   --glob:  Include or exclues files for searching that match the given glob
-"            (aka ignore .git files)
-"
-call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git'])
-
-" Use ripgrep in place of "grep"
-call denite#custom#var('grep', 'command', ['rg'])
-
-" Custom options for ripgrep
-"   --vimgrep:  Show results with every match on it's own line
-"   --hidden:   Search hidden directories and files
-"   --heading:  Show the file name above clusters of matches from each file
-"   --S:        Search case insensitively if the pattern is all lowercase
-call denite#custom#var('grep', 'default_opts', ['--hidden', '--vimgrep', '--heading', '-S'])
-
-" Recommended defaults for ripgrep via Denite docs
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
-
-" Remove date from buffer list
-call denite#custom#var('buffer', 'date_format', '')
-
-" Open file commands
-call denite#custom#map('insert,normal', "<C-t>", '<denite:do_action:tabopen>')
-call denite#custom#map('insert,normal', "<C-v>", '<denite:do_action:vsplit>')
-call denite#custom#map('insert,normal', "<C-h>", '<denite:do_action:split>')
-
-" Custom options for Denite
-"   auto_resize             - Auto resize the Denite window height automatically.
-"   prompt                  - Customize denite prompt
-"   direction               - Specify Denite window direction as directly below current pane
-"   winminheight            - Specify min height for Denite window
-"   highlight_mode_insert   - Specify h1-CursorLine in insert mode
-"   prompt_highlight        - Specify color of prompt
-"   highlight_matched_char  - Matched characters highlight
-"   highlight_matched_range - matched range highlight
-let s:denite_options = {'default' : {
-\ 'split': 'floating',
-\ 'start_filter': 1,
-\ 'auto_resize': 1,
-\ 'source_names': 'short',
-\ 'prompt': 'λ:',
-\ 'statusline': 0,
-\ 'highlight_matched_char': 'WildMenu',
-\ 'highlight_matched_range': 'Visual',
-\ 'highlight_window_background': 'Visual',
-\ 'highlight_filter_background': 'StatusLine',
-\ 'highlight_prompt': 'StatusLine',
-\ 'winrow': 1,
-\ 'vertical_preview': 1
-\ }}
-
-" Loop through denite options and enable them
-function! s:profile(opts) abort
-  for l:fname in keys(a:opts)
-    for l:dopt in keys(a:opts[l:fname])
-      call denite#custom#option(l:fname, l:dopt, a:opts[l:fname][l:dopt])
-    endfor
-  endfor
-endfunction
-
-call s:profile(s:denite_options)
-catch
-  echo 'Denite not installed. It should work after running :PlugInstall'
-endtry
-" }}}
-
-" Denite mappings {{{1
-" === Denite shorcuts === "
-"   ;         - Browser currently open buffers
-"   <leader>t - Browse list of files in current directory
-"   <leader>g - Search current directory for occurences of given term and close window if no results
-"   <leader>j - Search current directory for occurences of word under cursor
-nmap <leader>b :Denite buffer<CR>
-nmap <leader>t :DeniteProjectDir file/rec<CR>
-nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
-nnoremap <leader>j :<C-u>DeniteCursorWord grep:.<CR>
-
-" Define mappings while in 'filter' mode
-"   <C-o>         - Switch to normal mode inside of search results
-"   <Esc>         - Exit denite window in any mode
-"   <CR>          - Open currently selected file in any mode
-autocmd FileType denite-filter call s:denite_filter_my_settings()
-function! s:denite_filter_my_settings() abort
-  imap <silent><buffer> <C-o>
-  \ <Plug>(denite_filter_quit)
-  inoremap <silent><buffer><expr> <Esc>
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> <Esc>
-  \ denite#do_map('quit')
-  inoremap <silent><buffer><expr> <CR>
-  \ denite#do_map('do_action')
-endfunction
-
-" Define mappings while in denite window
-"   <CR>        - Opens currently selected file
-"   q or <Esc>  - Quit Denite window
-"   d           - Delete currenly selected file
-"   p           - Preview currently selected file
-"   <C-o> or i  - Switch to insert mode inside of filter prompt
-autocmd FileType denite call s:denite_my_settings()
-function! s:denite_my_settings() abort
-  nnoremap <silent><buffer><expr> <CR>
-  \ denite#do_map('do_action')
-  nnoremap <silent><buffer><expr> q
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> <Esc>
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> d
-  \ denite#do_map('do_action', 'delete')
-  nnoremap <silent><buffer><expr> p
-  \ denite#do_map('do_action', 'preview')
-  nnoremap <silent><buffer><expr> i
-  \ denite#do_map('open_filter_buffer')
-  nnoremap <silent><buffer><expr> <C-o>
-  \ denite#do_map('open_filter_buffer')
-endfunction
-" }}}
-
 " Some settings {{{1
 " if hidden is not set, TextEdit might fail.
 set hidden
@@ -181,9 +53,11 @@ nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gD <Plug>(coc-declaration)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gR <Plug>(coc-refactor)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -260,29 +134,6 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 endif
 " }}}
 
-"-" Coc.nvim {{{1
-"-" === Coc.nvim === "
-"-" use <tab> for trigger completion and navigate to next complete item
-"-function! s:check_back_space() abort
-"-  let col = col('.') - 1
-"-  return !col || getline('.')[col - 1]  =~ '\s'
-"-endfunction
-"-
-"-inoremap <silent><expr> <TAB>
-"-      \ pumvisible() ? "\<C-n>" :
-"-      \ <SID>check_back_space() ? "\<TAB>" :
-"-      \ coc#refresh()
-"-
-"-"Close preview window when completion is done.
-"-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-"-
-"-" === Mappings === "
-"-" === coc.nvim === "
-"-nmap <silent> <leader>dd <Plug>(coc-definition)
-"-nmap <silent> <leader>dr <Plug>(coc-references)
-"-nmap <silent> <leader>di <Plug>(coc-implementation)
-"-" }}}
-
 " Grep {{{1
 if executable('rg') 
     " Use ripgrep if installed
@@ -300,17 +151,6 @@ else
 endif
 " }}}
 
-" " Ale {{{1
-" let g:ale_lint_on_enter = 1
-" let g:ale_lint_on_text_changed = 'never'
-" let g:ale_echo_msg_error_str = '✗'
-" let g:ale_echo_msg_warning_str = '⚠'
-" "let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-" let g:ale_linters = {'python': ['flake8'], 'matlab': ['mlint']}
-" let g:ale_set_loclist = 0
-" let g:ale_set_quickfix = 1
-" " }}}
-
 " Airline {{{1
 " Powerline symbols
 if !exists('g:airline_symbols')
@@ -327,31 +167,34 @@ let g:airline#extensions#taboo#enabled = 1
 let g:taboo_tabline = 0
 
 " Tabline
-let g:airline#extensions#tabline#show_tab_nr = 1
-let g:airline#extensions#tabline#tab_nr_type = 2 " splits and tab number
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 1
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline#extensions#tabline#right_sep = ''
-let g:airline#extensions#tabline#right_alt_sep = ''
-" let g:airline#extensions#tabline#left_sep = ''
-" let g:airline#extensions#tabline#left_alt_sep = ''
+" let g:airline#extensions#tabline#show_tab_nr = 1
+" let g:airline#extensions#tabline#tab_nr_type = 2 " splits and tab number
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#show_buffers = 1
+" let g:airline#extensions#tabline#left_sep = ''
+" let g:airline#extensions#tabline#left_alt_sep = ''
 " let g:airline#extensions#tabline#right_sep = ''
 " let g:airline#extensions#tabline#right_alt_sep = ''
-" let g:airline#extensions#tabline#left_sep = ''
-" let g:airline#extensions#tabline#left_alt_sep = ''
-" let g:airline#extensions#tabline#right_sep = ''
-" let g:airline#extensions#tabline#right_alt_sep = ''
 
-" let g:airline_left_sep = ''
-" let g:airline_left_alt_sep = ''
-" let g:airline_right_sep = ''
-" let g:airline_right_alt_sep = ''
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+
+" let g:airline_left_sep = ''
+" let g:airline_left_alt_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_right_alt_sep = ''
+
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
@@ -374,86 +217,11 @@ let g:airline#extensions#syntastic#enabled = 1
 " Ale
 let g:airline#extensions#ale#enabled = 1
 
-let g:airline_symbols = {}
+" let g:airline_symbols = {}
 " Whitespace
 let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#whitespace#symbol = '!'
 
-" }}}
-
-"-- " Airline new {{{1
-"-- try
-"-- 
-"-- " === Vim airline ==== "
-"-- " Enable extensions
-"-- let g:airline_extensions = ['branch', 'hunks', 'coc']
-"-- 
-"-- " Update section z to just have line number
-"-- let g:airline_section_z = airline#section#create(['linenr'])
-"-- 
-"-- " Do not draw separators for empty sections (only for the active window) >
-"-- let g:airline_skip_empty_sections = 1
-"-- 
-"-- " Smartly uniquify buffers names with similar filename, suppressing common parts of paths.
-"-- let g:airline#extensions#tabline#formatter = 'unique_tail'
-"-- 
-"-- " Custom setup that removes filetype/whitespace from default vim airline bar
-"-- let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'z', 'warning', 'error']]
-"-- 
-"-- let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
-"-- 
-"-- let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
-"-- 
-"-- " Configure error/warning section to use coc.nvim
-"-- let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
-"-- let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
-"-- 
-"-- " Hide the Nerdtree status line to avoid clutter
-"-- let g:NERDTreeStatusline = ''
-"-- 
-"-- " Disable vim-airline in preview mode
-"-- let g:airline_exclude_preview = 1
-"-- 
-"-- " Enable powerline fonts
-"-- let g:airline_powerline_fonts = 1
-"-- 
-"-- " Enable caching of syntax highlighting groups
-"-- let g:airline_highlighting_cache = 1
-"-- 
-"-- " Define custom airline symbols
-"-- if !exists('g:airline_symbols')
-"--   let g:airline_symbols = {}
-"-- endif
-"-- 
-"-- " Don't show git changes to current file in airline
-"-- let g:airline#extensions#hunks#enabled=0
-"-- 
-"-- catch
-"--   echo 'Airline not installed. It should work after running :PlugInstall'
-"-- endtry
-"-- " }}}
-
-" Autoformater {{{1
-noremap <F3> :Autoformat<CR>
-" }}}
-
-" NCM2 {{{1
-"if has('nvim')
-"    augroup NCM2
-"        autocmd!
-"
-"        " Enable ncm2 for all buffers
-"        autocmd BufEnter * call ncm2#enable_for_buffer()
-"
-"        " :help Ncm2PopupOpen for more information
-"        set completeopt=noinsert,menuone,noselect
-"
-"        " When the <Enter> key is pressed while the popup menu is visible, it only
-"        " hides the menu. Use this mapping to close the menu and also start a
-"        " new line.
-"        inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-"    augroup END
-"endif
 " }}}
 
 " Easy Align {{{1
@@ -463,56 +231,6 @@ vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 " }}} Easy Align "
-
-" Incsearch {{{1
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-" }}}
-
-" Matchit {{{1
-let loaded_mathit = 1
-" }}}
-
-" Matchmaker {{{1
-let g:matchmaker_enable_startup = 0
-nnoremap <leader>mm :<C-u>MatchmakerToggle<CR>
-" }}}
-
-" NERDTree {{{1
-nnoremap <LEADER>nt :NERDTreeToggle<CR>
-let g:NERDTreeWinPos='left'
-
-" Show hidden files/directories
-let g:NERDTreeShowHidden = 1
-
-" Remove bookmarks and help text from NERDTree
-let g:NERDTreeMinimalUI = 1
-
-" Custom icons for expandable/expanded directories
-let g:NERDTreeDirArrowExpandable = '⬏'
-let g:NERDTreeDirArrowCollapsible = '⬎'
-
-" Hide certain files and directories from NERDTree
-let g:NERDTreeIgnore = ['^\.DS_Store$', '^tags$', '\.git$[[dir]]', '\.idea$[[dir]]', '\.sass-cache$']
-"}}}
-
-" NERDCommenter {{{1
-" Add spaces after comment delimiter by default
-let g:NERDSpaceDelims = 1
-
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
-
-" Align line-wise comment delimiter flush left instad of following code indent
-let g:NERDDefaultAlign = 'left'
-
-" Allow commenting and inverting empty lines
-let g:NERDCommentEmptyLines = 1
-
-" Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
-" }}}
 
 " Flake8 {{{1
 "let g:flake8_cmd="/opt/strangebin/flake8000"
@@ -538,19 +256,6 @@ highlight link Flake8_PyFlake    WarningMsg
 nnoremap <silent> <F8> :TagbarToggle<CR>
 " }}}
 
-" Rainbow {{{1
-"au FileType c,cpp,py,m call rainbow#load()
-"let g:rainbow_load_separately = [
-"    \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-"    \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
-"    \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-"    \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
-"    \ ]
-"
-"let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
-"let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
-" }}}
-
 " NeoSnippet {{{1
 " Plugin key-mappings.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
@@ -573,6 +278,10 @@ if has('conceal')
 endif
 " }}}
 let python_highlight_all = 1
+
+" float-preview {{{1
+let g:float_preview#docked = 1
+" }}}
 
 " nvim-lsp {{{1
 if g:use_builtin_lsp

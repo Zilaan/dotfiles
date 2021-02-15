@@ -6,6 +6,7 @@
 ;; ----------------------------------------
 ;;           Setup package archive
 ;; ----------------------------------------
+(setq byte-compile-warnings '(cl-functions))
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
                     (not (gnutls-available-p))))
@@ -28,21 +29,22 @@ There are two things you can do about this warning:
   (package-refresh-contents)
   (package-install 'use-package))
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (json-mode csv-mode matlab-mode org-bullets origami beacon string-inflection window-numbering rainbow-delimiters rainbow-mode expand-region magit avy multiple-cursors doom-modeline doom-themes which-key flycheck company better-defaults use-package))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;; ----------------------------------------
+;;           Install org-mode
+;; ----------------------------------------
+(use-package org
+  :ensure t)
 
-(org-babel-load-file (expand-file-name "~/.emacs.d/myinit.org"))
+(setq vc-follow-symlinks t)
+(require 'org)
+
+(org-babel-load-file "~/dotfiles/emacs/myinit.org")
+
+;; load it
+(load-file "~/dotfiles/emacs/myinit.el")
+
+;; finally byte-compile it
+(byte-compile-file "~/dotfiles/emacs/myinit.el")
+
 ;;; init.el ends here
-(put 'narrow-to-region 'disabled nil)
+;; (put 'narrow-to-region 'disabled nil)

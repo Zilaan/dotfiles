@@ -187,22 +187,12 @@ alias grb='git rebase'
 alias gst='git status'
 alias gcu='git shortlog -s -n --all --no-merges'
 alias ag='ag --nogroup --column'
-alias ls='exa'
-alias ll='exa -hl --git'
-alias lla='exa -la --git'
-alias llt='exa -T'
-alias la='exa -a'
 
 # Variable for SVN
 export SVN_REPOS='https://pd.svn.cm.volvocars.biz/svn/VCU1/VCU1_Autosar/Base/Compositions/'
 
 # Autojump
-[[ -s /home/ramhad/.autojump/etc/profile.d/autojump.sh ]] && source /home/ramhad/.autojump/etc/profile.d/autojump.sh
-
-eval $(thefuck --alias)
-
-set -o vi
-export EDITOR=nvim
+[[ -s /home/s0000431/.autojump/etc/profile.d/autojump.sh ]] && source /home/s0000431/.autojump/etc/profile.d/autojump.sh
 
 # Set default command to use with FZF
 
@@ -213,6 +203,11 @@ else
     # Use find
     export FZF_DEFAULT_COMMAND='find . -type f'
 fi
+
+alias mc='. /usr/lib/mc/mc-wrapper.sh'
+
+export PYLINTRC=~/dev/repositories/src/support/common/pylint3.cfg
+
 
 export FZF_TMUX=1
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

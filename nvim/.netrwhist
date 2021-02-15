@@ -1,3 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/home/ramhad'
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/s0000431/dotfiles/emacs'
+let g:netrw_dirhist_8='/home/s0000431/dev/repositories/src/support/common'
+let g:netrw_dirhist_7='/home/s0000431/dev/repositories/src/support'
+let g:netrw_dirhist_6='/home/s0000431/dev/repositories/src'
+let g:netrw_dirhist_5='/home/s0000431/dev/repositories/src/pipelines/scheduled_24hours/src_config/build'
+let g:netrw_dirhist_4='/home/s0000431/dev/repositories/src/pipelines/scheduled_24hours/src_config'
+let g:netrw_dirhist_3='/home/s0000431/dev/repositories/src/pipelines/scheduled_24hours'
+let g:netrw_dirhist_2='/home/s0000431/dev/repositories/src/pipelines'
+let g:netrw_dirhist_1='/home/s0000431/dev/repositories/src'
+let g:netrw_dirhist_0='/home/s0000431/dev/repositories/src/support/common'

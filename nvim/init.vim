@@ -7,7 +7,6 @@ set shell=/bin/bash
 set path=.,/usr/include/,,**
 
 set encoding=utf8
-set nocompatible
 filetype off
 
 call plug#begin('~/.config/nvim/plugged')
@@ -77,17 +76,8 @@ Plug 'nvie/vim-flake8'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" === Incsearch === "
-Plug 'haya14busa/incsearch.vim'
-
 " === MATLAB === "
 Plug 'vim-scripts/MatlabFilesEdition'
-
-" === NerdTree === "
-" Plug 'scrooloose/nerdtree'
-
-" === NerdTree git === "
-Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " === Gruvbox colors === "
 Plug 'morhetz/gruvbox'
@@ -100,9 +90,6 @@ Plug 'majutsushi/tagbar'
 if !g:use_builtin_lsp
     Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 endif
-" === Denite === "
-" Denite - Fuzzy finding, buffer management
-Plug 'Shougo/denite.nvim'
 
 " === NeoSnippet === "
 " Snippet support
@@ -117,6 +104,15 @@ Plug 'junegunn/goyo.vim'
 
 " === NerdTree icons === "
 Plug 'ryanoasis/vim-devicons'
+
+" === Base16 === "
+Plug 'chriskempson/base16-vim'
+
+" === Hybrid theme === "
+Plug 'scwood/vim-hybrid'
+
+" === Solarized === "
+Plug 'altercation/vim-colors-solarized'
 
 " === Papercollor === "
 Plug 'NLKNguyen/papercolor-theme'
@@ -164,3 +160,14 @@ autocmd BufWinLeave * call clearmatches()
 highlight Normal guibg=NONE
 highlight Normal ctermbg=NONE
 highlight Comment cterm=italic
+
+set completeopt=menuone,noinsert,noselect
+"let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+"augroup ProjectDrawer
+"  autocmd!
+"  autocmd VimEnter * :Vexplore
+"augroup END
