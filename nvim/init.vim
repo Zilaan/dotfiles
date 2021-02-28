@@ -11,8 +11,13 @@ Plug 'nvim-lua/lsp-status.nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+" Coc
+Plug 'neoclide/coc.nvim'
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+" Devicons
+Plug 'ryanoasis/vim-devicons'
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -42,9 +47,10 @@ let mapleader = "\<Space>"
 
 nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 
-source $HOME/.config/nvim/settings/plugins/lsp.vim
 source $HOME/.config/nvim/settings/plugins/airline.vim
 source $HOME/.config/nvim/settings/plugins/clang-format.vim
+source $HOME/.config/nvim/settings/plugins/coc.vim
+source $HOME/.config/nvim/settings/plugins/lsp.vim
 source $HOME/.config/nvim/settings/plugins/telescope.vim
 source $HOME/.config/nvim/settings/plugins/treesitter.vim
 source $HOME/.config/nvim/settings/plugins/undotree.vim
