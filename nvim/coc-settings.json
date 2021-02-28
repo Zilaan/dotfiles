@@ -6,11 +6,10 @@
     "explorer.file.showHiddenFiles": true,
     "explorer.file.autoReveal": false,
     "explorer.openAction.relativePath": true,
-    "explorer.icon.enableVimDevicons": true,
+    "explorer.icon.enableVimDevicons": false,
     "explorer.icon.enableNerdfont": true,
     "explorer.previewAction.onHover": false,
     "explorer.keyMappings.global": {
-        /* some mapping adapted from nerdtree */
         "s": "open:vsplit",
         "mm": "rename",
         "mc": "copyFile",
@@ -19,5 +18,5 @@
         "D": "delete",
         "ma": "addFile",
         "mA": "addDirectory"
-    },
+    }
 }

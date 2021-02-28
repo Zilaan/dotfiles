@@ -31,7 +31,7 @@ function! RamanLspPrevError()
     :lua vim.lsp.diagnostic.goto_prev()
 endfunction
 function! RamanLspNextError()
-    :lua vim.lsp.diagnostic.next_prev()
+    :lua vim.lsp.diagnostic.goto_prev()
 endfunction
 function! RamanLspFormat()
     :lua vim.lsp.buf.formatting()
