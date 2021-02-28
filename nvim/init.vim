@@ -40,6 +40,8 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'liuchengxu/vim-which-key'
 " Unimpared
 Plug 'tpope/vim-unimpaired'
+" Quickscope
+Plug 'unblevable/quick-scope'
 call plug#end()
 
 " }}}
@@ -52,6 +54,7 @@ source $HOME/.config/nvim/settings/plugins/airline.vim
 source $HOME/.config/nvim/settings/plugins/clang-format.vim
 source $HOME/.config/nvim/settings/plugins/coc.vim
 source $HOME/.config/nvim/settings/plugins/lsp.vim
+source $HOME/.config/nvim/settings/plugins/quickscope.vim
 source $HOME/.config/nvim/settings/plugins/telescope.vim
 source $HOME/.config/nvim/settings/plugins/treesitter.vim
 source $HOME/.config/nvim/settings/plugins/undotree.vim

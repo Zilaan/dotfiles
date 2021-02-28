@@ -42,7 +42,7 @@ lsp_status.config({
 })
 
 
-local servers = {'pyls', 'clangd', 'jsonls'}
+local servers = {'pyls', 'clangd', 'jsonls', 'vimls'}
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup{
         on_attach = on_attach,
