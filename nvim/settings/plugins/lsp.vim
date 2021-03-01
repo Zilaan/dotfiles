@@ -36,3 +36,6 @@ endfunction
 function! RamanLspFormat()
     :lua vim.lsp.buf.formatting()
 endfunction
+function! RamanLspLocationDiagnose()
+    :lua vim.lsp.diagnostic.set_loclist()
+endfunction

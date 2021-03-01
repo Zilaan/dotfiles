@@ -42,7 +42,7 @@ lsp_status.config({
 })
 
 
-local servers = {'pyls', 'clangd', 'jsonls', 'vimls'}
+local servers = {'pyls', 'clangd', 'jsonls', 'vimls', 'yamlls'}
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup{
         on_attach = on_attach,
@@ -53,7 +53,7 @@ end
 -- Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = true,
+    virtual_text = false,
     signs = true,
     update_in_insert = true,
   }

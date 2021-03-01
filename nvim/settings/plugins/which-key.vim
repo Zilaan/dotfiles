@@ -82,14 +82,15 @@ let g:which_key_map.g = {
 " l is for language server protocol {{{1
 let g:which_key_map.l = {
       \ 'name' : '+lsp' ,
-      \ 'd' : [':call RamanLspDefinition()'     , 'definition'],
-      \ 'D' : [':call RamanLspDeclaration()'    , 'declaration'],
-      \ 'K' : [':call RamanLspHover()'          , 'hover'],
-      \ 'a' : [':call RamanLspCodeAction()'     , 'code action'],
-      \ 'r' : [':call RamanLspCodeReferences()' , 'references'],
-      \ ']' : [':call RamanLspNextError()'      , 'next error'],
-      \ '[' : [':call RamanLspPrevError()'      , 'prev error'],
-      \ 'f' : [':call RamanLspFormat()'         , 'format'],
+      \ 'd' : [':call RamanLspDefinition()'       , 'definition'],
+      \ 'D' : [':call RamanLspDeclaration()'      , 'declaration'],
+      \ 'K' : [':call RamanLspHover()'            , 'hover'],
+      \ 'l' : [':call RamanLspLocationDiagnose()' , 'diagnostic list'],
+      \ 'a' : [':call RamanLspCodeAction()'       , 'code action'],
+      \ 'r' : [':call RamanLspCodeReferences()'   , 'references'],
+      \ ']' : [':call RamanLspNextError()'        , 'next error'],
+      \ '[' : [':call RamanLspPrevError()'        , 'prev error'],
+      \ 'f' : [':call RamanLspFormat()'           , 'format'],
       \ }
 " }}}
 
