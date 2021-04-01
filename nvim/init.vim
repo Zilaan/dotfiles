@@ -28,7 +28,7 @@ Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " CPP
-Plug 'octol/vim-cpp-enhanced-highlight'
+"Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rhysd/vim-clang-format'
 " Color schemes
 Plug 'sainnhe/edge'
@@ -45,6 +45,11 @@ Plug 'unblevable/quick-scope'
 " Indent guides
 Plug 'Yggdroot/indentLine'
 Plug 'lukas-reineke/indent-blankline.nvim'
+" Tree
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
+" Bazel
+Plug 'lakshayg/vim-bazel'
 call plug#end()
 
 " }}}
@@ -56,6 +61,7 @@ nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 source $HOME/.config/nvim/settings/plugins/airline.vim
 source $HOME/.config/nvim/settings/plugins/clang-format.vim
 source $HOME/.config/nvim/settings/plugins/coc.vim
+source $HOME/.config/nvim/settings/plugins/tree.vim
 source $HOME/.config/nvim/settings/plugins/indents.vim
 source $HOME/.config/nvim/settings/plugins/lsp.vim
 source $HOME/.config/nvim/settings/plugins/quickscope.vim
@@ -68,3 +74,5 @@ source $HOME/.config/nvim/settings/misc.vim
 source $HOME/.config/nvim/settings/netrw.vim
 source $HOME/.config/nvim/settings/keys.vim
 source $HOME/.config/nvim/settings/sets.vim
+
+autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc

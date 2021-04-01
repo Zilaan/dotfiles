@@ -11,3 +11,7 @@ vnoremap <up> xkP`[V`]
 
 vnoremap > >gv
 vnoremap < <gv
+
+" Don't move when searching for current word
+nnoremap * *``
+nnoremap # #``

@@ -26,7 +26,8 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 let g:which_key_map['.'] = [ ':e $MYVIMRC'                                     , 'open init' ]
 let g:which_key_map[';'] = [ ':Commands'                                       , 'commands' ]
 let g:which_key_map['='] = [ '<C-W>='                                          , 'balance windows' ]
-let g:which_key_map['e'] = [ ':CocCommand explorer --toggle --sources=file+'   , 'explorer' ]
+" let g:which_key_map['e'] = [ ':CocCommand explorer --toggle --sources=file+'   , 'explorer' ]
+let g:which_key_map['e'] = [ ':NvimTreeToggle'                                 , 'NvimTree' ]
 let g:which_key_map['E'] = [ ':CocCommand explorer --toggle --preset floating --sources=file+'   , 'explorer' ]
 let g:which_key_map['h'] = [ '<C-W>s'                                          , 'split below']
 let g:which_key_map['n'] = [ ':let @/ = ""'                                    , 'no highlight' ]
@@ -88,6 +89,7 @@ let g:which_key_map.l = {
       \ 'l' : [':call RamanLspLocationDiagnose()' , 'diagnostic list'],
       \ 'a' : [':call RamanLspCodeAction()'       , 'code action'],
       \ 'r' : [':call RamanLspCodeReferences()'   , 'references'],
+      \ 'R' : [':call RamanLspRename()'           , 'rename'],
       \ ']' : [':call RamanLspNextError()'        , 'next error'],
       \ '[' : [':call RamanLspPrevError()'        , 'prev error'],
       \ 'f' : [':call RamanLspFormat()'           , 'format'],

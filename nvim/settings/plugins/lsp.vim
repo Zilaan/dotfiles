@@ -1,7 +1,7 @@
 lua require("lsp")
 
 " Disable completion auto popup
-let g:completion_enable_auto_popup = 0
+let g:completion_enable_auto_popup = 1
 
 " LSP hover doc for completion
 let g:completion_enable_auto_hover = 1
@@ -26,6 +26,9 @@ function! RamanLspCodeAction()
 endfunction
 function! RamanLspCodeReferences()
     :lua vim.lsp.buf.references()
+endfunction
+function! RamanLspRename()
+    :lua vim.lsp.buf.rename()
 endfunction
 function! RamanLspPrevError()
     :lua vim.lsp.diagnostic.goto_prev()

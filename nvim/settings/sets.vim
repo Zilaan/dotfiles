@@ -15,7 +15,7 @@ set nobackup
 set undodir=~/.config/nvim/undodir
 set undofile
 set incsearch
-set completeopt=menuone,noinsert,noselect
+set completeopt=noinsert,noselect,menuone
 set shortmess+=c
 set colorcolumn=80
 set clipboard=unnamedplus
